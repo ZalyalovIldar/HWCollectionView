@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
 		7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */; };
-		7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */; };
 		7CF88CF21DCBD89F0040F8F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF88CF01DCBD89F0040F8F7 /* Main.storyboard */; };
 		7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */; };
 		7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */; };
+		AE013CDD1DD0AF56009055A7 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */; };
+		AE013CDE1DD0AF56009055A7 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */; };
+		AE4D09241DD0644500FFBB2A /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4D09231DD0644500FFBB2A /* UserViewController.m */; };
+		AE4D092F1DD072B500FFBB2A /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4D092E1DD072B500FFBB2A /* CollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,17 @@
 		7CF88CE81DCBD89F0040F8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7CF88CED1DCBD89F0040F8F7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7CF88CF11DCBD89F0040F8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CF88CF61DCBD89F0040F8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CF88CF81DCBD89F0040F8F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE4D09221DD0644500FFBB2A /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		AE4D09231DD0644500FFBB2A /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		AE4D092D1DD072B500FFBB2A /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		AE4D092E1DD072B500FFBB2A /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +68,18 @@
 			children = (
 				7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */,
 				7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */,
-				7CF88CED1DCBD89F0040F8F7 /* ViewController.h */,
-				7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */,
+				AE4D09221DD0644500FFBB2A /* UserViewController.h */,
+				AE4D09231DD0644500FFBB2A /* UserViewController.m */,
 				7CF88CF01DCBD89F0040F8F7 /* Main.storyboard */,
 				7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */,
 				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
 				7CF88CF81DCBD89F0040F8F7 /* Info.plist */,
 				7CF88CE71DCBD89F0040F8F7 /* Supporting Files */,
+				AE4D092D1DD072B500FFBB2A /* CollectionViewController.h */,
+				AE4D092E1DD072B500FFBB2A /* CollectionViewController.m */,
+				AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */,
+				AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */,
+				AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */,
 			);
 			path = HWCollectionView;
 			sourceTree = "<group>";
@@ -138,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */,
+				AE013CDE1DD0AF56009055A7 /* PhotoCollectionViewCell.xib in Resources */,
 				7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */,
 				7CF88CF21DCBD89F0040F8F7 /* Main.storyboard in Resources */,
 			);
@@ -150,8 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */,
+				AE4D09241DD0644500FFBB2A /* UserViewController.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
+				AE4D092F1DD072B500FFBB2A /* CollectionViewController.m in Sources */,
+				AE013CDD1DD0AF56009055A7 /* PhotoCollectionViewCell.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +323,7 @@
 				7CF88CFD1DCBD89F0040F8F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
