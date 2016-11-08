@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BF6A5521DD281F600C914C7 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6A5501DD281F600C914C7 /* MyCollectionViewCell.m */; };
+		3BF6A5531DD281F600C914C7 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF6A5511DD281F600C914C7 /* MyCollectionViewCell.xib */; };
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
 		7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */; };
 		7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */; };
@@ -16,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BF6A54F1DD281F600C914C7 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		3BF6A5501DD281F600C914C7 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		3BF6A5511DD281F600C914C7 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		7CF88CE41DCBD89F0040F8F7 /* HWCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF88CE81DCBD89F0040F8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +67,9 @@
 				7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */,
 				7CF88CED1DCBD89F0040F8F7 /* ViewController.h */,
 				7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */,
+				3BF6A54F1DD281F600C914C7 /* MyCollectionViewCell.h */,
+				3BF6A5501DD281F600C914C7 /* MyCollectionViewCell.m */,
+				3BF6A5511DD281F600C914C7 /* MyCollectionViewCell.xib */,
 				7CF88CF01DCBD89F0040F8F7 /* Main.storyboard */,
 				7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */,
 				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
@@ -139,6 +147,7 @@
 			files = (
 				7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */,
 				7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */,
+				3BF6A5531DD281F600C914C7 /* MyCollectionViewCell.xib in Resources */,
 				7CF88CF21DCBD89F0040F8F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +162,7 @@
 				7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
+				3BF6A5521DD281F600C914C7 /* MyCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +281,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HWCollectionView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itis.HWCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,6 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HWCollectionView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itis.HWCollectionView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -307,6 +319,7 @@
 				7CF88CFD1DCBD89F0040F8F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
