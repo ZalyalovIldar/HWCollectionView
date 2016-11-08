@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -159,8 +160,10 @@
                             <constraint firstItem="ho7-Jx-smy" firstAttribute="trailing" secondItem="m02-Rl-Xxv" secondAttribute="trailing" id="6xx-xO-3qG"/>
                             <constraint firstAttribute="trailing" secondItem="ho7-Jx-smy" secondAttribute="trailing" constant="10" id="9vw-la-8ZK"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="p9X-a9-EIj" secondAttribute="bottom" id="BIX-3w-C5D"/>
+                            <constraint firstItem="K34-ee-DPb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="H5I-N1-IbJ"/>
                             <constraint firstItem="wvu-O1-8GG" firstAttribute="trailing" secondItem="oxF-FS-QJc" secondAttribute="trailing" id="JIv-HU-qRQ"/>
                             <constraint firstItem="p9X-a9-EIj" firstAttribute="top" secondItem="wvu-O1-8GG" secondAttribute="bottom" constant="19" id="KEs-UG-wtL"/>
+                            <constraint firstItem="K34-ee-DPb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-3" id="LL8-nD-5Db"/>
                             <constraint firstItem="p9X-a9-EIj" firstAttribute="leading" secondItem="K34-ee-DPb" secondAttribute="trailing" constant="-93" id="MPs-p9-CYW"/>
                             <constraint firstItem="oxF-FS-QJc" firstAttribute="top" secondItem="K34-ee-DPb" secondAttribute="bottom" constant="23" id="NB9-SL-X68"/>
                             <constraint firstAttribute="trailing" secondItem="oxF-FS-QJc" secondAttribute="trailing" constant="127" id="OKk-l5-Gft"/>
@@ -168,6 +171,7 @@
                             <constraint firstItem="ho7-Jx-smy" firstAttribute="top" relation="lessThanOrEqual" secondItem="m02-Rl-Xxv" secondAttribute="bottom" constant="11" id="Ybr-IW-YwA"/>
                             <constraint firstItem="ho7-Jx-smy" firstAttribute="leading" secondItem="m02-Rl-Xxv" secondAttribute="leading" id="ZOq-Zf-B4M"/>
                             <constraint firstItem="p9X-a9-EIj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Zbq-0E-OKC"/>
+                            <constraint firstItem="K34-ee-DPb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="13" id="bPf-Xf-IJM"/>
                             <constraint firstAttribute="trailing" secondItem="p9X-a9-EIj" secondAttribute="trailing" id="fFn-Gd-1Ib"/>
                             <constraint firstItem="m02-Rl-Xxv" firstAttribute="leading" secondItem="K34-ee-DPb" secondAttribute="trailing" constant="19" id="fmP-Jg-PJS"/>
                             <constraint firstItem="wvu-O1-8GG" firstAttribute="top" secondItem="oxF-FS-QJc" secondAttribute="bottom" constant="7" id="g8b-GA-y3e"/>
@@ -179,9 +183,16 @@
                             <constraint firstItem="wvu-O1-8GG" firstAttribute="leading" secondItem="oxF-FS-QJc" secondAttribute="leading" id="zeu-nd-TFc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8gN-HP-72S"/>
+                    <navigationItem key="navigationItem" id="8gN-HP-72S">
+                        <barButtonItem key="leftBarButtonItem" title="Tutorial" id="8mL-b6-43m">
+                            <connections>
+                                <action selector="againWatchTutorialButton:" destination="BYZ-38-t0r" id="uqE-Xc-vrV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="galleryCollectionView" destination="p9X-a9-EIj" id="a3W-5B-QqK"/>
+                        <outlet property="tutorialShowButton" destination="8mL-b6-43m" id="zMF-BM-S4N"/>
                         <outlet property="userImageView" destination="K34-ee-DPb" id="9FE-3H-Tcs"/>
                     </connections>
                 </viewController>
@@ -189,10 +200,88 @@
             </objects>
             <point key="canvasLocation" x="964" y="36.431784107946029"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="RjN-CS-SoX">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Umn-tH-ZnV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ha8-FF-1r6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2695" y="19"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="axJ-Ed-zQG">
+            <objects>
+                <viewController storyboardIdentifier="PageContentViewController" id="9Wf-YG-9Bs" customClass="PageContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8UE-Zi-4tt"/>
+                        <viewControllerLayoutGuide type="bottom" id="qMa-gs-lZo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="11e-GJ-UBL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dB4-lU-Lqz">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dB4-lU-Lqz" firstAttribute="top" secondItem="11e-GJ-UBL" secondAttribute="top" constant="20" id="044-c8-NIl"/>
+                            <constraint firstItem="qMa-gs-lZo" firstAttribute="top" secondItem="dB4-lU-Lqz" secondAttribute="bottom" id="0k2-Hn-koF"/>
+                            <constraint firstAttribute="trailing" secondItem="dB4-lU-Lqz" secondAttribute="trailing" id="0ne-zH-FW1"/>
+                            <constraint firstItem="dB4-lU-Lqz" firstAttribute="leading" secondItem="11e-GJ-UBL" secondAttribute="leading" id="QZ8-pO-6FE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="dB4-lU-Lqz" id="ii5-Jq-BJz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cwr-ZJ-Ecx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2695.1999999999998" y="642.72863568215894"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="hEI-4h-eNX">
+            <objects>
+                <viewController storyboardIdentifier="Tutorial" id="QEG-yG-mlp" customClass="TutorialViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hxt-c9-cdO"/>
+                        <viewControllerLayoutGuide type="bottom" id="1MA-AB-RKD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8wf-Qv-7ng">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCD-xg-bhs">
+                                <rect key="frame" x="75" y="605" width="225" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RCD-xg-bhs" secondAttribute="height" multiplier="15:2" id="ptr-Sc-1cl"/>
+                                </constraints>
+                                <state key="normal" title="Пропустить">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipTutorialButton:" destination="QEG-yG-mlp" eventType="touchUpInside" id="nei-hO-3b6"/>
+                                    <segue destination="OXj-in-CDO" kind="presentation" id="wGX-jL-Qi8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RCD-xg-bhs" firstAttribute="leading" secondItem="8wf-Qv-7ng" secondAttribute="leading" constant="75" id="Wqf-bt-Gnd"/>
+                            <constraint firstItem="1MA-AB-RKD" firstAttribute="top" secondItem="RCD-xg-bhs" secondAttribute="bottom" constant="32" id="rVi-ae-20T"/>
+                            <constraint firstAttribute="trailing" secondItem="RCD-xg-bhs" secondAttribute="trailing" constant="75" id="y3E-HJ-Ml9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccR-Mp-QaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1266.4000000000001" y="333.28335832083962"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Bq-ge-baV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OXj-in-CDO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UserViewController" automaticallyAdjustsScrollViewInsets="NO" id="OXj-in-CDO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7tu-BS-Pls">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -205,7 +294,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nOZ-Jz-WCM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="36.431784107946029"/>
+            <point key="canvasLocation" x="127" y="36"/>
         </scene>
     </scenes>
     <resources>

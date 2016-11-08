@@ -18,6 +18,16 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
+- (IBAction)againWatchTutorialButton:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"ViewLoad"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *moveToTutorial = [tempStoryboard instantiateViewControllerWithIdentifier:@"Tutorial"];
+    [self dismissViewControllerAnimated:NO completion:nil];
+    [self presentViewController:moveToTutorial animated:YES completion:nil];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.userImageView.layer.cornerRadius = self.userImageView.frame.size.width/2;
@@ -27,12 +37,23 @@ static NSString * const reuseIdentifier = @"Cell";
     flowLayout.itemSize = CGSizeMake(self.view.frame.size.width/3-1, self.view.frame.size.width/3-1);
     [flowLayout setMinimumLineSpacing:1];
     [flowLayout setMinimumInteritemSpacing:1];
-    
-    
     [self.galleryCollectionView setCollectionViewLayout:flowLayout];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"]!=0){
+        [self visited];
+    }
+}
 
+-(void)visited{
+    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *moveToTutorial = [tempStoryboard instantiateViewControllerWithIdentifier:@"Tutorial"];
+    [self presentViewController:moveToTutorial animated:NO completion:nil];
+
+}
+#pragma mark - CollectionView
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
