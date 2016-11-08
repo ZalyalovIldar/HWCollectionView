@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  HWCollectionView
+//  CollectionViewTest
 //
-//  Created by Ildar Zalyalov on 03.11.16.
-//  Copyright © 2016 com.itis.iosLab. All rights reserved.
+//  Created by Ильяс Ихсанов on 05.11.16.
+//  Copyright © 2016 Ильяс Ихсанов. All rights reserved.
 //
 
 #import "AppDelegate.h"

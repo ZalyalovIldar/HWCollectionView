@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7CF88CE31DCBD89F0040F8F7"
-               BuildableName = "HWCollectionView.app"
-               BlueprintName = "HWCollectionView"
-               ReferencedContainer = "container:HWCollectionView.xcodeproj">
+               BlueprintIdentifier = "99C9B56C1DCDCAF4005A02E4"
+               BuildableName = "CollectionViewTest.app"
+               BlueprintName = "CollectionViewTest"
+               ReferencedContainer = "container:CollectionViewTest.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,14 +28,34 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "99C9B5851DCDCAF4005A02E4"
+               BuildableName = "CollectionViewTestTests.xctest"
+               BlueprintName = "CollectionViewTestTests"
+               ReferencedContainer = "container:CollectionViewTest.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "99C9B5901DCDCAF4005A02E4"
+               BuildableName = "CollectionViewTestUITests.xctest"
+               BlueprintName = "CollectionViewTestUITests"
+               ReferencedContainer = "container:CollectionViewTest.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7CF88CE31DCBD89F0040F8F7"
-            BuildableName = "HWCollectionView.app"
-            BlueprintName = "HWCollectionView"
-            ReferencedContainer = "container:HWCollectionView.xcodeproj">
+            BlueprintIdentifier = "99C9B56C1DCDCAF4005A02E4"
+            BuildableName = "CollectionViewTest.app"
+            BlueprintName = "CollectionViewTest"
+            ReferencedContainer = "container:CollectionViewTest.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7CF88CE31DCBD89F0040F8F7"
-            BuildableName = "HWCollectionView.app"
-            BlueprintName = "HWCollectionView"
-            ReferencedContainer = "container:HWCollectionView.xcodeproj">
+            BlueprintIdentifier = "99C9B56C1DCDCAF4005A02E4"
+            BuildableName = "CollectionViewTest.app"
+            BlueprintName = "CollectionViewTest"
+            ReferencedContainer = "container:CollectionViewTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7CF88CE31DCBD89F0040F8F7"
-            BuildableName = "HWCollectionView.app"
-            BlueprintName = "HWCollectionView"
-            ReferencedContainer = "container:HWCollectionView.xcodeproj">
+            BlueprintIdentifier = "99C9B56C1DCDCAF4005A02E4"
+            BuildableName = "CollectionViewTest.app"
+            BlueprintName = "CollectionViewTest"
+            ReferencedContainer = "container:CollectionViewTest.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

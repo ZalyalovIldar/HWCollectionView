@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>HWCollectionView.xcscheme</key>
+		<key>CollectionViewTest.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>7CF88CE31DCBD89F0040F8F7</key>
+		<key>99C9B56C1DCDCAF4005A02E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99C9B5851DCDCAF4005A02E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99C9B5901DCDCAF4005A02E4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
