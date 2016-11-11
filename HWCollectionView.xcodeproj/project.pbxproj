@@ -30,6 +30,10 @@
 		E10D1CFB1DD1060100F83162 /* 13.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E10D1CFA1DD1060100F83162 /* 13.jpg */; };
 		E10D1CFD1DD1061100F83162 /* 14.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E10D1CFC1DD1061100F83162 /* 14.jpg */; };
 		E10D1D001DD10A1900F83162 /* ShowOnePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D1CFF1DD10A1900F83162 /* ShowOnePhotoViewController.m */; };
+		E10D1D0C1DD4D99B00F83162 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D1D0B1DD4D99B00F83162 /* PageViewController.m */; };
+		E10D1D0F1DD4D9AE00F83162 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D1D0E1DD4D9AE00F83162 /* PageContentViewController.m */; };
+		E10D1D121DD4DA0700F83162 /* RootPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D1D111DD4DA0700F83162 /* RootPageViewController.m */; };
+		E10D1D151DD4EB4400F83162 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E10D1D141DD4EB4400F83162 /* screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,13 @@
 		E10D1CFC1DD1061100F83162 /* 14.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 14.jpg; sourceTree = "<group>"; };
 		E10D1CFE1DD10A1900F83162 /* ShowOnePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowOnePhotoViewController.h; sourceTree = "<group>"; };
 		E10D1CFF1DD10A1900F83162 /* ShowOnePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowOnePhotoViewController.m; sourceTree = "<group>"; };
+		E10D1D0A1DD4D99B00F83162 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageViewController.h; path = ../PageViewController.h; sourceTree = "<group>"; };
+		E10D1D0B1DD4D99B00F83162 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageViewController.m; path = ../PageViewController.m; sourceTree = "<group>"; };
+		E10D1D0D1DD4D9AE00F83162 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageContentViewController.h; path = ../PageContentViewController.h; sourceTree = "<group>"; };
+		E10D1D0E1DD4D9AE00F83162 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
+		E10D1D101DD4DA0700F83162 /* RootPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootPageViewController.h; path = ../RootPageViewController.h; sourceTree = "<group>"; };
+		E10D1D111DD4DA0700F83162 /* RootPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootPageViewController.m; path = ../RootPageViewController.m; sourceTree = "<group>"; };
+		E10D1D141DD4EB4400F83162 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +105,7 @@
 		7CF88CE61DCBD89F0040F8F7 /* HWCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				E10D1D131DD4DA1700F83162 /* Onboarding */,
 				E10D1CF91DD1055700F83162 /* images */,
 				E10D1CD41DD0C9FA00F83162 /* CustomCellCollectionViewCell.h */,
 				E10D1CD51DD0C9FA00F83162 /* CustomCellCollectionViewCell.m */,
@@ -123,6 +135,7 @@
 		E10D1CF91DD1055700F83162 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E10D1D141DD4EB4400F83162 /* screen.png */,
 				E10D1CFC1DD1061100F83162 /* 14.jpg */,
 				E10D1CFA1DD1060100F83162 /* 13.jpg */,
 				E10D1CE11DD1050600F83162 /* 12.jpg */,
@@ -140,6 +153,19 @@
 				E10D1CDF1DD0DE7800F83162 /* mainPhoto.jpg */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		E10D1D131DD4DA1700F83162 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E10D1D101DD4DA0700F83162 /* RootPageViewController.h */,
+				E10D1D111DD4DA0700F83162 /* RootPageViewController.m */,
+				E10D1D0D1DD4D9AE00F83162 /* PageContentViewController.h */,
+				E10D1D0E1DD4D9AE00F83162 /* PageContentViewController.m */,
+				E10D1D0A1DD4D99B00F83162 /* PageViewController.h */,
+				E10D1D0B1DD4D99B00F83162 /* PageViewController.m */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +230,7 @@
 				7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */,
 				E10D1CFB1DD1060100F83162 /* 13.jpg in Resources */,
 				E10D1CE01DD0DE7800F83162 /* mainPhoto.jpg in Resources */,
+				E10D1D151DD4EB4400F83162 /* screen.png in Resources */,
 				E10D1CEF1DD1050600F83162 /* 10.jpg in Resources */,
 				E10D1CF11DD1050600F83162 /* 8.jpg in Resources */,
 				E10D1CF31DD1050600F83162 /* 6.jpg in Resources */,
@@ -231,9 +258,12 @@
 			files = (
 				7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
+				E10D1D0F1DD4D9AE00F83162 /* PageContentViewController.m in Sources */,
+				E10D1D121DD4DA0700F83162 /* RootPageViewController.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
 				E10D1D001DD10A1900F83162 /* ShowOnePhotoViewController.m in Sources */,
 				E10D1CD71DD0C9FA00F83162 /* CustomCellCollectionViewCell.m in Sources */,
+				E10D1D0C1DD4D99B00F83162 /* PageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

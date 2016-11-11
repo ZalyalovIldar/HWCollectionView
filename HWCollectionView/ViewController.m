@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong) NSArray *photoArray;
 @property (weak, nonatomic) IBOutlet UIImageView *mainPhoto;
-//@property (nonatomic) CGFloat minimumInteritemSpacing;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
 @end
@@ -56,6 +55,7 @@ static NSString *reuseIdentifire = @"Cell";
 
 
 
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat width = CGRectGetWidth(collectionView.frame) / 3 - 2 * kMinimumInteritemSpacing;
@@ -86,7 +86,6 @@ static NSString *reuseIdentifire = @"Cell";
     destViewController.image = self.photoArray[indexPath.row];
        
     }
-
 
 }
     
