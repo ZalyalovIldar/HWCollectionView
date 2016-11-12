@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00223E491DD1D11100F2A38D /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00223E471DD1D11100F2A38D /* CustomCell.m */; };
+		00223E4A1DD1D11100F2A38D /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00223E481DD1D11100F2A38D /* CustomCell.xib */; };
+		009C8D651DD3A36600264F85 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009C8D641DD3A36600264F85 /* PageContentViewController.m */; };
+		009C8D681DD3A98400264F85 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009C8D671DD3A98400264F85 /* OtherViewController.m */; };
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
 		7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */; };
 		7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */; };
@@ -16,6 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00223E461DD1D11100F2A38D /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		00223E471DD1D11100F2A38D /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		00223E481DD1D11100F2A38D /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		009C8D631DD3A36600264F85 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageContentViewController.h; path = ../PageContentViewController.h; sourceTree = "<group>"; };
+		009C8D641DD3A36600264F85 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
+		009C8D661DD3A98400264F85 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		009C8D671DD3A98400264F85 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
 		7CF88CE41DCBD89F0040F8F7 /* HWCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF88CE81DCBD89F0040F8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -62,6 +73,13 @@
 				7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */,
 				7CF88CED1DCBD89F0040F8F7 /* ViewController.h */,
 				7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */,
+				00223E461DD1D11100F2A38D /* CustomCell.h */,
+				00223E471DD1D11100F2A38D /* CustomCell.m */,
+				00223E481DD1D11100F2A38D /* CustomCell.xib */,
+				009C8D631DD3A36600264F85 /* PageContentViewController.h */,
+				009C8D641DD3A36600264F85 /* PageContentViewController.m */,
+				009C8D661DD3A98400264F85 /* OtherViewController.h */,
+				009C8D671DD3A98400264F85 /* OtherViewController.m */,
 				7CF88CF01DCBD89F0040F8F7 /* Main.storyboard */,
 				7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */,
 				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
@@ -139,6 +157,7 @@
 			files = (
 				7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */,
 				7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */,
+				00223E4A1DD1D11100F2A38D /* CustomCell.xib in Resources */,
 				7CF88CF21DCBD89F0040F8F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,6 +171,9 @@
 			files = (
 				7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
+				009C8D651DD3A36600264F85 /* PageContentViewController.m in Sources */,
+				009C8D681DD3A98400264F85 /* OtherViewController.m in Sources */,
+				00223E491DD1D11100F2A38D /* CustomCell.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +329,7 @@
 				7CF88CFD1DCBD89F0040F8F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
