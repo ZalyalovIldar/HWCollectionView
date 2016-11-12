@@ -32,14 +32,24 @@ static NSString * const reuseIdentifier = @"Cell";
     [flowLayout setMinimumLineSpacing:1.0f];
     [flowLayout setItemSize:CGSizeMake(self.view.frame.size.width/3-1, self.view.frame.size.width/3-1)];
     [self.collectionView setCollectionViewLayout:flowLayout];
-
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if(!([[userDefaults objectForKey:@"showDescription"]  isEqual: @"true"])){
+        [userDefaults setObject:@"true" forKey:@"showDescription"];
+        [userDefaults synchronize];
+        UIStoryboard *mainStoryboard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *descriptionVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"Description"];
+        [self presentViewController:descriptionVC animated:NO completion:nil];
+    }
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)infoButtonPressed:(id)sender {
+    UIStoryboard *mainStoryboard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *descriptionVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"Description"];
+    [self presentViewController:descriptionVC animated:NO completion:nil];
+    
 }
+
 
 #pragma mark <UICollectionViewDataSource>
 
