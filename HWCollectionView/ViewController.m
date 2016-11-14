@@ -12,6 +12,8 @@
 @interface ViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong,nonatomic) NSArray *dataSource;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *watchAgainButton;
+
 
 @end
 
@@ -31,6 +33,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
     return _dataSource.count;
 }
+
+- (IBAction)watchAgainButtonPressed:(id)sender {
+    UIViewController *moveToTutorial = [self.storyboard instantiateViewControllerWithIdentifier:@"HelpViewController"];
+    [self presentViewController:moveToTutorial animated:YES completion:nil];
+}
+
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MyCollectionViewCell *cell = (MyCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
