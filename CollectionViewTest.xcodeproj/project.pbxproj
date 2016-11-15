@@ -16,7 +16,7 @@
 		99C9B5961DCDCAF4005A02E4 /* CollectionViewTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5951DCDCAF4005A02E4 /* CollectionViewTestUITests.m */; };
 		99C9B5AF1DCDCE7F005A02E4 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5AD1DCDCE7F005A02E4 /* MyCollectionViewCell.m */; };
 		99C9B5B01DCDCE7F005A02E4 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C9B5AE1DCDCE7F005A02E4 /* MyCollectionViewCell.xib */; };
-		99EDA8371DD0A95D001C01ED /* profileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8361DD0A95D001C01ED /* profileView.m */; };
+		99EDA8371DD0A95D001C01ED /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8361DD0A95D001C01ED /* ProfileView.m */; };
 		99EDA8421DD1DE09001C01ED /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8411DD1DE09001C01ED /* PageContentViewController.m */; };
 		99EDA8481DD1DF7A001C01ED /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8471DD1DF7A001C01ED /* FirstViewController.m */; };
 /* End PBXBuildFile section */
@@ -56,8 +56,8 @@
 		99C9B5AC1DCDCE7F005A02E4 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
 		99C9B5AD1DCDCE7F005A02E4 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
 		99C9B5AE1DCDCE7F005A02E4 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
-		99EDA8351DD0A95D001C01ED /* profileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = profileView.h; sourceTree = "<group>"; };
-		99EDA8361DD0A95D001C01ED /* profileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = profileView.m; sourceTree = "<group>"; };
+		99EDA8351DD0A95D001C01ED /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
+		99EDA8361DD0A95D001C01ED /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		99EDA8401DD1DE09001C01ED /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		99EDA8411DD1DE09001C01ED /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		99EDA8461DD1DF7A001C01ED /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -176,8 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				99EDA83F1DD1DDB4001C01ED /* cell */,
-				99EDA8351DD0A95D001C01ED /* profileView.h */,
-				99EDA8361DD0A95D001C01ED /* profileView.m */,
+				99EDA8351DD0A95D001C01ED /* ProfileView.h */,
+				99EDA8361DD0A95D001C01ED /* ProfileView.m */,
 			);
 			name = InstagramView;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			files = (
 				99C9B5751DCDCAF4005A02E4 /* AppDelegate.m in Sources */,
 				99EDA8481DD1DF7A001C01ED /* FirstViewController.m in Sources */,
-				99EDA8371DD0A95D001C01ED /* profileView.m in Sources */,
+				99EDA8371DD0A95D001C01ED /* ProfileView.m in Sources */,
 				99EDA8421DD1DE09001C01ED /* PageContentViewController.m in Sources */,
 				99C9B5721DCDCAF4005A02E4 /* main.m in Sources */,
 				99C9B5AF1DCDCE7F005A02E4 /* MyCollectionViewCell.m in Sources */,
