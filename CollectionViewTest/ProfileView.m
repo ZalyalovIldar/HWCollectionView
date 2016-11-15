@@ -21,7 +21,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] == 0){
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] != 0){
             [self dismissViewControllerAnimated:YES completion:nil];
             [self changeViewOnPageView];
         }
