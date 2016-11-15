@@ -49,12 +49,13 @@
     //size
     self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 50);
     
-    [self  addChildViewController:_pageViewController];
-    [self.view  addSubview:_pageViewController.view];
-    [self.pageViewController  didMoveToParentViewController:self];
+    [self addChildViewController:_pageViewController];
+    [self.view addSubview:_pageViewController.view];
+    [self.pageViewController didMoveToParentViewController:self];
     
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"ViewLoad"];
-
+    @synchronized (self) {
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"ViewLoad"];
+    };
     
     // Do any additional setup after loading the view.
 }
