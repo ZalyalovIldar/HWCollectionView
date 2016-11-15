@@ -96,17 +96,16 @@
 }
 */
 #pragma mark - Переходы
-- (void)viewDidAppear:(BOOL)animated{ //то что происходит после запуска приложения
-    [super viewDidAppear:animated];
-    if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] == 0){
-        [self dismissViewControllerAnimated:YES completion:nil];
-        [self viewChange];
-        
-    }
-}
-- (void)viewChange{ //метод перехода на другой ViewController
+//- (void)viewDidAppear:(BOOL)animated{ //то что происходит после запуска приложения
+//    [super viewDidAppear:animated];
+//    if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] == 0){
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//        [self changeViewOnProfileView];
+//    }
+//}
+- (void)changeViewOnProfileView{ //метод перехода на другой ViewController
     UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
-    UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"profileView"];
+    UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"ProfileView"];
     [self presentViewController:moveToGeneral animated:YES completion:nil];
     
 }
@@ -149,5 +148,8 @@
     return 0;
 }
 - (IBAction)skipButton:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"ViewLoad"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 @end

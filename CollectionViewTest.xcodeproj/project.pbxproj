@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9943064F1DDB3C290087D169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9943064E1DDB3C290087D169 /* Assets.xcassets */; };
 		99C9B5721DCDCAF4005A02E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5711DCDCAF4005A02E4 /* main.m */; };
 		99C9B5751DCDCAF4005A02E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5741DCDCAF4005A02E4 /* AppDelegate.m */; };
 		99C9B57B1DCDCAF4005A02E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C9B5791DCDCAF4005A02E4 /* Main.storyboard */; };
@@ -16,7 +17,6 @@
 		99C9B5AF1DCDCE7F005A02E4 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5AD1DCDCE7F005A02E4 /* MyCollectionViewCell.m */; };
 		99C9B5B01DCDCE7F005A02E4 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C9B5AE1DCDCE7F005A02E4 /* MyCollectionViewCell.xib */; };
 		99EDA8371DD0A95D001C01ED /* profileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8361DD0A95D001C01ED /* profileView.m */; };
-		99EDA83B1DD0AB60001C01ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99EDA83A1DD0AB60001C01ED /* Assets.xcassets */; };
 		99EDA8421DD1DE09001C01ED /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8411DD1DE09001C01ED /* PageContentViewController.m */; };
 		99EDA8481DD1DF7A001C01ED /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8471DD1DF7A001C01ED /* FirstViewController.m */; };
 /* End PBXBuildFile section */
@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9943064E1DDB3C290087D169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99C9B56D1DCDCAF4005A02E4 /* CollectionViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C9B5711DCDCAF4005A02E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99C9B5731DCDCAF4005A02E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		99C9B5AE1DCDCE7F005A02E4 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		99EDA8351DD0A95D001C01ED /* profileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = profileView.h; sourceTree = "<group>"; };
 		99EDA8361DD0A95D001C01ED /* profileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = profileView.m; sourceTree = "<group>"; };
-		99EDA83A1DD0AB60001C01ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../.Trashes/501/Assets.xcassets; sourceTree = "<group>"; };
 		99EDA8401DD1DE09001C01ED /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		99EDA8411DD1DE09001C01ED /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		99EDA8461DD1DF7A001C01ED /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -123,12 +123,12 @@
 		99C9B5701DCDCAF4005A02E4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				99EDA83A1DD0AB60001C01ED /* Assets.xcassets */,
 				99C9B5731DCDCAF4005A02E4 /* AppDelegate.h */,
 				99C9B5741DCDCAF4005A02E4 /* AppDelegate.m */,
 				99C9B57E1DCDCAF4005A02E4 /* LaunchScreen.storyboard */,
 				99C9B5811DCDCAF4005A02E4 /* Info.plist */,
 				99C9B5711DCDCAF4005A02E4 /* main.m */,
+				9943064E1DDB3C290087D169 /* Assets.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 				99C9B5801DCDCAF4005A02E4 /* LaunchScreen.storyboard in Resources */,
 				99C9B5B01DCDCE7F005A02E4 /* MyCollectionViewCell.xib in Resources */,
 				99C9B57B1DCDCAF4005A02E4 /* Main.storyboard in Resources */,
-				99EDA83B1DD0AB60001C01ED /* Assets.xcassets in Resources */,
+				9943064F1DDB3C290087D169 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +470,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CollectionViewTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ilyas.CollectionViewTest;
@@ -481,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CollectionViewTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ilyas.CollectionViewTest;

@@ -21,13 +21,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+        if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] == 0){
+            [self dismissViewControllerAnimated:YES completion:nil];
+            [self changeViewOnPageView];
+        }
     _datasource = @[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"]];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MyCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
     
-    [flowLayout setItemSize:CGSizeMake(self.view.frame.size.width/3-1, self.view.frame.size.width/3-1)];
+    [flowLayout setItemSize:CGSizeMake([self setSize], [self setSize])];
     [flowLayout setMinimumLineSpacing:1];
     [flowLayout setMinimumInteritemSpacing:1];
     
@@ -35,6 +38,11 @@ static NSString * const reuseIdentifier = @"Cell";
     
     
     // Do any additional setup after loading the view.
+}
+
+-(int)setSize{
+    int res = self.view.frame.size.width/3-1;
+    return res;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +81,15 @@ static NSString * const reuseIdentifier = @"Cell";
 */
 
 - (IBAction)backButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"ViewLoad"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self changeViewOnPageView];
+}
+
+- (void)changeViewOnPageView{ //метод перехода на другой ViewController
+    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
+    UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
+    [self presentViewController:moveToGeneral animated:YES completion:nil];
+    
 }
 @end
