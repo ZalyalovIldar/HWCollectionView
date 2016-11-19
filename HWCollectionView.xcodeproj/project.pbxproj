@@ -17,6 +17,9 @@
 		AE0D8B8D1DD1E59D00B63F02 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0D8B8C1DD1E59D00B63F02 /* TutorialViewController.m */; };
 		AE0D8B901DD1E5BF00B63F02 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0D8B8F1DD1E5BF00B63F02 /* PageContentViewController.m */; };
 		AE4D09241DD0644500FFBB2A /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4D09231DD0644500FFBB2A /* UserViewController.m */; };
+		AEDDD0F51DE087F200D56DCA /* WatchPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDD0F41DE087F200D56DCA /* WatchPostVC.m */; };
+		AEDDD0F71DE0899300D56DCA /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEDDD0F61DE0899300D56DCA /* Data.plist */; };
+		AEDDD0FA1DE0916C00D56DCA /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDD0F91DE0916C00D56DCA /* Data.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,11 @@
 		AE0D8B8F1DD1E5BF00B63F02 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		AE4D09221DD0644500FFBB2A /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		AE4D09231DD0644500FFBB2A /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		AEDDD0F31DE087F200D56DCA /* WatchPostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchPostVC.h; sourceTree = "<group>"; };
+		AEDDD0F41DE087F200D56DCA /* WatchPostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchPostVC.m; sourceTree = "<group>"; };
+		AEDDD0F61DE0899300D56DCA /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
+		AEDDD0F81DE0916C00D56DCA /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
+		AEDDD0F91DE0916C00D56DCA /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 				7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */,
 				7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */,
 				7CF88CE81DCBD89F0040F8F7 /* main.m */,
+				AEDDD0F61DE0899300D56DCA /* Data.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -93,6 +102,8 @@
 		AE0D8B911DD2085700B63F02 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AEDDD0F81DE0916C00D56DCA /* Data.h */,
+				AEDDD0F91DE0916C00D56DCA /* Data.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -109,16 +120,42 @@
 		AE0D8B931DD2086300B63F02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AE4D09221DD0644500FFBB2A /* UserViewController.h */,
-				AE4D09231DD0644500FFBB2A /* UserViewController.m */,
-				AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */,
-				AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */,
+				AEDDD0F21DE087B400D56DCA /* WatchPost */,
+				AEDDD0F11DE087A300D56DCA /* User */,
+				AEDDD0F01DE0878700D56DCA /* Tutorial */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		AEDDD0F01DE0878700D56DCA /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
 				AE0D8B8B1DD1E59D00B63F02 /* TutorialViewController.h */,
 				AE0D8B8C1DD1E59D00B63F02 /* TutorialViewController.m */,
 				AE0D8B8E1DD1E5BF00B63F02 /* PageContentViewController.h */,
 				AE0D8B8F1DD1E5BF00B63F02 /* PageContentViewController.m */,
 			);
-			name = Controller;
+			name = Tutorial;
+			sourceTree = "<group>";
+		};
+		AEDDD0F11DE087A300D56DCA /* User */ = {
+			isa = PBXGroup;
+			children = (
+				AE4D09221DD0644500FFBB2A /* UserViewController.h */,
+				AE4D09231DD0644500FFBB2A /* UserViewController.m */,
+				AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */,
+				AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		AEDDD0F21DE087B400D56DCA /* WatchPost */ = {
+			isa = PBXGroup;
+			children = (
+				AEDDD0F31DE087F200D56DCA /* WatchPostVC.h */,
+				AEDDD0F41DE087F200D56DCA /* WatchPostVC.m */,
+			);
+			name = WatchPost;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */,
+				AEDDD0F71DE0899300D56DCA /* Data.plist in Resources */,
 				AE013CDE1DD0AF56009055A7 /* PhotoCollectionViewCell.xib in Resources */,
 				7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */,
 				7CF88CF21DCBD89F0040F8F7 /* Main.storyboard in Resources */,
@@ -196,6 +234,8 @@
 				AE0D8B8D1DD1E59D00B63F02 /* TutorialViewController.m in Sources */,
 				AE4D09241DD0644500FFBB2A /* UserViewController.m in Sources */,
 				AE0D8B901DD1E5BF00B63F02 /* PageContentViewController.m in Sources */,
+				AEDDD0FA1DE0916C00D56DCA /* Data.m in Sources */,
+				AEDDD0F51DE087F200D56DCA /* WatchPostVC.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
 				AE013CDD1DD0AF56009055A7 /* PhotoCollectionViewCell.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
@@ -316,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HWCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itis.HWCollectionView;
@@ -327,6 +368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = HWCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.itis.HWCollectionView;
