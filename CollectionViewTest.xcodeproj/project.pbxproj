@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9943064F1DDB3C290087D169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9943064E1DDB3C290087D169 /* Assets.xcassets */; };
 		9976A3A31DE1870B00AEC5B1 /* instagramList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9976A3A21DE1870B00AEC5B1 /* instagramList.plist */; };
+		99AEC19A1DE1ADA1006EA45A /* ImageMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AEC1991DE1ADA1006EA45A /* ImageMakerViewController.m */; };
 		99C9B5721DCDCAF4005A02E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5711DCDCAF4005A02E4 /* main.m */; };
 		99C9B5751DCDCAF4005A02E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5741DCDCAF4005A02E4 /* AppDelegate.m */; };
 		99C9B57B1DCDCAF4005A02E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99C9B5791DCDCAF4005A02E4 /* Main.storyboard */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		9943064E1DDB3C290087D169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9976A3A21DE1870B00AEC5B1 /* instagramList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = instagramList.plist; sourceTree = "<group>"; };
+		99AEC1981DE1ADA1006EA45A /* ImageMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMakerViewController.h; sourceTree = "<group>"; };
+		99AEC1991DE1ADA1006EA45A /* ImageMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMakerViewController.m; sourceTree = "<group>"; };
 		99C9B56D1DCDCAF4005A02E4 /* CollectionViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99C9B5711DCDCAF4005A02E4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		99C9B5731DCDCAF4005A02E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				99EDA8491DD1E046001C01ED /* InstagramView */,
 				99E4ACC71DD20A85000400FB /* PageViewController */,
 				9976A3A21DE1870B00AEC5B1 /* instagramList.plist */,
+				99AEC1981DE1ADA1006EA45A /* ImageMakerViewController.h */,
+				99AEC1991DE1ADA1006EA45A /* ImageMakerViewController.m */,
 			);
 			path = CollectionViewTest;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C9B5751DCDCAF4005A02E4 /* AppDelegate.m in Sources */,
+				99AEC19A1DE1ADA1006EA45A /* ImageMakerViewController.m in Sources */,
 				99EDA8481DD1DF7A001C01ED /* FirstViewController.m in Sources */,
 				99EDA8371DD0A95D001C01ED /* ProfileView.m in Sources */,
 				99EDA8421DD1DE09001C01ED /* PageContentViewController.m in Sources */,

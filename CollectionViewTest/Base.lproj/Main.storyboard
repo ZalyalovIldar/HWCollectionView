@@ -253,6 +253,74 @@
             </objects>
             <point key="canvasLocation" x="942" y="249"/>
         </scene>
+        <!--Image Maker View Controller-->
+        <scene sceneID="4tt-Tp-qea">
+            <objects>
+                <viewController storyboardIdentifier="ImageMakerViewController" id="XQJ-de-q0S" customClass="ImageMakerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B2p-a8-kXi"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Mx-Ac-b5Y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fyG-kq-1JB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Z1-Sm-2Zf">
+                                <rect key="frame" x="87.5" y="100" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="6cp-kg-PJ0"/>
+                                    <constraint firstAttribute="height" constant="200" id="ebE-c0-FHo"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCY-9j-qgF">
+                                <rect key="frame" x="0.0" y="617" width="186" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="186" id="1J9-Gz-q0v"/>
+                                </constraints>
+                                <state key="normal" title="Изменить изображение"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZp-G9-pbV">
+                                <rect key="frame" x="187" y="617" width="188" height="30"/>
+                                <state key="normal" title="Закрыть"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="XQJ-de-q0S" eventType="touchUpInside" id="5bk-pA-nIE"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BCW-wk-904">
+                                <rect key="frame" x="88" y="318" width="201" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="2Gk-uf-M23"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Z1-Sm-2Zf" firstAttribute="top" secondItem="B2p-a8-kXi" secondAttribute="bottom" constant="80" id="2Ed-Un-8Jp"/>
+                            <constraint firstItem="BCW-wk-904" firstAttribute="top" secondItem="8Z1-Sm-2Zf" secondAttribute="bottom" constant="18" id="4sx-YB-aIa"/>
+                            <constraint firstItem="uCY-9j-qgF" firstAttribute="leading" secondItem="fyG-kq-1JB" secondAttribute="leading" id="Kp4-Ip-gQq"/>
+                            <constraint firstItem="7Mx-Ac-b5Y" firstAttribute="top" secondItem="uCY-9j-qgF" secondAttribute="bottom" constant="20" id="NJ6-EY-dQO"/>
+                            <constraint firstItem="8Z1-Sm-2Zf" firstAttribute="centerX" secondItem="fyG-kq-1JB" secondAttribute="centerX" id="bne-er-AvJ"/>
+                            <constraint firstAttribute="trailing" secondItem="hZp-G9-pbV" secondAttribute="trailing" id="d2C-hX-YZ7"/>
+                            <constraint firstItem="hZp-G9-pbV" firstAttribute="leading" secondItem="uCY-9j-qgF" secondAttribute="trailing" constant="1" id="dEh-FE-vOF"/>
+                            <constraint firstItem="BCW-wk-904" firstAttribute="centerX" secondItem="fyG-kq-1JB" secondAttribute="centerX" id="es6-B2-rrj"/>
+                            <constraint firstItem="hZp-G9-pbV" firstAttribute="leading" secondItem="uCY-9j-qgF" secondAttribute="trailing" constant="1" id="jJ6-Uh-1hq"/>
+                            <constraint firstItem="7Mx-Ac-b5Y" firstAttribute="top" secondItem="hZp-G9-pbV" secondAttribute="bottom" constant="20" id="p1t-GB-Tgx"/>
+                            <constraint firstItem="7Mx-Ac-b5Y" firstAttribute="top" secondItem="hZp-G9-pbV" secondAttribute="bottom" constant="20" id="qch-iH-vcR"/>
+                            <constraint firstAttribute="trailing" secondItem="hZp-G9-pbV" secondAttribute="trailing" id="yQw-hm-zVg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageMakerImage" destination="8Z1-Sm-2Zf" id="nSz-Tv-SvY"/>
+                        <outlet property="textMakerForLabel" destination="BCW-wk-904" id="dfp-FN-fWE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ILN-Hi-HhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1741.5999999999999" y="248.72563718140933"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LnK-22-8vg">
             <objects>

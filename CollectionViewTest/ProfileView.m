@@ -8,6 +8,7 @@
 
 #import "profileView.h"
 #import "MyCollectionViewCell.h"
+#import "ImageMakerViewController.h"
 
 @interface profileView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -74,7 +75,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MyCollectionViewCell *cell = (MyCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    NSLog(@"%@", _dataSource);
     cell.collectionView.image = [UIImage imageNamed:[_dataSourceImage objectAtIndex:indexPath.row]];
     cell.cellLabel.text = _dataSourceLabel[indexPath.row];
     // Configure the cell
@@ -84,23 +84,32 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark - Instagram function
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+    @synchronized (self) {
+        [[NSUserDefaults standardUserDefaults] setObject:[_dataSourceImage objectAtIndex:indexPath.row] forKey:@"imageMake"];
+        [[NSUserDefaults standardUserDefaults] setObject:[_dataSourceLabel objectAtIndex:indexPath.row] forKey:@"labelMake"];
+    };
+    [self changeViewOnImageMakerVC];
 }
 
 
 
 
-
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
+    [segue destinationViewController];
     // Pass the selected object to the new view controller.
 }
-*/
 
+
+-(void)changeViewOnImageMakerVC{
+    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
+    UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"ImageMakerViewController"];
+    [self presentViewController:moveToGeneral animated:YES completion:nil];
+}
+
+#pragma mark - PageView
 - (IBAction)backButton:(id)sender {
     [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"ViewLoad"];
     [self dismissViewControllerAnimated:YES completion:nil];
