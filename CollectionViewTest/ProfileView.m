@@ -12,7 +12,9 @@
 @interface profileView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 - (IBAction)backButton:(id)sender;
-@property (strong, nonatomic) NSArray * datasource;
+@property (strong, nonatomic) NSArray * dataSourceImage;
+@property (strong, nonatomic) NSArray * dataSourceLabel;
+@property (strong, nonatomic) NSArray * dataSource;
 @end
 
 @implementation profileView
@@ -21,11 +23,23 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Находим instagramList.plist
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"instagramList" ofType:@"plist"];
+    //Пацан за контент отвечает и добавляет в массив
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    _dataSourceImage = [dict objectForKey:@"instagramImage"];
+    _dataSourceLabel = [dict objectForKey:@"instagramLabel"];
+    
+    //Tutorial
         if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] != 0){
             [self dismissViewControllerAnimated:YES completion:nil];
             [self changeViewOnPageView];
         }
-    _datasource = @[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"]];
+    
+    //_dataSource = @[[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"],[UIImage imageNamed:@"1"],[UIImage imageNamed:@"2"]];
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"MyCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -40,6 +54,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // Do any additional setup after loading the view.
 }
 
+//размер ячейки
 -(int)setSize{
     int res = self.view.frame.size.width/3-1;
     return res;
@@ -54,16 +69,22 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return _datasource.count;
+    return _dataSourceImage.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     MyCollectionViewCell *cell = (MyCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    cell.collectionView.image = (UIImage *)_datasource[indexPath.row];
+    NSLog(@"%@", _dataSource);
+    cell.collectionView.image = [UIImage imageNamed:[_dataSourceImage objectAtIndex:indexPath.row]];
+    cell.cellLabel.text = _dataSourceLabel[indexPath.row];
     // Configure the cell
-    
     return cell;
+}
+
+#pragma mark - Instagram function
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
 }
 
 
