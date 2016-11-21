@@ -14,5 +14,10 @@
 @property(strong,nonatomic)NSMutableArray* imageNameArray;
 -(NSMutableArray*)getImageNameArray;
 -(NSMutableArray*)getCommentArray;
+-(NSArray*)replaceCommentOfString:(NSString*)comment fromRow:(NSInteger)numberRow;
+-(NSArray*)replaceImageWithName:(NSString*)imageName fromRow:(NSInteger)numberRow;
+-(void)writeDataToFileImageArray:(NSArray*)imageArray andCommentArray:(NSArray*)commentArray;
+-(NSString*)getImageName:(UIImageView*)imageView;
+-(void)createImageFromData:(NSData*)data withName:(NSString*)name;
 
 @end

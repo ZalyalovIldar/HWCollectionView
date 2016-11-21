@@ -19,18 +19,28 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BKp-1h-Npd">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="132"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlg-Fd-viy">
+                        <rect key="frame" x="0.0" y="132" width="150" height="18"/>
+                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="BKp-1h-Npd" secondAttribute="bottom" id="ERw-vC-jZ3"/>
                 <constraint firstAttribute="trailing" secondItem="BKp-1h-Npd" secondAttribute="trailing" id="FvV-QV-88T"/>
+                <constraint firstItem="vlg-Fd-viy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="K38-h7-RBP"/>
+                <constraint firstItem="vlg-Fd-viy" firstAttribute="top" secondItem="BKp-1h-Npd" secondAttribute="bottom" id="N47-qX-fJ9"/>
                 <constraint firstItem="BKp-1h-Npd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ri8-Mu-8Ec"/>
+                <constraint firstAttribute="trailing" secondItem="vlg-Fd-viy" secondAttribute="trailing" id="ZBd-Md-xIZ"/>
+                <constraint firstAttribute="bottom" secondItem="vlg-Fd-viy" secondAttribute="bottom" id="fjd-qN-B5e"/>
                 <constraint firstItem="BKp-1h-Npd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wiK-uw-IIs"/>
             </constraints>
             <connections>
                 <outlet property="PhotoImageView" destination="BKp-1h-Npd" id="qxO-6c-yyz"/>
+                <outlet property="photoLabel" destination="vlg-Fd-viy" id="8lZ-2D-I31"/>
             </connections>
         </collectionViewCell>
     </objects>

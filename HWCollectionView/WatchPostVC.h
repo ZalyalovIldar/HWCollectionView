@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (strong, nonatomic) NSString *imageNameString;
 @property (strong, nonatomic) NSString *commentString;
+@property (nonatomic) NSInteger numberOfRow;
 
 @end

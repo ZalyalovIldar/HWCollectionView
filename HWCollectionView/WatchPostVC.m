@@ -7,6 +7,9 @@
 //
 
 #import "WatchPostVC.h"
+#import "Data.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @interface WatchPostVC () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -23,7 +26,7 @@
     self.postImageView.image = [UIImage imageNamed:self.imageNameString];
     self.commentLabel.text = self.commentString;
 }
-
+#pragma mark - alert to change
 -(void)showAlert{
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Изменить" message:@"Что хотите изменить?" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -45,6 +48,9 @@
                                    {
                                        UITextField *comment = alertForChangeComment.textFields.firstObject;
                                        self.commentLabel.text = self.commentString = comment.text;
+                                       Data *data = [[Data alloc]init];
+                                       NSArray *arr = [NSArray arrayWithArray:[data replaceCommentOfString:comment.text fromRow:self.numberOfRow]];
+                                       [data writeDataToFileImageArray:[data getImageNameArray] andCommentArray:arr];
                                    }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil];
         [alertForChangeComment addAction:okAction];
@@ -63,8 +69,15 @@
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    self.postImageView.image = image;
+    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
+    PHFetchResult *result = [PHAsset fetchAssetsWithALAssetURLs:@[refURL] options:nil];
+    NSString *imageName = [[result firstObject] filename];
+    Data *data = [Data new];
+    NSData *imageData = UIImagePNGRepresentation([info valueForKey:UIImagePickerControllerOriginalImage]);
+    [data createImageFromData:imageData withName:imageName];
+    self.postImageView.image = [UIImage imageNamed:imageName];
+    NSLog(@"%@",[data getImageNameArray]);
+    [data writeDataToFileImageArray:[data replaceImageWithName:imageName fromRow:self.numberOfRow] andCommentArray:[data getCommentArray]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

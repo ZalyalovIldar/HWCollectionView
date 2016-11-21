@@ -17,6 +17,8 @@
 @property (strong, nonatomic) NSArray *commentStringArray;
 @property (strong, nonatomic) NSString *imageNameString;
 @property (strong, nonatomic) NSString *commentString;
+@property (nonatomic)UIRefreshControl *refreshControl;
+@property (nonatomic,strong)Data *data;
 
 @end
 
@@ -37,15 +39,15 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewDidLoad];
     self.userImageView.layer.cornerRadius = self.userImageView.frame.size.width/2;
     self.userImageView.clipsToBounds = YES;
-    Data *data = [Data new];
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(startRefresh)
+    self.data = [Data new];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(startRefresh)
              forControlEvents:UIControlEventValueChanged];
-    [self.galleryCollectionView addSubview:refreshControl];
+    [self.galleryCollectionView addSubview:self.refreshControl];
     [self.galleryCollectionView setBounces:YES];
     self.galleryCollectionView.alwaysBounceVertical = YES;
-    self.imageNameArray = [NSArray arrayWithArray:[data getImageNameArray]];
-    self.commentStringArray = [NSArray arrayWithArray:[data getCommentArray]];
+    self.imageNameArray = [NSArray arrayWithArray:[self.data getImageNameArray]];
+    self.commentStringArray = [NSArray arrayWithArray:[self.data getCommentArray]];
     [self.galleryCollectionView registerNib:[UINib nibWithNibName:@"PhotoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = CGSizeMake(self.view.frame.size.width/3-1, self.view.frame.size.width/3-1);
@@ -62,8 +64,12 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 -(void)startRefresh{
+    [self.refreshControl beginRefreshing];
+    self.imageNameArray = [NSArray arrayWithArray:[self.data getImageNameArray]];
+    self.commentStringArray = [NSArray arrayWithArray:[self.data getCommentArray]];
     [self.galleryCollectionView reloadData];
-}
+    [self.refreshControl endRefreshing];
+    }
 
 -(void)visited{
     UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -83,6 +89,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCollectionViewCell *cell = (PhotoCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.photoLabel.text = self.commentStringArray[indexPath.row];
     cell.PhotoImageView.image = [UIImage imageNamed:self.imageNameArray[indexPath.row]];
     return cell;
 }
@@ -93,6 +100,7 @@ static NSString * const reuseIdentifier = @"Cell";
     WatchPostVC *vc = (WatchPostVC *) [self.storyboard instantiateViewControllerWithIdentifier:@"watch"];
     vc.commentString = self.commentString;
     vc.imageNameString = self.imageNameString;
+    vc.numberOfRow = indexPath.row;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

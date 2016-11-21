@@ -14,6 +14,8 @@
 		7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */; };
 		AE013CDD1DD0AF56009055A7 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */; };
 		AE013CDE1DD0AF56009055A7 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */; };
+		AE0488DF1DE2F89A00529F57 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0488DE1DE2F89A00529F57 /* AssetsLibrary.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		AE0488E11DE2FB4500529F57 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0488E01DE2FB4500529F57 /* Photos.framework */; };
 		AE0D8B8D1DD1E59D00B63F02 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0D8B8C1DD1E59D00B63F02 /* TutorialViewController.m */; };
 		AE0D8B901DD1E5BF00B63F02 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0D8B8F1DD1E5BF00B63F02 /* PageContentViewController.m */; };
 		AE4D09241DD0644500FFBB2A /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4D09231DD0644500FFBB2A /* UserViewController.m */; };
@@ -34,6 +36,8 @@
 		AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE0488DE1DE2F89A00529F57 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		AE0488E01DE2FB4500529F57 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		AE0D8B8B1DD1E59D00B63F02 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		AE0D8B8C1DD1E59D00B63F02 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		AE0D8B8E1DD1E5BF00B63F02 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0488E11DE2FB4500529F57 /* Photos.framework in Frameworks */,
+				AE0488DF1DE2F89A00529F57 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,7 @@
 			children = (
 				7CF88CE61DCBD89F0040F8F7 /* HWCollectionView */,
 				7CF88CE51DCBD89F0040F8F7 /* Products */,
+				AE0488DD1DE2F89A00529F57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +104,15 @@
 				AEDDD0F61DE0899300D56DCA /* Data.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AE0488DD1DE2F89A00529F57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE0488E01DE2FB4500529F57 /* Photos.framework */,
+				AE0488DE1DE2F89A00529F57 /* AssetsLibrary.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		AE0D8B911DD2085700B63F02 /* Model */ = {
