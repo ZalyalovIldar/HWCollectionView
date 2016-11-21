@@ -11,6 +11,8 @@
 		4A3105FF1DD72AC600E5B3DD /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3105FE1DD72AC600E5B3DD /* TutorialViewController.m */; };
 		4A91BF6F1DD2710500F35110 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91BF6D1DD2710500F35110 /* CollectionViewCell.m */; };
 		4A91BF701DD2710500F35110 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A91BF6E1DD2710500F35110 /* CollectionViewCell.xib */; };
+		4A9256CD1DE0E9DA002A1EF3 /* DetailCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */; };
+		4A9256D01DE102DB002A1EF3 /* ListProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */; };
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
 		7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */; };
 		7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */; };
@@ -27,6 +29,10 @@
 		4A91BF6C1DD2710500F35110 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		4A91BF6D1DD2710500F35110 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		4A91BF6E1DD2710500F35110 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		4A9256CB1DE0E9DA002A1EF3 /* DetailCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCollectionView.h; sourceTree = "<group>"; };
+		4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCollectionView.m; sourceTree = "<group>"; };
+		4A9256CE1DE102DB002A1EF3 /* ListProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListProcessor.h; sourceTree = "<group>"; };
+		4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListProcessor.m; sourceTree = "<group>"; };
 		7CF88CE41DCBD89F0040F8F7 /* HWCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF88CE81DCBD89F0040F8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 		4A75F5CF1DD63922009E43CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4A9256CE1DE102DB002A1EF3 /* ListProcessor.h */,
+				4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -61,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				4A91BF6E1DD2710500F35110 /* CollectionViewCell.xib */,
-				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
 				7CF88CF01DCBD89F0040F8F7 /* Main.storyboard */,
 			);
 			name = View;
@@ -70,16 +77,26 @@
 		4A75F5D11DD6393B009E43CD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4A9256D31DE1FD3B002A1EF3 /* Tutorial */,
 				7CF88CED1DCBD89F0040F8F7 /* ViewController.h */,
 				7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */,
 				4A91BF6C1DD2710500F35110 /* CollectionViewCell.h */,
 				4A91BF6D1DD2710500F35110 /* CollectionViewCell.m */,
+				4A9256CB1DE0E9DA002A1EF3 /* DetailCollectionView.h */,
+				4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4A9256D31DE1FD3B002A1EF3 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
 				4A3105FA1DD72A5400E5B3DD /* PageContentViewController.h */,
 				4A3105FB1DD72A5400E5B3DD /* PageContentViewController.m */,
 				4A3105FD1DD72AC600E5B3DD /* TutorialViewController.h */,
 				4A3105FE1DD72AC600E5B3DD /* TutorialViewController.m */,
 			);
-			name = Controller;
+			name = Tutorial;
 			sourceTree = "<group>";
 		};
 		7CF88CDB1DCBD89F0040F8F7 = {
@@ -112,6 +129,7 @@
 		7CF88CE71DCBD89F0040F8F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
 				7CF88CF81DCBD89F0040F8F7 /* Info.plist */,
 				7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */,
 				7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */,
@@ -195,9 +213,11 @@
 			files = (
 				4A91BF6F1DD2710500F35110 /* CollectionViewCell.m in Sources */,
 				7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */,
+				4A9256CD1DE0E9DA002A1EF3 /* DetailCollectionView.m in Sources */,
 				4A3105FC1DD72A5400E5B3DD /* PageContentViewController.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
+				4A9256D01DE102DB002A1EF3 /* ListProcessor.m in Sources */,
 				4A3105FF1DD72AC600E5B3DD /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
