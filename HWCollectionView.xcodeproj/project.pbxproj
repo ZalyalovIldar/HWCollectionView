@@ -34,6 +34,8 @@
 		E10D1D0F1DD4D9AE00F83162 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D1D0E1DD4D9AE00F83162 /* PageContentViewController.m */; };
 		E10D1D121DD4DA0700F83162 /* RootPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E10D1D111DD4DA0700F83162 /* RootPageViewController.m */; };
 		E10D1D151DD4EB4400F83162 /* screen.png in Resources */ = {isa = PBXBuildFile; fileRef = E10D1D141DD4EB4400F83162 /* screen.png */; };
+		E1F3A6B31DE315C80032E9B3 /* DataWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F3A6B21DE315C80032E9B3 /* DataWorker.m */; };
+		E1F3A6B61DE31F960032E9B3 /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = E1F3A6B51DE31F960032E9B3 /* Content.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,10 @@
 		E10D1D101DD4DA0700F83162 /* RootPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootPageViewController.h; path = ../RootPageViewController.h; sourceTree = "<group>"; };
 		E10D1D111DD4DA0700F83162 /* RootPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootPageViewController.m; path = ../RootPageViewController.m; sourceTree = "<group>"; };
 		E10D1D141DD4EB4400F83162 /* screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screen.png; sourceTree = "<group>"; };
+		E1F3A6B11DE315C80032E9B3 /* DataWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWorker.h; sourceTree = "<group>"; };
+		E1F3A6B21DE315C80032E9B3 /* DataWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataWorker.m; sourceTree = "<group>"; };
+		E1F3A6B41DE31F960032E9B3 /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		E1F3A6B51DE31F960032E9B3 /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,8 @@
 		7CF88CE61DCBD89F0040F8F7 /* HWCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				E1F3A6B11DE315C80032E9B3 /* DataWorker.h */,
+				E1F3A6B21DE315C80032E9B3 /* DataWorker.m */,
 				E10D1D131DD4DA1700F83162 /* Onboarding */,
 				E10D1CF91DD1055700F83162 /* images */,
 				E10D1CD41DD0C9FA00F83162 /* CustomCellCollectionViewCell.h */,
@@ -120,6 +128,8 @@
 				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
 				7CF88CF81DCBD89F0040F8F7 /* Info.plist */,
 				7CF88CE71DCBD89F0040F8F7 /* Supporting Files */,
+				E1F3A6B41DE31F960032E9B3 /* Content.h */,
+				E1F3A6B51DE31F960032E9B3 /* Content.m */,
 			);
 			path = HWCollectionView;
 			sourceTree = "<group>";
@@ -259,11 +269,13 @@
 				7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
 				E10D1D0F1DD4D9AE00F83162 /* PageContentViewController.m in Sources */,
+				E1F3A6B61DE31F960032E9B3 /* Content.m in Sources */,
 				E10D1D121DD4DA0700F83162 /* RootPageViewController.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
 				E10D1D001DD10A1900F83162 /* ShowOnePhotoViewController.m in Sources */,
 				E10D1CD71DD0C9FA00F83162 /* CustomCellCollectionViewCell.m in Sources */,
 				E10D1D0C1DD4D99B00F83162 /* PageViewController.m in Sources */,
+				E1F3A6B31DE315C80032E9B3 /* DataWorker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,19 +19,29 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djh-RG-85F">
-                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="100" height="79.5"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfP-Gz-XXA">
+                        <rect key="frame" x="0.0" y="79.5" width="100" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="OfP-Gz-XXA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MAr-8q-xft"/>
                 <constraint firstItem="djh-RG-85F" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ME2-La-g32"/>
+                <constraint firstItem="OfP-Gz-XXA" firstAttribute="top" secondItem="djh-RG-85F" secondAttribute="bottom" id="bni-9T-0Xj"/>
                 <constraint firstItem="djh-RG-85F" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ciV-06-V7s"/>
-                <constraint firstAttribute="bottom" secondItem="djh-RG-85F" secondAttribute="bottom" id="omU-8I-ngp"/>
+                <constraint firstAttribute="bottom" secondItem="OfP-Gz-XXA" secondAttribute="bottom" id="pBQ-58-1kW"/>
                 <constraint firstAttribute="trailing" secondItem="djh-RG-85F" secondAttribute="trailing" id="rFG-EZ-GTa"/>
+                <constraint firstAttribute="trailing" secondItem="OfP-Gz-XXA" secondAttribute="trailing" id="sQE-AR-bcF"/>
             </constraints>
             <size key="customSize" width="100" height="89"/>
             <connections>
                 <outlet property="cellImage" destination="djh-RG-85F" id="EHM-Q3-GlK"/>
+                <outlet property="commentLabel" destination="OfP-Gz-XXA" id="tBA-7P-P6n"/>
             </connections>
             <point key="canvasLocation" x="59" y="73"/>
         </collectionViewCell>

@@ -9,8 +9,12 @@
 #import "ShowOnePhotoViewController.h"
 #import "ViewController.h"
 
-@interface ShowOnePhotoViewController ()
+@interface ShowOnePhotoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *fullImage;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
+
 
 
 @end
@@ -19,7 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.fullImage.image = self.image;
+    
+    self.fullImage.image = [UIImage imageWithData:self.content.imageData];
+    self.commentLabel.text = self.content.text;
+    
     
 }
 
@@ -27,15 +34,73 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)changeButtonDidClicked:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Изменить" message:@"Что хотите изменить ?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *imageChangeAction = [UIAlertAction actionWithTitle:@"Изображение" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+        {
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }else {
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }
+        [self presentViewController:picker animated:YES completion:nil];
+        
 
-/*
-#pragma mark - Navigation
+    }];
+    [alert addAction:imageChangeAction];
+    
+    UIAlertAction *labelTextChangeAction = [UIAlertAction actionWithTitle:@"Комментарий" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertController *changeLabelAlert = [UIAlertController alertControllerWithTitle:@"Изменить комментарий" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [changeLabelAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"new comment";
+            textField.textColor = [UIColor blueColor];
+            textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+            textField.borderStyle = UITextBorderStyleRoundedRect;
+        }];
+#warning TODO fix add save to plist
+        UIAlertAction *doneAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            
+       }];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+        
+       UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil];
+        
+        [changeLabelAlert addAction:doneAlertAction];
+        [changeLabelAlert addAction:cancelAlertAction];
+        [self presentViewController:changeLabelAlert animated:YES completion:nil];
+    }];
+    UIAlertAction *mainCancelAlertAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alert addAction:mainCancelAlertAction];
+    [alert addAction:labelTextChangeAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
-*/
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    NSData *imageData = UIImageJPEGRepresentation(chosenImage, 0.8);
+    //self.person.image = imageData;
+    UIImage *photo = [UIImage imageWithData:imageData];
+//    [_imageView setImage:photo];
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+
+
 
 @end

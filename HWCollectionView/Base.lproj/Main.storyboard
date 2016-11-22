@@ -341,25 +341,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Yh-yj-Z0f">
-                                <rect key="frame" x="0.0" y="69" width="320" height="260"/>
+                                <rect key="frame" x="0.0" y="113" width="320" height="216"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-fI-ayi">
+                                <rect key="frame" x="139" y="337" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AQ4-fI-ayi" firstAttribute="centerX" secondItem="0Yh-yj-Z0f" secondAttribute="centerX" id="7DI-SQ-jLS"/>
+                            <constraint firstItem="AQ4-fI-ayi" firstAttribute="top" secondItem="0Yh-yj-Z0f" secondAttribute="bottom" constant="8" id="KVY-56-hzt"/>
                             <constraint firstItem="0Yh-yj-Z0f" firstAttribute="top" secondItem="iY4-7p-M8s" secondAttribute="bottom" constant="49" id="RSH-YX-hSO"/>
                             <constraint firstItem="0Yh-yj-Z0f" firstAttribute="leading" secondItem="DVn-wi-wjI" secondAttribute="leading" id="WBY-co-ElQ"/>
                             <constraint firstAttribute="trailing" secondItem="0Yh-yj-Z0f" secondAttribute="trailing" id="hlt-PF-by8"/>
                             <constraint firstItem="X0J-Mp-Jka" firstAttribute="top" secondItem="0Yh-yj-Z0f" secondAttribute="bottom" constant="239" id="vAJ-mj-85p"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TxN-mM-qzg"/>
+                    <navigationItem key="navigationItem" id="TxN-mM-qzg">
+                        <barButtonItem key="rightBarButtonItem" title="Change" id="c9V-Qv-9qg">
+                            <connections>
+                                <action selector="changeButtonDidClicked:" destination="FjW-Xl-XBy" id="KG2-mU-fCa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="commentLabel" destination="AQ4-fI-ayi" id="fEs-ju-00D"/>
                         <outlet property="fullImage" destination="0Yh-yj-Z0f" id="ZAJ-1I-Lod"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zmu-2a-HCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="-72"/>
+            <point key="canvasLocation" x="1989.375" y="-72.887323943661968"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bQc-6H-2ts">

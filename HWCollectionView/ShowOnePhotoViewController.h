@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "Content.h"
 
 @interface ShowOnePhotoViewController : ViewController
 
 
-@property (nonatomic,strong) UIImage *image;
+@property (nonatomic,strong) Content *content;
 @property (nonatomic,strong) NSString *imageNumber;
 
 @end
