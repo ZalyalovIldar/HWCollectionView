@@ -43,6 +43,16 @@ static NSString *reuseIdentifire = @"Cell";
     
     self.flowLayout.minimumLineSpacing = kMinimumLineSpacing;
     self.flowLayout.minimumInteritemSpacing = kMinimumInteritemSpacing;
+
+    
+    self.mainPhoto.image = [UIImage imageNamed:@"mainPhoto.jpg"];
+    self.mainPhoto.layer.cornerRadius = self.mainPhoto.frame.size.width / 2;
+    self.mainPhoto.clipsToBounds = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
     
     DataWorker *worker = [DataWorker sharedInstance];
     [worker fetchAllContentWithSuccesBlock:^(NSArray *result) {
@@ -52,13 +62,7 @@ static NSString *reuseIdentifire = @"Cell";
     } andErrorBlock:^(NSError *error) {
         
     }];
-    
-    self.mainPhoto.image = [UIImage imageNamed:@"mainPhoto.jpg"];
-    self.mainPhoto.layer.cornerRadius = self.mainPhoto.frame.size.width / 2;
-    self.mainPhoto.clipsToBounds = YES;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

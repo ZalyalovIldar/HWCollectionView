@@ -14,4 +14,6 @@
 
 - (void)fetchAllContentWithSuccesBlock:(void(^)(NSArray *result))succesBlock andErrorBlock:(void(^)(NSError *error))errorBlock;
 
+- (void)saveContent:(Content *)content;
+
 @end

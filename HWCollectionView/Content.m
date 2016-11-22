@@ -10,7 +10,11 @@
 NSString * const ICImageDataKey = @"ic_imageData";
 NSString * const ICTextKey = @"ic_text";
 NSString * const ICIdKey = @"ic_id";
+@interface Content()
 
+@property (nonatomic, strong) NSString *imageName;
+
+@end
 @implementation Content
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary
@@ -24,9 +28,14 @@ NSString * const ICIdKey = @"ic_id";
     
     self.text = dictionary[ICTextKey];
     self.id = [dictionary[ICIdKey] integerValue];
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:dictionary[ICImageDataKey] ofType: nil];
-    self.imageData = [NSData dataWithContentsOfFile:imagePath];
+
+    self.imageData = dictionary[ICImageDataKey];
     return self;
+}
+
+- (NSDictionary *)dictionaryFromObject
+{
+    return @{ICIdKey : @(self.id), ICImageDataKey : self.imageData, ICTextKey : self.text};
 }
 
 @end

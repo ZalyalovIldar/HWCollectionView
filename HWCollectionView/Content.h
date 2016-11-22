@@ -18,5 +18,6 @@ extern NSString * const ICIdKey;
 @property (nonatomic, strong) NSString *text;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (NSDictionary *)dictionaryFromObject;
 
 @end

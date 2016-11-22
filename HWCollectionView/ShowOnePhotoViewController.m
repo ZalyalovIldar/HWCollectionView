@@ -8,6 +8,7 @@
 
 #import "ShowOnePhotoViewController.h"
 #import "ViewController.h"
+#import "DataWorker.h"
 
 @interface ShowOnePhotoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *fullImage;
@@ -67,8 +68,10 @@
         }];
 #warning TODO fix add save to plist
         UIAlertAction *doneAlertAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            
+            UITextField *textField = changeLabelAlert.textFields.firstObject;
+            self.content.text = textField.text;
+            self.commentLabel.text = self.content.text;
+            [[DataWorker sharedInstance] saveContent:self.content];
        }];
 
         
@@ -91,8 +94,12 @@
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     NSData *imageData = UIImageJPEGRepresentation(chosenImage, 0.8);
-    //self.person.image = imageData;
+    self.content.imageData = imageData;
+    [[DataWorker sharedInstance] saveContent:self.content];
+    
     UIImage *photo = [UIImage imageWithData:imageData];
+    self.fullImage.image = photo;
+    
 //    [_imageView setImage:photo];
     
     

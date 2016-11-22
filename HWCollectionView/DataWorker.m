@@ -53,11 +53,21 @@ const NSString *DWContentKey = @"content";
         
         NSMutableDictionary *root = [@{@"autosave" : @"YES", @"identifier" : @"4F4@@"} mutableCopy];
         NSMutableArray *contents = [NSMutableArray new];
-        NSDictionary *content = @{ICIdKey : @(0), ICImageDataKey : @"1.jpg", ICTextKey : @"Привет" };
+        NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"1.jpg" ofType: nil];
+        NSData *data = [NSData dataWithContentsOfFile:imagePath];
+        
+                               
+        NSDictionary *content = @{ICIdKey : @(1), ICImageDataKey : data, ICTextKey : @"Привет" };
+        [contents addObject:content];
+        
+        imagePath = [[NSBundle mainBundle] pathForResource:@"2.jpg" ofType: nil];
+        data = [NSData dataWithContentsOfFile:imagePath];
+        content = @{ICIdKey : @(2), ICImageDataKey : data, ICTextKey : @"ЭЭЭЭЭЭЙ"};
         [contents addObject:content];
         
         [root setObject:contents forKey:DWContentKey];
         NSError *error;
+        
         
         NSData *representation = [NSPropertyListSerialization dataWithPropertyList:root format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
 
@@ -120,12 +130,78 @@ const NSString *DWContentKey = @"content";
 
 - (void)saveContent:(Content *)content
 {
-    
+    [self fetchAllContentWithSuccesBlock:^(NSArray *result) {
+        
+        
+        NSMutableArray *mutableResult = [result mutableCopy];
+        if (content.id == 0)
+        {
+            NSInteger lastIndex = result.count - 1;
+            Content *lastContent = result[lastIndex];
+            content.id = lastContent.id + 1;
+            [mutableResult addObject:content];
+            [self saveAllContent:[mutableResult copy]];
+            return ;
+        }
+        
+        __block NSInteger containsIndex = - 1;
+        
+        
+        [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            Content *curContent = obj;
+            if (curContent.id == content.id)
+            {
+                containsIndex = idx;
+                *stop = YES;
+            }
+            
+        }];
+        
+        
+        if (containsIndex >= 0)
+        {
+            [mutableResult replaceObjectAtIndex:containsIndex withObject:content];
+        }else
+        {
+            [mutableResult addObject:content];
+        }
+        
+        [self saveAllContent:[mutableResult copy]];
+        
+    } andErrorBlock:^(NSError *error) {
+        
+        NSLog(@"Something go wrong");
+        
+    }];
 }
 
 - (void)saveAllContent:(NSArray<Content *> *)content
 {
+    NSMutableDictionary *root = [@{@"autosave" : @"YES", @"identifier" : @"4F4@@"} mutableCopy];
+
+    NSMutableArray *contents = [NSMutableArray new];
     
+    [content enumerateObjectsUsingBlock:^(Content * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [contents addObject:[obj dictionaryFromObject]];
+    }];
+    
+    [root setObject:[contents copy] forKey:DWContentKey];
+    NSError *error;
+    
+    NSData *representation = [NSPropertyListSerialization dataWithPropertyList:root format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
+    
+    if (error)
+    {
+        NSLog(@"%@", error);
+        return;
+    }
+    
+    BOOL isWriteToFile = [representation writeToFile:self.path atomically:YES];
+#warning TODO add if else
+    NSLog(@"Write to file status: %@", isWriteToFile ? @"Good" : @"Failed");
+    
+
 }
 
 
