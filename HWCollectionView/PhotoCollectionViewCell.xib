@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,6 +24,9 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlg-Fd-viy">
                         <rect key="frame" x="0.0" y="132" width="150" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="vlg-Fd-viy" secondAttribute="height" multiplier="25:3" id="3RS-hf-PTA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -30,13 +34,13 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="BKp-1h-Npd" secondAttribute="trailing" id="FvV-QV-88T"/>
-                <constraint firstItem="vlg-Fd-viy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="K38-h7-RBP"/>
-                <constraint firstItem="vlg-Fd-viy" firstAttribute="top" secondItem="BKp-1h-Npd" secondAttribute="bottom" id="N47-qX-fJ9"/>
-                <constraint firstItem="BKp-1h-Npd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ri8-Mu-8Ec"/>
-                <constraint firstAttribute="trailing" secondItem="vlg-Fd-viy" secondAttribute="trailing" id="ZBd-Md-xIZ"/>
-                <constraint firstAttribute="bottom" secondItem="vlg-Fd-viy" secondAttribute="bottom" id="fjd-qN-B5e"/>
-                <constraint firstItem="BKp-1h-Npd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wiK-uw-IIs"/>
+                <constraint firstItem="vlg-Fd-viy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0Q3-1d-quV"/>
+                <constraint firstAttribute="trailing" secondItem="BKp-1h-Npd" secondAttribute="trailing" id="8Lt-aK-kB9"/>
+                <constraint firstAttribute="trailing" secondItem="vlg-Fd-viy" secondAttribute="trailing" id="bCQ-Pd-Iwa"/>
+                <constraint firstAttribute="bottom" secondItem="vlg-Fd-viy" secondAttribute="bottom" id="hbq-J8-VDo"/>
+                <constraint firstItem="BKp-1h-Npd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hmx-UO-QgS"/>
+                <constraint firstItem="BKp-1h-Npd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uIV-Zk-yuF"/>
+                <constraint firstItem="vlg-Fd-viy" firstAttribute="top" secondItem="BKp-1h-Npd" secondAttribute="bottom" id="xYu-so-TGe"/>
             </constraints>
             <connections>
                 <outlet property="PhotoImageView" destination="BKp-1h-Npd" id="qxO-6c-yyz"/>

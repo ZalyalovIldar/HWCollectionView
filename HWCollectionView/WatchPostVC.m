@@ -49,8 +49,9 @@
                                        UITextField *comment = alertForChangeComment.textFields.firstObject;
                                        self.commentLabel.text = self.commentString = comment.text;
                                        Data *data = [[Data alloc]init];
-                                       NSArray *arr = [NSArray arrayWithArray:[data replaceCommentOfString:comment.text fromRow:self.numberOfRow]];
-                                       [data writeDataToFileImageArray:[data getImageNameArray] andCommentArray:arr];
+                                       NSLog(@"%@",[data getCommentArray]);
+                                       [data writeDataToFileImageArray:[data getImageNameArray] andCommentArray:[data replaceCommentOfString:comment.text fromRow:self.numberOfRow]];
+                                       NSLog(@"%@",[data getCommentArray]);
                                    }];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil];
         [alertForChangeComment addAction:okAction];

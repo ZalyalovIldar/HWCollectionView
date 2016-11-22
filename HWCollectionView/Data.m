@@ -45,6 +45,7 @@
     NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"Data" ofType:@"plist"];
     NSLog(@"%@",plistPath);
     [writeData writeToFile:plistPath atomically:YES];
+    NSLog(@"Волшебный массив %@",[self getCommentArray]);
 }
 
 -(NSString*)getImageName:(UIImageView*)imageView{
