@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RootPageViewController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    //pageControl.backgroundColor = [UIColor whiteColor];
+     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+   
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName: @"Main" bundle:[NSBundle mainBundle]];
+    RootPageViewController *rootPageViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RootPageViewController"];
+    ViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"NavigationViewController"];
+    navigationController.viewControllers = @[viewController];
+    
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    if ([standardUserDefaults objectForKey:@"PresentationState" ]){
+    
+        self.window.rootViewController = navigationController;
+         [self.window makeKeyAndVisible];
+        return YES;
+    }
+    self.window.rootViewController = rootPageViewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
