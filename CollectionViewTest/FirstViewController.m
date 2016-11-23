@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //Создание базы данных
+    //Data
     _pageTitles = @[@"Более 200 советов и приемов",@"Открой для себя скрытые возможности!",@"После появления социальных сетей...",@"...люди решили, что они кому-то нужны"];
     _pageImages = @[@"page1.png", @"page2.png", @"page3.png", @"page4.png"];
     
@@ -53,9 +53,10 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
-    @synchronized (self) {
-        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"ViewLoad"];
-    };
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"ViewLoad" ];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     
     // Do any additional setup after loading the view.
 }
@@ -149,9 +150,20 @@
 {
     return 0;
 }
-- (IBAction)skipButton:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"ViewLoad"];
-    [self dismissViewControllerAnimated:YES completion:nil];
 
+- (IBAction)skipButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"SettingIsOpened"] == 1) {
+        [self changeViewOnStatingView];
+    }
+    
 }
+
+- (void)changeViewOnStatingView{ //метод перехода на другой ViewController
+    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
+    UIViewController *controller = [tempStoryboard instantiateViewControllerWithIdentifier:@"SettingView"];
+    [self presentViewController:controller animated:YES completion:nil];
+    
+}
+
 @end

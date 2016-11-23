@@ -4,21 +4,25 @@
 <dict>
 	<key>instagramImage</key>
 	<array>
-		<string>2</string>
 		<string>1</string>
 		<string>2</string>
-		<string>1</string>
-		<string>2</string>
-		<string>1</string>
+		<string>3</string>
+		<string>4</string>
+		<string>5</string>
+		<string>6</string>
+		<string>7</string>
+		<string>8</string>
 	</array>
 	<key>instagramLabel</key>
 	<array>
+		<string>тут типо пусто</string>
+		<string>Такие вот картиночки</string>
 		<string>Вот так вот</string>
-		<string>Так вот так</string>
-		<string>Вот так вот</string>
-		<string>Так вот так</string>
-		<string>Вот так вот</string>
-		<string>Так вот так</string>
+		<string>А тут так вот</string>
+		<string>Сюда нажимаешь</string>
+		<string>Туда нажимаешь</string>
+		<string>Вот тут так делаешь</string>
+		<string>Сохраняешь</string>
 	</array>
 </dict>
 </plist>

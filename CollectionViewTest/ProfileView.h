@@ -10,4 +10,7 @@
 
 @interface profileView : UIViewController
 
+-(void)dataChangeImage:(NSString *)imageName andIndexPath:(int)index;
+-(void)dataChangeLabel:(NSString *)labelText andIndexPath:(int)index;
+
 @end

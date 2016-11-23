@@ -7,6 +7,7 @@
 //
 
 #import "ImageMakerViewController.h"
+#import "ProfileView.h"
 
 @interface ImageMakerViewController ()
 
@@ -16,17 +17,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _imageMakerName = [[NSUserDefaults standardUserDefaults] objectForKey:@"imageMake"];
-    NSLog(@"%@", _imageMakerName);
-    self.imageMakerImage.image = [UIImage imageNamed:self.imageMakerName];
-    self.textMakerForLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"labelMake"];
+    //Navigation Button
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
+    
+    //import from first VC
+    self.imageMakerImageView.image = [UIImage imageNamed:[_imageMakerImage objectAtIndex:self.imageMakerIndexPath]];
+    self.textMakerForLabel.text = [_imageMakerLabel objectAtIndex:self.imageMakerIndexPath];
+
     // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Button action
+-(void)save{
+    //[_imageMakerImage insertObject: atIndex:_imageMakerIndexPath]; //вставить сюда изображение которое будет поменяно
+    profileView *profileVC = [[profileView alloc]init];
+    [profileVC dataChangeImage:@"" andIndexPath:(int)_imageMakerIndexPath];
+   // [self.imageMakerLabel replaceObjectAtIndex:_imageMakerIndexPath withObject:_textMakerForLabel.text];
+
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+
 
 /*
 #pragma mark - Navigation
@@ -38,7 +56,4 @@
 }
 */
 
-- (IBAction)closeButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 @end

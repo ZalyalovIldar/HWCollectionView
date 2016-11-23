@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ImageMakerViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *imageMakerImage;
-- (IBAction)closeButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imageMakerImageView;
 @property (weak, nonatomic) IBOutlet UITextField *textMakerForLabel;
-@property (strong, nonatomic) NSString *imageMakerName;
+
+@property (strong, nonatomic) NSMutableArray *imageMakerImage;
+@property (strong, nonatomic) NSMutableArray *imageMakerLabel;
+@property NSInteger imageMakerIndexPath;
 
 @end

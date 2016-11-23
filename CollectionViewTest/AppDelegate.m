@@ -16,6 +16,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] == 0) {
+        [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"SettingIsOpened"];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
+        self.window.rootViewController = vc;
+    }else{
+        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"SettingIsOpened"] == 1) {
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SettingView"];
+            self.window.rootViewController = vc;
+        }else{
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
+            self.window.rootViewController = vc;
+        }
+    }
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
