@@ -16,27 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    pageControl.backgroundColor = [UIColor whiteColor];
-    
-    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    if(![[NSUserDefaults standardUserDefaults] dictionaryForKey:@"TutorialVisited"]){
-        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"HelpViewController"];
-        self.window.rootViewController = viewController;
-    } else {
-        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"CollectionViewController"];
-        self.window.rootViewController = viewController;
-    }
-    
-    [self.window makeKeyAndVisible];
-    
     // Override point for customization after application launch.
-    
     return YES;
 }
 

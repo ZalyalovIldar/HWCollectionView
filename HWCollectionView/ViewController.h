@@ -7,14 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SingleCellViewController.h"
 
 @interface ViewController : UIViewController
-
-@property (strong, nonatomic) SingleCellViewController *helpCellVC;
-
--(void)readData;
--(void)writeDataToFile:(NSString*)fileName;
 
 
 @end
