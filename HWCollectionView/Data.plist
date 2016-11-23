@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Image</key>
+	<array>
+		<string>cat</string>
+		<string>16</string>
+		<string>Офисный кот</string>
+		<string>Програм</string>
+		<string>Печаль</string>
+		<string>Хлебушек</string>
+		<string>Когда купили новый macbook 12</string>
+		<string>Неделя после покупки macbook 12</string>
+	</array>
+	<key>Comment</key>
+	<array>
+		<string>Когда потратил 4 часа на расстановку констрейнтов</string>
+		<string>Ммм... Шаурма:р</string>
+		<string>Когда пришел на собеседование</string>
+		<string>Тру прогер</string>
+		<string>Когда 3 курс узнал, что у 2ого курса физики не будет)</string>
+		<string>Когда тебя просят быть серьезнее, а ты...</string>
+		<string>Ура, новый мак)</string>
+		<string>Когда осознал, что не сможешь подключить флешку без переходника, который стоит 4к рублей</string>
+	</array>
+</dict>
+</plist>
