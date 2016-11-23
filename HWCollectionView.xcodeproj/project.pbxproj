@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1F51401DE4A04900C3A492 /* collectionData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B1F513F1DE4A04900C3A492 /* collectionData.plist */; };
+		3B1F51431DE4DA2400C3A492 /* SingleCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1F51421DE4DA2400C3A492 /* SingleCellViewController.m */; };
+		3B2FB0D61DE51A15000C8E39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2FB0D51DE51A15000C8E39 /* Main.storyboard */; };
 		3B82FD6B1DD91EB60093D7C5 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B82FD6A1DD91EB60093D7C5 /* PageContentViewController.m */; };
 		3B82FD6E1DD926BC0093D7C5 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B82FD6D1DD926BC0093D7C5 /* HelpViewController.m */; };
-		3B82FD711DD931C50093D7C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B82FD6F1DD931C40093D7C5 /* Main.storyboard */; };
 		3BF6A5521DD281F600C914C7 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF6A5501DD281F600C914C7 /* MyCollectionViewCell.m */; };
 		3BF6A5531DD281F600C914C7 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF6A5511DD281F600C914C7 /* MyCollectionViewCell.xib */; };
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
@@ -20,11 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B1F513F1DE4A04900C3A492 /* collectionData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = collectionData.plist; sourceTree = "<group>"; };
+		3B1F51411DE4DA2400C3A492 /* SingleCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCellViewController.h; sourceTree = "<group>"; };
+		3B1F51421DE4DA2400C3A492 /* SingleCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCellViewController.m; sourceTree = "<group>"; };
+		3B2FB0D51DE51A15000C8E39 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3B82FD691DD91EB60093D7C5 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		3B82FD6A1DD91EB60093D7C5 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		3B82FD6C1DD926BC0093D7C5 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		3B82FD6D1DD926BC0093D7C5 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
-		3B82FD701DD931C40093D7C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HWCollectionView/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BF6A54F1DD281F600C914C7 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
 		3BF6A5501DD281F600C914C7 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
 		3BF6A5511DD281F600C914C7 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -73,14 +78,17 @@
 				7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */,
 				7CF88CED1DCBD89F0040F8F7 /* ViewController.h */,
 				7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */,
+				3B1F513F1DE4A04900C3A492 /* collectionData.plist */,
+				3B1F51411DE4DA2400C3A492 /* SingleCellViewController.h */,
+				3B1F51421DE4DA2400C3A492 /* SingleCellViewController.m */,
 				3BF6A54F1DD281F600C914C7 /* MyCollectionViewCell.h */,
 				3BF6A5501DD281F600C914C7 /* MyCollectionViewCell.m */,
 				3BF6A5511DD281F600C914C7 /* MyCollectionViewCell.xib */,
 				3B82FD691DD91EB60093D7C5 /* PageContentViewController.h */,
 				3B82FD6A1DD91EB60093D7C5 /* PageContentViewController.m */,
-				3B82FD6C1DD926BC0093D7C5 /* HelpViewController.h */,
 				3B82FD6D1DD926BC0093D7C5 /* HelpViewController.m */,
-				3B82FD6F1DD931C40093D7C5 /* Main.storyboard */,
+				3B82FD6C1DD926BC0093D7C5 /* HelpViewController.h */,
+				3B2FB0D51DE51A15000C8E39 /* Main.storyboard */,
 				7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */,
 				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
 				7CF88CF81DCBD89F0040F8F7 /* Info.plist */,
@@ -155,10 +163,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B1F51401DE4A04900C3A492 /* collectionData.plist in Resources */,
+				3B2FB0D61DE51A15000C8E39 /* Main.storyboard in Resources */,
 				7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */,
 				7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */,
 				3BF6A5531DD281F600C914C7 /* MyCollectionViewCell.xib in Resources */,
-				3B82FD711DD931C50093D7C5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +182,7 @@
 				3B82FD6E1DD926BC0093D7C5 /* HelpViewController.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
 				3B82FD6B1DD91EB60093D7C5 /* PageContentViewController.m in Sources */,
+				3B1F51431DE4DA2400C3A492 /* SingleCellViewController.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
 				3BF6A5521DD281F600C914C7 /* MyCollectionViewCell.m in Sources */,
 			);
@@ -181,15 +191,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3B82FD6F1DD931C40093D7C5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B82FD701DD931C40093D7C5 /* Base */,
-			);
-			name = Main.storyboard;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

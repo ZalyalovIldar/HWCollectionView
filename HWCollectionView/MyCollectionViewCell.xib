@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,16 +17,28 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aM1-Hx-BZr"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rH-3P-TxF">
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="4rH-3P-TxF" secondAttribute="height" multiplier="75:16" id="Q20-we-6ur"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="4rH-3P-TxF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2wx-gZ-ZJk"/>
+                <constraint firstItem="4rH-3P-TxF" firstAttribute="top" secondItem="aM1-Hx-BZr" secondAttribute="bottom" constant="8" id="4L6-bX-HP7"/>
                 <constraint firstAttribute="trailing" secondItem="aM1-Hx-BZr" secondAttribute="trailing" id="8Tb-uk-AoP"/>
-                <constraint firstAttribute="bottom" secondItem="aM1-Hx-BZr" secondAttribute="bottom" id="AWC-wJ-joo"/>
                 <constraint firstItem="aM1-Hx-BZr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Nhi-wl-fwJ"/>
+                <constraint firstAttribute="bottom" secondItem="4rH-3P-TxF" secondAttribute="bottom" id="fDZ-1x-ZhK"/>
+                <constraint firstAttribute="trailing" secondItem="4rH-3P-TxF" secondAttribute="trailing" id="j6c-Yi-SSN"/>
                 <constraint firstItem="aM1-Hx-BZr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="odl-Mf-JDU"/>
             </constraints>
             <connections>
                 <outlet property="ImageView" destination="aM1-Hx-BZr" id="3WD-Jo-kTI"/>
+                <outlet property="textLabel" destination="4rH-3P-TxF" id="Aci-kp-gzy"/>
             </connections>
         </collectionViewCell>
     </objects>
