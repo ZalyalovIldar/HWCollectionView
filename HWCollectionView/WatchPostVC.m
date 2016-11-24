@@ -10,6 +10,7 @@
 #import "Data.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <Photos/Photos.h>
+#import "TableSettings.h"
 
 @interface WatchPostVC () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -19,13 +20,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    TableSettings *userInfo = (TableSettings*)[TableSettings unarchiveData];
+    self.userNameLabel.text = self.postUsernameLabel.text = userInfo.username;
     UIBarButtonItem *edit = [[UIBarButtonItem alloc]initWithTitle:@"Изменить" style:UIBarButtonItemStylePlain target:self action:@selector(showAlert)];
     self.navigationItem.rightBarButtonItem = edit;
     self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width/2;
     self.userPhoto.clipsToBounds = YES;
+    self.userPhoto.image = [UIImage imageNamed:userInfo.userImageName];
     self.postImageView.image = [UIImage imageNamed:self.imageNameString];
     self.commentLabel.text = self.commentString;
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    TableSettings *userInfo = (TableSettings*)[TableSettings unarchiveData];
+    self.userNameLabel.text = self.postUsernameLabel.text = userInfo.username;
+    self.userPhoto.image = [UIImage imageNamed:userInfo.userImageName];
+    
+}
+
 #pragma mark - alert to change
 -(void)showAlert{
     UIImagePickerController *picker = [[UIImagePickerController alloc]init];

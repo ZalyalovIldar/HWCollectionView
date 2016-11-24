@@ -102,8 +102,20 @@
 
 #pragma mark - skip tutorial
 - (IBAction)skipTutorialButton:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"ViewLoad"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"ViewLoad"] isEqual:@"visited"]){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [[NSUserDefaults standardUserDefaults] setObject:@"visited" forKey:@"ViewLoad"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        if(![[[NSUserDefaults standardUserDefaults]objectForKey:@"filledAboutItself"] isEqual:@"YES"]){
+            UIViewController *settingVC = [storyboard instantiateViewControllerWithIdentifier:@"setting"];
+            [self presentViewController:settingVC animated:YES completion:nil];
+        }else{
+            UIViewController *userVC = [storyboard instantiateViewControllerWithIdentifier:@"UserViewController"];
+            [self presentViewController:userVC animated:YES completion:nil];
+        }
+    }
 }
 
 @end

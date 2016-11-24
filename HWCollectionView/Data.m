@@ -62,4 +62,9 @@
     }
 }
 
+-(NSArray*)getSettingsPlaceholderArray{
+    NSArray *arr = [NSArray arrayWithObjects:@"Имя",@"Имя пользователя",@"Веб-сайт",@"Адрес эл.почты",@"Телефон", nil];
+    return arr;
+}
+
 @end

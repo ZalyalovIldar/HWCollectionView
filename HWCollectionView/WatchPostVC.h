@@ -16,5 +16,7 @@
 @property (strong, nonatomic) NSString *imageNameString;
 @property (strong, nonatomic) NSString *commentString;
 @property (nonatomic) NSInteger numberOfRow;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *postUsernameLabel;
 
 @end

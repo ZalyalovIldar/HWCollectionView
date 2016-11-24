@@ -12,6 +12,171 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Изменить профиль-->
+        <scene sceneID="ezl-Rk-4Gs">
+            <objects>
+                <tableViewController id="Dty-L6-zbZ" customClass="SettingTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="j1V-Xh-vq4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="cfz-tm-9R3">
+                            <rect key="frame" x="0.0" y="64" width="375" height="170"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBs-9r-wqJ">
+                                    <rect key="frame" x="103.5" y="130" width="168" height="30"/>
+                                    <state key="normal" title="Сменить фото профиля"/>
+                                    <connections>
+                                        <action selector="changeUserPhoto:" destination="Dty-L6-zbZ" eventType="touchUpInside" id="gZy-ZA-f0O"/>
+                                    </connections>
+                                </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="gkB-V7-yD5">
+                                    <rect key="frame" x="142.5" y="35" width="90" height="90"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="90" id="MiL-di-yz1"/>
+                                        <constraint firstAttribute="width" constant="90" id="bxp-wj-6Zg"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.93709164860000005" green="0.93694382909999996" blue="0.95754462480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="EBs-9r-wqJ" firstAttribute="top" secondItem="gkB-V7-yD5" secondAttribute="bottom" constant="5" id="FcS-Cy-6AZ"/>
+                                <constraint firstItem="EBs-9r-wqJ" firstAttribute="centerX" secondItem="cfz-tm-9R3" secondAttribute="centerX" id="lCB-l2-GGW"/>
+                                <constraint firstAttribute="bottom" secondItem="EBs-9r-wqJ" secondAttribute="bottom" constant="10" id="maQ-t1-oU8"/>
+                                <constraint firstItem="gkB-V7-yD5" firstAttribute="centerX" secondItem="cfz-tm-9R3" secondAttribute="centerX" id="pUe-EX-eiy"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="J5H-79-x5O">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HE3-va-y52">
+                                        <rect key="frame" x="0.0" y="170" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HE3-va-y52" id="GtU-UR-bqG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gN9-GS-geS">
+                                                    <rect key="frame" x="16" y="5" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aCy-aB-lEy">
+                                        <rect key="frame" x="0.0" y="214" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aCy-aB-lEy" id="7ss-yj-jMn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя пользователя" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="csQ-Q4-RP1">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CwC-tT-9sX">
+                                        <rect key="frame" x="0.0" y="258" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CwC-tT-9sX" id="8tu-XD-2sP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Веб-сайт" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GlP-lY-4Kr">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Личная информация" id="XGK-eh-lJU">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ysw-R6-QM1">
+                                        <rect key="frame" x="0.0" y="359" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ysw-R6-QM1" id="gkU-6c-gum">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Эл.почта" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pn7-Uu-FUX">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Hxb-hN-ogj">
+                                        <rect key="frame" x="0.0" y="403" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hxb-hN-ogj" id="54t-2d-Tvl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Телефон" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="38V-3q-2BH">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Dty-L6-zbZ" id="qKI-h9-dn0"/>
+                            <outlet property="delegate" destination="Dty-L6-zbZ" id="EjV-jZ-VaX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Изменить профиль" id="uFN-bD-3nN">
+                        <barButtonItem key="backBarButtonItem" title="          " id="vLI-Im-1qA"/>
+                        <barButtonItem key="leftBarButtonItem" title="Отмена" id="xK5-yQ-lYh">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="Dty-L6-zbZ" id="9Uj-90-vQN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Готово" id="TCd-7y-6iT">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="saveInfoButton:" destination="Dty-L6-zbZ" id="fMx-wz-pZZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="xK5-yQ-lYh" id="4dx-oN-Wj8"/>
+                        <outlet property="emailTextField" destination="pn7-Uu-FUX" id="UkN-J2-hAW"/>
+                        <outlet property="nameTextField" destination="gN9-GS-geS" id="Ljr-5h-5Cf"/>
+                        <outlet property="phoneNumberTextField" destination="38V-3q-2BH" id="Yey-MZ-JkU"/>
+                        <outlet property="saveInfoButton" destination="TCd-7y-6iT" id="syW-RT-WYz"/>
+                        <outlet property="userImageView" destination="gkB-V7-yD5" id="p00-do-Y9f"/>
+                        <outlet property="usernameTextField" destination="csQ-Q4-RP1" id="shz-Wi-6O2"/>
+                        <outlet property="webpageTextField" destination="GlP-lY-4Kr" id="nje-gg-Ttj"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fiR-Gu-tDP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2684" y="-699.40029985007504"/>
+        </scene>
         <!--Lenar-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -31,6 +196,9 @@
                                 <state key="normal" title="Редактировать профиль">
                                     <color key="titleColor" white="0.40999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="editUserProfileButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yeM-h6-tme"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ленар Гилязов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxF-FS-QJc">
                                 <rect key="frame" x="16" y="185" width="232" height="22"/>
@@ -59,7 +227,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Ohw-pK-bwt"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="K34-ee-DPb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="K34-ee-DPb">
                                 <rect key="frame" x="13" y="82" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K34-ee-DPb" secondAttribute="height" multiplier="1:1" id="Fbo-Te-szL"/>
@@ -184,6 +352,8 @@
                         <outlet property="galleryCollectionView" destination="p9X-a9-EIj" id="a3W-5B-QqK"/>
                         <outlet property="tutorialShowButton" destination="8mL-b6-43m" id="zMF-BM-S4N"/>
                         <outlet property="userImageView" destination="K34-ee-DPb" id="9FE-3H-Tcs"/>
+                        <outlet property="userNameLabel" destination="oxF-FS-QJc" id="XOq-YF-rBu"/>
+                        <outlet property="webpageLabel" destination="wvu-O1-8GG" id="ggg-lD-D3H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -217,7 +387,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="fAX-aV-b6d">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="fAX-aV-b6d">
                                 <rect key="frame" x="16" y="48" width="45" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="1Qu-0w-Jvx"/>
@@ -257,12 +427,14 @@
                     <connections>
                         <outlet property="commentLabel" destination="3xv-LG-Rxy" id="L1l-tH-F67"/>
                         <outlet property="postImageView" destination="CNf-uH-oGc" id="VlB-lT-Y76"/>
+                        <outlet property="postUsernameLabel" destination="uyG-LC-wag" id="a3X-n8-nbk"/>
+                        <outlet property="userNameLabel" destination="yv1-4X-KZj" id="raA-so-djd"/>
                         <outlet property="userPhoto" destination="fAX-aV-b6d" id="urn-2l-68n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSX-Nt-MTl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1880.8" y="35.532233883058474"/>
+            <point key="canvasLocation" x="1881" y="36"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="RjN-CS-SoX">
@@ -326,7 +498,6 @@
                                 </state>
                                 <connections>
                                     <action selector="skipTutorialButton:" destination="QEG-yG-mlp" eventType="touchUpInside" id="nei-hO-3b6"/>
-                                    <segue destination="OXj-in-CDO" kind="presentation" id="wGX-jL-Qi8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -360,8 +531,26 @@
             </objects>
             <point key="canvasLocation" x="127" y="36"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PN5-Lp-v8Q">
+            <objects>
+                <navigationController storyboardIdentifier="setting" automaticallyAdjustsScrollViewInsets="NO" id="xhN-eT-CeI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bHw-xN-1Rl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dty-L6-zbZ" kind="relationship" relationship="rootViewController" id="rTl-rt-9tO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xN3-z7-K0t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="-699.40029985007504"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="User" width="1080" height="720"/>
+        <image name="user" width="400" height="400"/>
     </resources>
 </document>

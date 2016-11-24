@@ -11,5 +11,7 @@
 @interface UserViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *galleryCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tutorialShowButton;
+@property (weak, nonatomic) IBOutlet UILabel *webpageLabel;
 @end

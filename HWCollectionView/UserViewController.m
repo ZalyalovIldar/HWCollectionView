@@ -10,6 +10,7 @@
 #import "PhotoCollectionViewCell.h"
 #import "Data.h"
 #import "WatchPostVC.h"
+#import "TableSettings.h"
 
 @interface UserViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -27,16 +28,18 @@
 static NSString * const reuseIdentifier = @"Cell";
 
 - (IBAction)againWatchTutorialButton:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setInteger:1 forKey:@"ViewLoad"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
     UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *moveToTutorial = [tempStoryboard instantiateViewControllerWithIdentifier:@"Tutorial"];
-    [self dismissViewControllerAnimated:NO completion:nil];
     [self presentViewController:moveToTutorial animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    TableSettings *userInfo = (TableSettings*)[TableSettings unarchiveData];
+    self.navigationItem.title = userInfo.name;
+    self.userNameLabel.text = userInfo.username;
+    self.webpageLabel.text = userInfo.webpage;
+    self.userImageView.image = [UIImage imageNamed:userInfo.userImageName];
     self.userImageView.layer.cornerRadius = self.userImageView.frame.size.width/2;
     self.userImageView.clipsToBounds = YES;
     self.data = [Data new];
@@ -58,9 +61,11 @@ static NSString * const reuseIdentifier = @"Cell";
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"]!=0){
-        [self visited];
-    }
+    TableSettings *userInfo = (TableSettings*)[TableSettings unarchiveData];
+    self.navigationItem.title = userInfo.name;
+    self.userNameLabel.text = userInfo.username;
+    self.webpageLabel.text = userInfo.webpage;
+    self.userImageView.image = [UIImage imageNamed:userInfo.userImageName];
 }
 
 -(void)startRefresh{
@@ -69,14 +74,8 @@ static NSString * const reuseIdentifier = @"Cell";
     self.commentStringArray = [NSArray arrayWithArray:[self.data getCommentArray]];
     [self.galleryCollectionView reloadData];
     [self.refreshControl endRefreshing];
-    }
-
--(void)visited{
-    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *moveToTutorial = [tempStoryboard instantiateViewControllerWithIdentifier:@"Tutorial"];
-    [self presentViewController:moveToTutorial animated:YES completion:nil];
-
 }
+
 #pragma mark - CollectionView
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -102,6 +101,12 @@ static NSString * const reuseIdentifier = @"Cell";
     vc.imageNameString = self.imageNameString;
     vc.numberOfRow = indexPath.row;
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)editUserProfileButton:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *settingVC = [storyboard instantiateViewControllerWithIdentifier:@"setting"];
+    [self presentViewController:settingVC animated:YES completion:nil];
 }
 
 @end
