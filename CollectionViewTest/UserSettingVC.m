@@ -8,6 +8,7 @@
 
 #import "UserSettingVC.h"
 #import "UserSetting.h"
+#import "ScrollView.h"
 
 @interface UserSettingVC ()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
@@ -15,10 +16,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *firstSaveButton;
 @property (weak, nonatomic) IBOutlet UITextField *userEmail;
 
+@property (weak, nonatomic) IBOutlet UIImageView *userAvatar;
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *userLoginField;
 @property (weak, nonatomic) IBOutlet UITextField *userWEBSiteURLField;
 @property (weak, nonatomic) IBOutlet UITextField *userSayField;
+
+@property (strong, nonatomic) NSString * userAvatarName;
 
 @end
 
@@ -32,14 +36,13 @@
         self.firstSaveButton.enabled = NO;
     }
     UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
+    self.userAvatarName = userSettingData.userAvatar;
+    self.userAvatar.image = [UIImage imageNamed:_userAvatarName];
     self.userNameField.text = userSettingData.userName;
     self.userLoginField.text = userSettingData.userLogin;
     self.userSayField.text = userSettingData.userSay;
     self.userWEBSiteURLField.text = userSettingData.userWebSiteURL;
     self.userEmail.text = userSettingData.userEmail;
-    
-    
-    
     // Do any additional setup after loading the view.
 }
 
@@ -60,11 +63,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)userAvatar:(id)sender {
+    
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select image" message:@"Select image for you profile" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cat" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){
+        _userAvatarName = @"avatar1";
+        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Hard Coder" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){
+        _userAvatarName = @"avatar2";
+        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Super pusher" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){
+        _userAvatarName = @"avatar3";
+        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *_Nonnull action){
+        _userAvatarName = @"avatarDefault";
+        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 #pragma mark - User Data
 -(void)saveUserData{
     [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"SettingIsOpened"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     UserSetting *userSettingsWrite = [UserSetting new];
+    userSettingsWrite.userAvatar = _userAvatarName;
     userSettingsWrite.userName = self.userNameField.text;
     userSettingsWrite.userLogin = self.userLoginField.text;
     userSettingsWrite.userSay = self.userSayField.text;
@@ -98,13 +125,13 @@
     }else{
         self.userEmail.backgroundColor = [UIColor clearColor];
     }
-    if (self.userNameField.text.length == 0){
+    if (self.userNameField.text.length == 0 || self.userNameField.text.length > 20){
         self.userNameField.backgroundColor = [UIColor redColor];
         che = false;
     }else{
         self.userNameField.backgroundColor = [UIColor clearColor];
     }
-    if (self.userLoginField.text.length == 0){
+    if (self.userLoginField.text.length == 0 || self.userLoginField.text.length > 8){
         self.userLoginField.backgroundColor = [UIColor redColor];
         che = false;
     }else{
@@ -116,7 +143,7 @@
     return che;
 }
 -(void)errorAlert{
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Ошибка заполнения" message:@"Введите данные корректно!" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Correct you data" preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* resultAlert = [UIAlertAction actionWithTitle:@"ОК" style:UIAlertActionStyleDefault handler:nil];
     

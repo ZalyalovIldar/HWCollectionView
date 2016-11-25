@@ -21,8 +21,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
     
     //import from first VC
-    self.imageMakerImageView.image = [UIImage imageNamed:[_imageMakerImage objectAtIndex:self.imageMakerIndexPath]];
-    self.textMakerForLabel.text = [_imageMakerLabel objectAtIndex:self.imageMakerIndexPath];
+    self.imageMakerImageView.image = [UIImage imageNamed:_imageMakerImage];
+    self.textMakerForLabel.text = _imageMakerLabel;
 
     // Do any additional setup after loading the view.
 }
@@ -37,9 +37,8 @@
 -(void)save{
     //[_imageMakerImage insertObject: atIndex:_imageMakerIndexPath]; //вставить сюда изображение которое будет поменяно
     profileView *profileVC = [[profileView alloc]init];
-    [profileVC dataChangeImage:@"" andIndexPath:(int)_imageMakerIndexPath];
-   // [self.imageMakerLabel replaceObjectAtIndex:_imageMakerIndexPath withObject:_textMakerForLabel.text];
-
+    [profileVC dataChangeImage:_imageMakerImage andIndexPath:(int)_imageMakerIndexPath];
+    [profileVC dataChangeLabel:_textMakerForLabel.text andIndexPath:(int)_imageMakerIndexPath];
     [self.navigationController popViewControllerAnimated:YES];
     
 }
@@ -56,4 +55,18 @@
 }
 */
 
+- (IBAction)imageEditFirst:(id)sender {
+    _imageMakerImage = @"8";
+    self.imageMakerImageView.image = [UIImage imageNamed:@"8"];
+}
+
+- (IBAction)imageEditSecond:(id)sender {
+    _imageMakerImage = @"2";
+    self.imageMakerImageView.image = [UIImage imageNamed:@"2"];
+}
+
+- (IBAction)imageEditThird:(id)sender {
+    _imageMakerImage = @"5";
+    self.imageMakerImageView.image = [UIImage imageNamed:@"5"];
+}
 @end

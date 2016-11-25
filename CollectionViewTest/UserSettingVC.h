@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScrollView.h"
 
-@interface UserSettingVC : UIViewController
+@interface UserSettingVC : ScrollView
 
 @end

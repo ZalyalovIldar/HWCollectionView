@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9943064F1DDB3C290087D169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9943064E1DDB3C290087D169 /* Assets.xcassets */; };
 		9976A3A31DE1870B00AEC5B1 /* instagramList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9976A3A21DE1870B00AEC5B1 /* instagramList.plist */; };
+		999CFA5F1DE7ACC300BEBCE1 /* ScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 999CFA5E1DE7ACC300BEBCE1 /* ScrollView.m */; };
 		99AEC19A1DE1ADA1006EA45A /* ImageMakerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AEC1991DE1ADA1006EA45A /* ImageMakerViewController.m */; };
 		99BCC67D1DE5D6F200F809D5 /* UserSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BCC67C1DE5D6F200F809D5 /* UserSettingVC.m */; };
 		99BCC6801DE5E68900F809D5 /* UserSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BCC67F1DE5E68900F809D5 /* UserSetting.m */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		9943064E1DDB3C290087D169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9976A3A21DE1870B00AEC5B1 /* instagramList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = instagramList.plist; sourceTree = "<group>"; };
+		999CFA5D1DE7ACC300BEBCE1 /* ScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollView.h; sourceTree = "<group>"; };
+		999CFA5E1DE7ACC300BEBCE1 /* ScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollView.m; sourceTree = "<group>"; };
 		99AEC1981DE1ADA1006EA45A /* ImageMakerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageMakerViewController.h; sourceTree = "<group>"; };
 		99AEC1991DE1ADA1006EA45A /* ImageMakerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageMakerViewController.m; sourceTree = "<group>"; };
 		99BCC67B1DE5D6F200F809D5 /* UserSettingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingVC.h; sourceTree = "<group>"; };
@@ -100,6 +103,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99BCC6811DE6308D00F809D5 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				9976A3A21DE1870B00AEC5B1 /* instagramList.plist */,
+				99BCC67E1DE5E68900F809D5 /* UserSetting.h */,
+				99BCC67F1DE5E68900F809D5 /* UserSetting.m */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
+		99BCC6821DE630A800F809D5 /* UserSetting */ = {
+			isa = PBXGroup;
+			children = (
+				99BCC67B1DE5D6F200F809D5 /* UserSettingVC.h */,
+				99BCC67C1DE5D6F200F809D5 /* UserSettingVC.m */,
+			);
+			name = UserSetting;
+			sourceTree = "<group>";
+		};
+		99BCC6831DE630B900F809D5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99EDA8491DD1E046001C01ED /* InstagramView */,
+				99E4ACC71DD20A85000400FB /* PageViewController */,
+				99BCC6821DE630A800F809D5 /* UserSetting */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		99C9B5641DCDCAF4005A02E4 = {
 			isa = PBXGroup;
 			children = (
@@ -123,17 +155,14 @@
 		99C9B56F1DCDCAF4005A02E4 /* CollectionViewTest */ = {
 			isa = PBXGroup;
 			children = (
+				99BCC6831DE630B900F809D5 /* Controller */,
+				99BCC6811DE6308D00F809D5 /* Modal */,
 				99C9B5701DCDCAF4005A02E4 /* Supporting Files */,
 				99C9B5791DCDCAF4005A02E4 /* Main.storyboard */,
-				99EDA8491DD1E046001C01ED /* InstagramView */,
-				99E4ACC71DD20A85000400FB /* PageViewController */,
-				9976A3A21DE1870B00AEC5B1 /* instagramList.plist */,
 				99AEC1981DE1ADA1006EA45A /* ImageMakerViewController.h */,
 				99AEC1991DE1ADA1006EA45A /* ImageMakerViewController.m */,
-				99BCC67B1DE5D6F200F809D5 /* UserSettingVC.h */,
-				99BCC67C1DE5D6F200F809D5 /* UserSettingVC.m */,
-				99BCC67E1DE5E68900F809D5 /* UserSetting.h */,
-				99BCC67F1DE5E68900F809D5 /* UserSetting.m */,
+				999CFA5D1DE7ACC300BEBCE1 /* ScrollView.h */,
+				999CFA5E1DE7ACC300BEBCE1 /* ScrollView.m */,
 			);
 			path = CollectionViewTest;
 			sourceTree = "<group>";
@@ -344,6 +373,7 @@
 				99C9B5721DCDCAF4005A02E4 /* main.m in Sources */,
 				99BCC6801DE5E68900F809D5 /* UserSetting.m in Sources */,
 				99C9B5AF1DCDCE7F005A02E4 /* MyCollectionViewCell.m in Sources */,
+				999CFA5F1DE7ACC300BEBCE1 /* ScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

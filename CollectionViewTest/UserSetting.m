@@ -11,6 +11,7 @@
 @implementation UserSetting
 
 - (void)encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.userAvatar forKey:@"userAvatar"];
     [aCoder encodeObject:self.userName forKey:@"userName"];
     [aCoder encodeObject:self.userLogin forKey:@"userLogin"];
     [aCoder encodeObject:self.userSay forKey:@"userSay"];
@@ -24,6 +25,7 @@
     if (!self) {
         return nil;
     }
+    self.userAvatar = [aDecoder decodeObjectForKey:@"userAvatar"];
     self.userName = [aDecoder decodeObjectForKey:@"userName"];
     self.userLogin = [aDecoder decodeObjectForKey:@"userLogin"];
     self.userSay = [aDecoder decodeObjectForKey:@"userSay"];

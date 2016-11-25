@@ -9,23 +9,35 @@
 #import "profileView.h"
 #import "MyCollectionViewCell.h"
 #import "ImageMakerViewController.h"
+#import "UserSetting.h"
 
 @interface profileView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 - (IBAction)backButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userSayLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *userAvatarImage;
+
 @property (strong, nonatomic) NSMutableArray * dataSourceImage;
 @property (strong, nonatomic) NSMutableArray * dataSourceLabel;
 @property (strong, nonatomic) NSMutableArray * dataSource;
+
+
 @end
 
 @implementation profileView
 
 static NSString * const reuseIdentifier = @"Cell";
 
-//-(void)viewDidDisappear:(BOOL)animated{
-//    [super viewDidDisappear:YES];
-//    [self writeDataToFile:@"SomeData"];
-//}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
+    self.userAvatarImage.image = [UIImage imageNamed:userSettingData.userAvatar];
+    self.userNameLabel.text = userSettingData.userName;
+    self.userSayLabel.text = userSettingData.userSay;
+    self.navigationItem.title = userSettingData.userLogin;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -36,7 +48,11 @@ static NSString * const reuseIdentifier = @"Cell";
     _dataSourceImage = [dict objectForKey:@"instagramImage"];
     _dataSourceLabel = [dict objectForKey:@"instagramLabel"];
     
-    //Tutorial
+    //userInformation
+    UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
+    self.userAvatarImage.image = [UIImage imageNamed:userSettingData.userAvatar];
+    self.userNameLabel.text = userSettingData.userName;
+    self.userSayLabel.text = userSettingData.userSay;
     //Refresh
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc]init];
     refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Я обновляюсь..."];
@@ -59,7 +75,19 @@ static NSString * const reuseIdentifier = @"Cell";
 //Refresh
 - (void)reloadData
 {
+    // Находим instagramList.plist
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"instagramList" ofType:@"plist"];
+    //Пацан за контент отвечает и добавляет в массив
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    _dataSourceImage = [dict objectForKey:@"instagramImage"];
+    _dataSourceLabel = [dict objectForKey:@"instagramLabel"];
+    
+    //userInformation
+    UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
+    self.userNameLabel.text = userSettingData.userName;
+    self.userSayLabel.text = userSettingData.userSay;
     [self.collectionView reloadData];
+    
     [self.collectionView.refreshControl endRefreshing];
     
 }
@@ -96,35 +124,35 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //ImageMakerViewController
     ImageMakerViewController *vc = (ImageMakerViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"ImageMakerViewController"];
-    vc.imageMakerImage = _dataSourceImage;
-    vc.imageMakerLabel = _dataSourceLabel;
+    vc.imageMakerImage = _dataSourceImage[indexPath.row];
+    vc.imageMakerLabel = _dataSourceLabel[indexPath.row];
     vc.imageMakerIndexPath = indexPath.row;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 
-
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    [segue destinationViewController];
-//    // Pass the selected object to the new view controller.
-//}
-
-
-
 #pragma mark - data
 -(void)dataChangeImage:(NSString *)imageName andIndexPath:(int)index{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"instagramList" ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    _dataSourceImage = [NSMutableArray arrayWithArray:[dict objectForKey:@"instagramImage"]];
+    NSLog(@"%@", _dataSourceImage);
     [_dataSourceImage replaceObjectAtIndex:index withObject:imageName];
     NSLog(@"%@", _dataSourceImage);
     NSLog(@"Work");
     
 }
 -(void)dataChangeLabel:(NSString *)labelText andIndexPath:(int)index{
-    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"instagramList" ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    _dataSourceLabel = [NSMutableArray arrayWithArray:[dict objectForKey:@"instagramLabel"]];
+    NSLog(@"%@", _dataSourceLabel);
+    [_dataSourceLabel replaceObjectAtIndex:index withObject:labelText];
+    NSLog(@"%@", _dataSourceImage);
+    [self writeDataToFile];
+    NSLog(@"Work");
 }
+
 -(void)writeDataToFile{
     NSError *eroor;
     NSDictionary *dataDict = @{
@@ -132,13 +160,9 @@ static NSString * const reuseIdentifier = @"Cell";
                                @"instagramLabel":_dataSourceLabel
                                };
     NSData *writeData = [NSPropertyListSerialization dataWithPropertyList:dataDict format:NSPropertyListXMLFormat_v1_0 options:0 error:&eroor];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [paths objectAtIndex:0];
     //Data
-    NSString *name = [NSString stringWithFormat:@"instagramList.plist"];
-    NSString *datafile = [documentsPath stringByAppendingPathComponent:name];
-    
-    [writeData writeToFile:datafile atomically:YES];
+    NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"instagramList" ofType:@"plist"];
+    [writeData writeToFile:plistPath atomically:YES];
 }
 
 #pragma mark - PageView
@@ -152,11 +176,5 @@ static NSString * const reuseIdentifier = @"Cell";
     UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
     [self presentViewController:moveToGeneral animated:YES completion:nil];
     
-}
-- (void)changeViewOnSetting{ //метод перехода на другой Setting
-    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"SettingView"];
-    [self.navigationController pushViewController:moveToGeneral animated:YES];
-    //[self presentViewController:moveToGeneral animated:YES completion:nil];
 }
 @end

@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScrollView.h"
 
-@interface ImageMakerViewController : UIViewController
+@interface ImageMakerViewController : ScrollView
 @property (weak, nonatomic) IBOutlet UIImageView *imageMakerImageView;
 @property (weak, nonatomic) IBOutlet UITextField *textMakerForLabel;
+- (IBAction)imageEditFirst:(id)sender;
+- (IBAction)imageEditSecond:(id)sender;
+- (IBAction)imageEditThird:(id)sender;
 
-@property (strong, nonatomic) NSMutableArray *imageMakerImage;
-@property (strong, nonatomic) NSMutableArray *imageMakerLabel;
+@property (strong, nonatomic) NSString *imageMakerImage;
+@property (strong, nonatomic) NSString *imageMakerLabel;
 @property NSInteger imageMakerIndexPath;
 
 @end

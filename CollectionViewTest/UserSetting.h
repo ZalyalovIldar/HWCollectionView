@@ -10,6 +10,7 @@
 
 @interface UserSetting : NSObject <NSCoding>
 
+@property (strong, nonatomic) NSString *userAvatar;
 @property (strong, nonatomic) NSString *userName;
 @property (strong, nonatomic) NSString *userLogin;
 @property (strong, nonatomic) NSString *userWebSiteURL;
