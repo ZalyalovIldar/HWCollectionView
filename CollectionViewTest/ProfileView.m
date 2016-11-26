@@ -68,7 +68,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [flowLayout setMinimumInteritemSpacing:1];
     
     [self.collectionView setCollectionViewLayout:flowLayout];
-    
+    self.userAvatarImage.layer.cornerRadius = self.userAvatarImage.frame.size.width/2;
+    self.userAvatarImage.clipsToBounds = YES;
     
     // Do any additional setup after loading the view.
 }

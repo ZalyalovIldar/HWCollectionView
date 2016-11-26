@@ -21,6 +21,7 @@
 		99C9B5961DCDCAF4005A02E4 /* CollectionViewTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5951DCDCAF4005A02E4 /* CollectionViewTestUITests.m */; };
 		99C9B5AF1DCDCE7F005A02E4 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99C9B5AD1DCDCE7F005A02E4 /* MyCollectionViewCell.m */; };
 		99C9B5B01DCDCE7F005A02E4 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99C9B5AE1DCDCE7F005A02E4 /* MyCollectionViewCell.xib */; };
+		99D9409A1DE9CC8C00F3FBE0 /* UserSettingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 99D940991DE9CC8C00F3FBE0 /* UserSettingTVC.m */; };
 		99EDA8371DD0A95D001C01ED /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8361DD0A95D001C01ED /* ProfileView.m */; };
 		99EDA8421DD1DE09001C01ED /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8411DD1DE09001C01ED /* PageContentViewController.m */; };
 		99EDA8481DD1DF7A001C01ED /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99EDA8471DD1DF7A001C01ED /* FirstViewController.m */; };
@@ -70,6 +71,8 @@
 		99C9B5AC1DCDCE7F005A02E4 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
 		99C9B5AD1DCDCE7F005A02E4 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
 		99C9B5AE1DCDCE7F005A02E4 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		99D940981DE9CC8C00F3FBE0 /* UserSettingTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingTVC.h; sourceTree = "<group>"; };
+		99D940991DE9CC8C00F3FBE0 /* UserSettingTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingTVC.m; sourceTree = "<group>"; };
 		99EDA8351DD0A95D001C01ED /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
 		99EDA8361DD0A95D001C01ED /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		99EDA8401DD1DE09001C01ED /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 			children = (
 				99BCC67B1DE5D6F200F809D5 /* UserSettingVC.h */,
 				99BCC67C1DE5D6F200F809D5 /* UserSettingVC.m */,
+				99D940981DE9CC8C00F3FBE0 /* UserSettingTVC.h */,
+				99D940991DE9CC8C00F3FBE0 /* UserSettingTVC.m */,
 			);
 			name = UserSetting;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				99AEC19A1DE1ADA1006EA45A /* ImageMakerViewController.m in Sources */,
 				99EDA8481DD1DF7A001C01ED /* FirstViewController.m in Sources */,
 				99EDA8371DD0A95D001C01ED /* ProfileView.m in Sources */,
+				99D9409A1DE9CC8C00F3FBE0 /* UserSettingTVC.m in Sources */,
 				99BCC67D1DE5D6F200F809D5 /* UserSettingVC.m in Sources */,
 				99EDA8421DD1DE09001C01ED /* PageContentViewController.m in Sources */,
 				99C9B5721DCDCAF4005A02E4 /* main.m in Sources */,

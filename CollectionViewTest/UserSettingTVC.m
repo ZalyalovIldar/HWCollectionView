@@ -1,69 +1,84 @@
 //
-//  UserSettingVC.m
+//  UserSettingTVC.m
 //  CollectionViewTest
 //
-//  Created by Ильяс Ихсанов on 23.11.16.
+//  Created by Ильяс Ихсанов on 26.11.16.
 //  Copyright © 2016 Ильяс Ихсанов. All rights reserved.
 //
 
-#import "UserSettingVC.h"
+#import "UserSettingTVC.h"
 #import "UserSetting.h"
-#import "ScrollView.h"
 
-@interface UserSettingVC ()
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-- (IBAction)saveButtonAction:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIButton *firstSaveButton;
-@property (weak, nonatomic) IBOutlet UITextField *userEmail;
+@interface UserSettingTVC ()
 @property (weak, nonatomic) IBOutlet UIImageView *userAvatar;
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *userLoginField;
 @property (weak, nonatomic) IBOutlet UITextField *userWEBSiteURLField;
-@property (weak, nonatomic) IBOutlet UITextField *userSayField;
+@property (weak, nonatomic) IBOutlet UITextField *userInformation;
+@property (weak, nonatomic) IBOutlet UITextField *userEmail;
+@property (weak, nonatomic) IBOutlet UITextField *userPhoneNumber;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @property (strong, nonatomic) NSString * userAvatarName;
-
 @end
 
-@implementation UserSettingVC
+@implementation UserSettingTVC
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"SettingIsOpened"] == 2) {
-        self.firstSaveButton.backgroundColor = [UIColor clearColor];
-        self.firstSaveButton.tintColor = [UIColor clearColor];
-        self.firstSaveButton.enabled = NO;
+        
     }
     UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
     self.userAvatarName = userSettingData.userAvatar;
     self.userAvatar.image = [UIImage imageNamed:_userAvatarName];
     self.userNameField.text = userSettingData.userName;
     self.userLoginField.text = userSettingData.userLogin;
-    self.userSayField.text = userSettingData.userSay;
+    self.userInformation.text = userSettingData.userSay;
     self.userWEBSiteURLField.text = userSettingData.userWebSiteURL;
     self.userEmail.text = userSettingData.userEmail;
-    // Do any additional setup after loading the view.
+    
+    self.userAvatar.layer.cornerRadius = self.userAvatar.frame.size.width/2;
+    self.userAvatar.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    if ([[NSUserDefaults standardUserDefaults] integerForKey:@"SettingIsOpened"] == 2) {
-        _firstSaveButton = nil;
-    }
-    
     // Dispose of any resources that can be recreated.
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - User Data
+-(void)saveUserData{
+    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"SettingIsOpened"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    UserSetting *userSettingsWrite = [UserSetting new];
+    userSettingsWrite.userAvatar = _userAvatarName;
+    userSettingsWrite.userName = self.userNameField.text;
+    userSettingsWrite.userLogin = self.userLoginField.text;
+    userSettingsWrite.userSay = self.userInformation.text;
+    userSettingsWrite.userWebSiteURL = self.userWEBSiteURLField.text;
+    userSettingsWrite.userEmail = self.userEmail.text;
+    [UserSetting archiveData:userSettingsWrite];
 }
-*/
-- (IBAction)userAvatar:(id)sender {
+
+- (IBAction)saveButtonAction:(id)sender {
+    if ([self allFieldValidate]) {
+        if ([[NSUserDefaults standardUserDefaults]integerForKey:@"SettingIsOpened"] == 1) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+            UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
+            UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"profileView"];
+            [self presentViewController:moveToGeneral animated:YES completion:nil];
+        }else{
+            
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+        [self saveUserData];
+    }
+}
+
+- (IBAction)userAvatarChange:(id)sender {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select image" message:@"Select image for you profile" preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"Cat" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){
@@ -84,41 +99,14 @@
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [self presentViewController:alert animated:YES completion:nil];
-}
-#pragma mark - User Data
--(void)saveUserData{
-    [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"SettingIsOpened"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    UserSetting *userSettingsWrite = [UserSetting new];
-    userSettingsWrite.userAvatar = _userAvatarName;
-    userSettingsWrite.userName = self.userNameField.text;
-    userSettingsWrite.userLogin = self.userLoginField.text;
-    userSettingsWrite.userSay = self.userSayField.text;
-    userSettingsWrite.userWebSiteURL = self.userWEBSiteURLField.text;
-    userSettingsWrite.userEmail = self.userEmail.text;
-    [UserSetting archiveData:userSettingsWrite];
+
 }
 
-#pragma mark - Save Button
-- (IBAction)saveButtonAction:(id)sender {
-    if ([self allFieldValidate]) {
-        if ([[NSUserDefaults standardUserDefaults]integerForKey:@"SettingIsOpened"] == 1) {
-            [self dismissViewControllerAnimated:YES completion:nil];
-            UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
-            UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"profileView"];
-            [self presentViewController:moveToGeneral animated:YES completion:nil];
-        }else{
-            
-        }
-        [self.navigationController popViewControllerAnimated:YES];
-        [self saveUserData];
-    }
-}
 
 #pragma mark - RegEX
 -(BOOL)allFieldValidate{
     bool che = true;
-    if (![UserSettingVC emailValidate:self.userEmail.text]) {
+    if (![UserSettingTVC emailValidate:self.userEmail.text]) {
         self.userEmail.backgroundColor = [UIColor redColor];
         che = false;
     }else{
@@ -164,4 +152,5 @@
     [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
     return [regExPredicate evaluateWithObject:email];
 }
+
 @end
