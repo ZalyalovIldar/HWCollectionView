@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Data.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +17,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc;
+    switch ([Data whatUserNotVisited]) {
+        case 1:
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"Tutorial"];
+            break;
+        case 2:
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"setting"];
+            break;
+        case 3:
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"UserViewController"];
+            break;
+        default:
+            break;
+    }
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;
 }
