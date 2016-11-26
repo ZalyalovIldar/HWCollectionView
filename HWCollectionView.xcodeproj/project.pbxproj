@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A28AED51DE613D700BE2D0C /* EditSettingTabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A28AED41DE613D700BE2D0C /* EditSettingTabel.m */; };
 		4A3105FC1DD72A5400E5B3DD /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3105FB1DD72A5400E5B3DD /* PageContentViewController.m */; };
 		4A3105FF1DD72AC600E5B3DD /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3105FE1DD72AC600E5B3DD /* TutorialViewController.m */; };
 		4A91BF6F1DD2710500F35110 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A91BF6D1DD2710500F35110 /* CollectionViewCell.m */; };
 		4A91BF701DD2710500F35110 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A91BF6E1DD2710500F35110 /* CollectionViewCell.xib */; };
 		4A9256CD1DE0E9DA002A1EF3 /* DetailCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */; };
 		4A9256D01DE102DB002A1EF3 /* ListProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */; };
+		4A92CC291DE7896900394E8E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A92CC281DE7896900394E8E /* Utils.m */; };
+		4A9358F81DEA3FC800CA51BF /* SetEmailAndPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9358F71DEA3FC800CA51BF /* SetEmailAndPhone.m */; };
+		4AE3B8361DE896570059349B /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3B8351DE896570059349B /* UserSettings.m */; };
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
 		7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */; };
 		7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */; };
@@ -22,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A28AED31DE613D700BE2D0C /* EditSettingTabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditSettingTabel.h; sourceTree = "<group>"; };
+		4A28AED41DE613D700BE2D0C /* EditSettingTabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditSettingTabel.m; sourceTree = "<group>"; };
 		4A3105FA1DD72A5400E5B3DD /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		4A3105FB1DD72A5400E5B3DD /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		4A3105FD1DD72AC600E5B3DD /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
@@ -33,6 +39,12 @@
 		4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCollectionView.m; sourceTree = "<group>"; };
 		4A9256CE1DE102DB002A1EF3 /* ListProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListProcessor.h; sourceTree = "<group>"; };
 		4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListProcessor.m; sourceTree = "<group>"; };
+		4A92CC271DE7896900394E8E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		4A92CC281DE7896900394E8E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		4A9358F61DEA3FC800CA51BF /* SetEmailAndPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetEmailAndPhone.h; sourceTree = "<group>"; };
+		4A9358F71DEA3FC800CA51BF /* SetEmailAndPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetEmailAndPhone.m; sourceTree = "<group>"; };
+		4AE3B8341DE896570059349B /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
+		4AE3B8351DE896570059349B /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		7CF88CE41DCBD89F0040F8F7 /* HWCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF88CE81DCBD89F0040F8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,11 +68,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A28AED61DE6145200BE2D0C /* MyGeneralPage */ = {
+			isa = PBXGroup;
+			children = (
+				7CF88CED1DCBD89F0040F8F7 /* ViewController.h */,
+				7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */,
+				4A91BF6C1DD2710500F35110 /* CollectionViewCell.h */,
+				4A91BF6D1DD2710500F35110 /* CollectionViewCell.m */,
+			);
+			name = MyGeneralPage;
+			sourceTree = "<group>";
+		};
+		4A28AED71DE614EB00BE2D0C /* DeteailImage */ = {
+			isa = PBXGroup;
+			children = (
+				4A9256CB1DE0E9DA002A1EF3 /* DetailCollectionView.h */,
+				4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */,
+			);
+			name = DeteailImage;
+			sourceTree = "<group>";
+		};
 		4A75F5CF1DD63922009E43CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				4A9256CE1DE102DB002A1EF3 /* ListProcessor.h */,
 				4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */,
+				4A92CC271DE7896900394E8E /* Utils.h */,
+				4A92CC281DE7896900394E8E /* Utils.m */,
+				4AE3B8341DE896570059349B /* UserSettings.h */,
+				4AE3B8351DE896570059349B /* UserSettings.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -77,13 +113,13 @@
 		4A75F5D11DD6393B009E43CD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4A28AED71DE614EB00BE2D0C /* DeteailImage */,
+				4A28AED61DE6145200BE2D0C /* MyGeneralPage */,
 				4A9256D31DE1FD3B002A1EF3 /* Tutorial */,
-				7CF88CED1DCBD89F0040F8F7 /* ViewController.h */,
-				7CF88CEE1DCBD89F0040F8F7 /* ViewController.m */,
-				4A91BF6C1DD2710500F35110 /* CollectionViewCell.h */,
-				4A91BF6D1DD2710500F35110 /* CollectionViewCell.m */,
-				4A9256CB1DE0E9DA002A1EF3 /* DetailCollectionView.h */,
-				4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */,
+				4A28AED31DE613D700BE2D0C /* EditSettingTabel.h */,
+				4A28AED41DE613D700BE2D0C /* EditSettingTabel.m */,
+				4A9358F61DEA3FC800CA51BF /* SetEmailAndPhone.h */,
+				4A9358F71DEA3FC800CA51BF /* SetEmailAndPhone.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -170,6 +206,7 @@
 				TargetAttributes = {
 					7CF88CE31DCBD89F0040F8F7 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5JYT4SC2DQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -214,9 +251,13 @@
 				4A91BF6F1DD2710500F35110 /* CollectionViewCell.m in Sources */,
 				7CF88CEF1DCBD89F0040F8F7 /* ViewController.m in Sources */,
 				4A9256CD1DE0E9DA002A1EF3 /* DetailCollectionView.m in Sources */,
+				4A92CC291DE7896900394E8E /* Utils.m in Sources */,
+				4AE3B8361DE896570059349B /* UserSettings.m in Sources */,
 				4A3105FC1DD72A5400E5B3DD /* PageContentViewController.m in Sources */,
+				4A9358F81DEA3FC800CA51BF /* SetEmailAndPhone.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
+				4A28AED51DE613D700BE2D0C /* EditSettingTabel.m in Sources */,
 				4A9256D01DE102DB002A1EF3 /* ListProcessor.m in Sources */,
 				4A3105FF1DD72AC600E5B3DD /* TutorialViewController.m in Sources */,
 			);
@@ -284,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -325,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -336,10 +377,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5JYT4SC2DQ;
 				INFOPLIST_FILE = HWCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.itis.HWCollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = "-IOS-Team-Provisioning-Profile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -348,10 +390,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5JYT4SC2DQ;
 				INFOPLIST_FILE = HWCollectionView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.itis.HWCollectionView;
+				PRODUCT_BUNDLE_IDENTIFIER = "-IOS-Team-Provisioning-Profile";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

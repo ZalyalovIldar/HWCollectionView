@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.backgroundImageView.image = [UIImage imageNamed:self.imageFile];
+    self.backgroundImageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 

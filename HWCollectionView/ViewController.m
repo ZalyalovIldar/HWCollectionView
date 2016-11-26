@@ -10,6 +10,7 @@
 #import "CollectionViewCell.h"
 #import "DetailCollectionView.h"
 #import "ListProcessor.h"
+#import "UserSettings.h"
 
 @interface ViewController ()<UICollectionViewDelegate, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -17,12 +18,16 @@
 @property (strong, nonatomic) NSMutableArray *arrayLabels;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bioLabel;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @end
 
 @implementation ViewController
 
 static NSString * const reuseIdentifier = @"Cell";
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,12 +37,32 @@ static NSString * const reuseIdentifier = @"Cell";
         [lp firsLoad];
         [userDefaults setObject:@"true" forKey:@"showDescription"];
         [userDefaults synchronize];
-        UIStoryboard *mainStoryboard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *descriptionVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"Description"];
         [self presentViewController:descriptionVC animated:NO completion:nil];
     }
+    if(![[[NSUserDefaults standardUserDefaults] objectForKey:@"firstStart"] isEqual:@"false"]){
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *userSettings = [mainStoryboard instantiateViewControllerWithIdentifier:@"userSettings"];
+        [self.navigationController pushViewController:userSettings animated:YES];
+        
+        
+    }
+    else{
+        UserSettings *userSettings = (UserSettings*)[UserSettings unarchiveUserSettings];
+        _nameLabel.text = userSettings.name;
+        _navigationBar.title = userSettings.userName;
+        _bioLabel.text = userSettings.bio;
+        _userImage.image = [UIImage imageNamed:@"defaultUserImage"];
+        _userImage.clipsToBounds = true;
+        _userImage.layer.cornerRadius = _userImage.frame.size.height/2;
+    }
+    
+
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    _userImage.image = [UIImage imageNamed:@"user"];
+    
+
+
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setMinimumInteritemSpacing:1.0f];
@@ -52,6 +77,18 @@ static NSString * const reuseIdentifier = @"Cell";
     _refreshControl = [UIRefreshControl new];
     [_refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self.collectionView addSubview:_refreshControl];
+    
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    UserSettings *userSettings = (UserSettings*)[UserSettings unarchiveUserSettings];
+    _nameLabel.text = userSettings.name;
+    _navigationBar.title = userSettings.userName;
+    _bioLabel.text = userSettings.bio;
+    _userImage.image = [self loadImage];
+//    _userImage.clipsToBounds = true;
+//    _userImage.layer.cornerRadius = _userImage.frame.size.height/2;
 
 }
 
@@ -74,6 +111,14 @@ static NSString * const reuseIdentifier = @"Cell";
     [_refreshControl endRefreshing];
 }
 
+
+-(UIImage*)loadImage{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *workSpacePath=[path stringByAppendingPathComponent:@"photo.png"];
+    UIImageView *myimage=[[UIImageView alloc] initWithFrame:CGRectMake(0,0,20,20)];
+    myimage.image=[UIImage imageWithData:[NSData dataWithContentsOfFile:workSpacePath]];
+    return myimage.image;
+}
 #pragma mark <UICollectionViewDataSource>
 
 

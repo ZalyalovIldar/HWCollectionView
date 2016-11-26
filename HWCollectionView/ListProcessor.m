@@ -49,7 +49,6 @@
     NSString *plistPath = [rootPath stringByAppendingPathComponent:@"CollectionViewCellDate.plist"];
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
     NSMutableDictionary *dataDict = (NSMutableDictionary*)[NSPropertyListSerialization propertyListWithData:plistXML options:NSPropertyListMutableContainersAndLeaves format:&format error:nil];
-    NSLog(@"%@", dataDict);
     return dataDict;
 }
 

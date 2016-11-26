@@ -31,6 +31,9 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
 }
+- (IBAction)skipButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 #pragma mark - Page View Controller Data Source
