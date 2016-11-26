@@ -17,8 +17,11 @@
     [aCoder encodeObject:self.userSay forKey:@"userSay"];
     [aCoder encodeObject:self.userWebSiteURL forKey:@"userWebSiteURL"];
     [aCoder encodeObject:self.userEmail forKey:@"userEmail"];
+    [aCoder encodeObject:self.userPhone forKey:@"userPhone"];
+    [aCoder encodeObject:self.userSex forKey:@"userSex"];
     
 }
+
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super init];
@@ -31,6 +34,8 @@
     self.userSay = [aDecoder decodeObjectForKey:@"userSay"];
     self.userWebSiteURL = [aDecoder decodeObjectForKey:@"userWebSiteURL"];
     self.userEmail = [aDecoder decodeObjectForKey:@"userEmail"];
+    self.userPhone = [aDecoder decodeObjectForKey:@"userPhone"];
+    self.userSex = [aDecoder decodeObjectForKey:@"userSex"];
     
     return self;
 }

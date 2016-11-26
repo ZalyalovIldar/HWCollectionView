@@ -16,6 +16,8 @@
 @property (strong, nonatomic) NSString *userWebSiteURL;
 @property (strong, nonatomic) NSString *userSay;
 @property (strong, nonatomic) NSString *userEmail;
+@property (strong, nonatomic) NSString *userPhone;
+@property (strong, nonatomic) NSString *userSex;
 
 +(void)archiveData:(UserSetting *)userSetting;
 +(NSArray*)unarchiveData;

@@ -98,20 +98,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark - Переходы
-//- (void)viewDidAppear:(BOOL)animated{ //то что происходит после запуска приложения
-//    [super viewDidAppear:animated];
-//    if([[NSUserDefaults standardUserDefaults] integerForKey:@"ViewLoad"] == 0){
-//        [self dismissViewControllerAnimated:YES completion:nil];
-//        [self changeViewOnProfileView];
-//    }
-//}
-- (void)changeViewOnProfileView{ //метод перехода на другой ViewController
-    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
-    UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"ProfileView"];
-    [self presentViewController:moveToGeneral animated:YES completion:nil];
-    
-}
+
 
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
@@ -155,13 +142,19 @@
     [self dismissViewControllerAnimated:YES completion:nil];
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"SettingIsOpened"] == 1) {
         [self changeViewOnStatingView];
+    }else{
+        [self changeViewOnUserPage];
     }
     
 }
-
+-(void)changeViewOnUserPage{
+    UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
+    UIViewController *controller = [tempStoryboard instantiateViewControllerWithIdentifier:@"profileView"];
+    [self presentViewController:controller animated:YES completion:nil];
+}
 - (void)changeViewOnStatingView{ //метод перехода на другой ViewController
     UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
-    UIViewController *controller = [tempStoryboard instantiateViewControllerWithIdentifier:@"SettingView"];
+    UIViewController *controller = [tempStoryboard instantiateViewControllerWithIdentifier:@"SettingViewFirstOpen"];
     [self presentViewController:controller animated:YES completion:nil];
     
 }

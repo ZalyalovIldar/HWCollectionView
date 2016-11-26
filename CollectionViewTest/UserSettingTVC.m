@@ -19,15 +19,18 @@
 @property (weak, nonatomic) IBOutlet UITextField *userEmail;
 @property (weak, nonatomic) IBOutlet UITextField *userPhoneNumber;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
+@property (weak, nonatomic) IBOutlet UIPickerView *sexPicker;
 
 @property (strong, nonatomic) NSString * userAvatarName;
+@property (strong, nonatomic) NSString * sexSelected;
+@property (strong, nonatomic) NSArray * sexArr;
 @end
 
 @implementation UserSettingTVC
 
 - (void)viewDidLoad {
-    
     [super viewDidLoad];
+    _sexArr = @[@"Male",@"Female"];
     if ([[NSUserDefaults standardUserDefaults] integerForKey:@"SettingIsOpened"] == 2) {
         
     }
@@ -42,6 +45,9 @@
     
     self.userAvatar.layer.cornerRadius = self.userAvatar.frame.size.width/2;
     self.userAvatar.clipsToBounds = YES;
+    
+    _sexPicker.delegate = self;
+    _sexPicker.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,6 +66,7 @@
     userSettingsWrite.userSay = self.userInformation.text;
     userSettingsWrite.userWebSiteURL = self.userWEBSiteURLField.text;
     userSettingsWrite.userEmail = self.userEmail.text;
+    userSettingsWrite.userSex = self.sexSelected;
     [UserSetting archiveData:userSettingsWrite];
 }
 
@@ -67,13 +74,13 @@
     if ([self allFieldValidate]) {
         if ([[NSUserDefaults standardUserDefaults]integerForKey:@"SettingIsOpened"] == 1) {
             [self dismissViewControllerAnimated:YES completion:nil];
+            NSLog(@"ProfileView");
             UIStoryboard *tempStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil]; //програмный переход в другой viewController
             UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"profileView"];
             [self presentViewController:moveToGeneral animated:YES completion:nil];
         }else{
-            
+            [self.navigationController popViewControllerAnimated:YES];
         }
-        [self.navigationController popViewControllerAnimated:YES];
         [self saveUserData];
     }
 }
@@ -118,7 +125,7 @@
     }else{
         self.userNameField.backgroundColor = [UIColor clearColor];
     }
-    if (self.userLoginField.text.length == 0 || self.userLoginField.text.length > 8){
+    if (self.userLoginField.text.length == 0 || self.userLoginField.text.length > 10){
         self.userLoginField.backgroundColor = [UIColor redColor];
         che = false;
     }else{
@@ -152,5 +159,22 @@
     [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
     return [regExPredicate evaluateWithObject:email];
 }
+#pragma mark - Picker
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+    _sexSelected = [_sexArr objectAtIndex:row];
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return _sexArr.count;
+}
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return _sexArr[row];
+}
 
 @end
+

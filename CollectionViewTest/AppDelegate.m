@@ -25,7 +25,7 @@
         self.window.rootViewController = vc;
     }else{
         if ([[NSUserDefaults standardUserDefaults] integerForKey:@"SettingIsOpened"] == 1) {
-            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SettingView"];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SettingViewFirstOpen"];
             self.window.rootViewController = vc;
         }else{
             UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"profileView"];
