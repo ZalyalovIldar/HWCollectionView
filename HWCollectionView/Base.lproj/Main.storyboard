@@ -16,7 +16,7 @@
         <scene sceneID="ezl-Rk-4Gs">
             <objects>
                 <tableViewController id="Dty-L6-zbZ" customClass="SettingTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="j1V-Xh-vq4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="j1V-Xh-vq4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -139,6 +139,48 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="pfM-kt-F6m" detailTextLabel="82B-SF-icy" style="IBUITableViewCellStyleValue1" id="grm-PF-u8w">
+                                        <rect key="frame" x="0.0" y="447" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grm-PF-u8w" id="4su-UW-IOm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Пол" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pfM-kt-F6m">
+                                                    <rect key="frame" x="15" y="11" width="32" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="82B-SF-icy">
+                                                    <rect key="frame" x="316" y="11" width="44" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.64470970809999995" green="0.64470970809999995" blue="0.64470970809999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="0.0" id="SnW-dt-Ocz">
+                                        <rect key="frame" x="0.0" y="491" width="375" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SnW-dt-Ocz" id="7gv-fT-EG8">
+                                            <rect key="frame" x="0.0" y="-1" width="375" height="1"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <pickerView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Bz-vh-24F">
+                                                    <rect key="frame" x="0.0" y="-33.5" width="375" height="216"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Dty-L6-zbZ" id="4S9-qh-WdC"/>
+                                                        <outlet property="delegate" destination="Dty-L6-zbZ" id="uU2-iQ-cF2"/>
+                                                    </connections>
+                                                </pickerView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -167,7 +209,9 @@
                         <outlet property="emailTextField" destination="pn7-Uu-FUX" id="UkN-J2-hAW"/>
                         <outlet property="nameTextField" destination="gN9-GS-geS" id="Ljr-5h-5Cf"/>
                         <outlet property="phoneNumberTextField" destination="38V-3q-2BH" id="Yey-MZ-JkU"/>
+                        <outlet property="pickerView" destination="2Bz-vh-24F" id="qun-xh-F8c"/>
                         <outlet property="saveInfoButton" destination="TCd-7y-6iT" id="syW-RT-WYz"/>
+                        <outlet property="sexLabel" destination="82B-SF-icy" id="EwM-o0-ndc"/>
                         <outlet property="userImageView" destination="gkB-V7-yD5" id="p00-do-Y9f"/>
                         <outlet property="usernameTextField" destination="csQ-Q4-RP1" id="shz-Wi-6O2"/>
                         <outlet property="webpageTextField" destination="GlP-lY-4Kr" id="nje-gg-Ttj"/>

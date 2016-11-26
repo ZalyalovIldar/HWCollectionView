@@ -16,6 +16,7 @@
 @property (strong,nonatomic)NSString *email;
 @property (strong,nonatomic)NSString *phoneNumber;
 @property (strong, nonatomic)NSString *userImageName;
+@property int sexNumber;
 
 +(void)archiveData:(TableSettings*)tabelSettings;
 +(NSArray*)unarchiveData;

@@ -8,6 +8,8 @@
 
 #import "Data.h"
 
+static NSString *const visitedSetting = @"filledAboutItself";
+
 @implementation Data
 
 -(void)getDataFromPlist{
@@ -62,9 +64,21 @@
     }
 }
 
--(NSArray*)getSettingsPlaceholderArray{
-    NSArray *arr = [NSArray arrayWithObjects:@"Имя",@"Имя пользователя",@"Веб-сайт",@"Адрес эл.почты",@"Телефон", nil];
-    return arr;
++(int)whatUserNotVisited{
+    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"ViewLoad"] isEqual:@"visited"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:visitedSetting];
+        return 1;
+    }else{
+        if (![[[NSUserDefaults standardUserDefaults] objectForKey:visitedSetting] isEqual:@"YES"]) {
+            return 2;
+        }else{
+            return 3;
+        }
+    }
+}
+
++(NSArray*)getSexArray{
+    return @[@"Не указано",@"Мужской",@"Женский"];
 }
 
 @end

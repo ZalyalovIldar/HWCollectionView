@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Data.h"
 
 @interface AppDelegate ()
 
@@ -18,20 +19,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"ViewLoad"] isEqual:@"visited"]) {
-        [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"filledAboutItself"];
-        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Tutorial"];
-        self.window.rootViewController = vc;
-    }else{
-        if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"filledAboutItself"] isEqual:@"YES"]) {
-            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"setting"];
-            self.window.rootViewController = vc;
-        }else{
-            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"UserViewController"];
-            self.window.rootViewController = vc;
-        }
+    UIViewController *vc;
+    switch ([Data whatUserNotVisited]) {
+        case 1:
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"Tutorial"];
+            break;
+        case 2:
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"setting"];
+            break;
+        case 3:
+            vc = [storyboard instantiateViewControllerWithIdentifier:@"UserViewController"];
+            break;
+        default:
+            break;
     }
+    self.window.rootViewController = vc;
     [self.window makeKeyAndVisible];
     // Override point for customization after application launch.
     return YES;

@@ -12,50 +12,33 @@
 #import "Data.h"
 
 
-@interface SettingTableViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface SettingTableViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @end
 
+static NSString *const visitSetting = @"filledAboutItself";
+
 @implementation SettingTableViewController
+
+@synthesize dataSource;
+@synthesize pickerView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.userImageView.layer.cornerRadius = self.userImageView.frame.size.width/2;
     self.userImageView.clipsToBounds = YES;
-
-    TableSettings *settings = (TableSettings*)[TableSettings unarchiveData];
-    self.nameTextField.text = settings.name;
-    self.usernameTextField.text = settings.username;
-    self.webpageTextField.text = settings.webpage;
-    self.emailTextField.text = settings.email;
-    self.phoneNumberTextField.text = settings.phoneNumber;
-    if(![[[NSUserDefaults standardUserDefaults]objectForKey:@"filledAboutItself"] isEqual:@"YES"]){
-        self.cancelButton.enabled=NO;
-        
-        self.cancelButton.tintColor=[UIColor clearColor];
-        self.saveInfoButton.title=@"Сохранить";
-    }
-    if(settings.userImageName==nil ||settings.userImageName==(id)[NSNull null]){
-        self.userImageName = @"user";
-        settings.userImageName = @"user";
-    }else{
-        self.userImageName = settings.userImageName;
-    }
-    self.userImageView.image = [UIImage imageNamed:self.userImageName];
+    self.dataSource = [Data getSexArray];
+    [self setTextIntoTextField];
+    [self setImageAfterLaunch];
+    [self firstLaunchSettings];
+    self.pickerView.delegate = self;
+    self.pickerView.dataSource = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    TableSettings *settings = (TableSettings*)[TableSettings unarchiveData];
-    self.nameTextField.text = settings.name;
-    self.usernameTextField.text = settings.username;
-    self.webpageTextField.text = settings.webpage;
-    self.emailTextField.text = settings.email;
-    self.phoneNumberTextField.text = settings.phoneNumber;
-    if([[[NSUserDefaults standardUserDefaults]objectForKey:@"filledAboutItself"] isEqual:@"YES"]){
-        self.cancelButton.enabled=YES;
-        self.cancelButton.tintColor=[UIColor darkGrayColor];
-    }
+    self.sexPickerVisible = NO;
+    [self firstLaunchSettings];
 }
 
 #pragma mark - navigation controller and save info
@@ -98,15 +81,16 @@
         saveSettings.webpage = self.webpageTextField.text;
         saveSettings.email = self.emailTextField.text;
         saveSettings.phoneNumber = self.phoneNumberTextField.text;
+        saveSettings.sexNumber =(int)[pickerView selectedRowInComponent:0];
         [TableSettings archiveData:saveSettings];
-        if (![[[NSUserDefaults standardUserDefaults] objectForKey:@"filledAboutItself"] isEqual:@"YES"]) {
-            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"filledAboutItself"];
+        if (![[[NSUserDefaults standardUserDefaults] objectForKey:visitSetting] isEqual:@"YES"]) {
+            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:visitSetting];
             [[NSUserDefaults standardUserDefaults] synchronize];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UIViewController *settingVC = [storyboard instantiateViewControllerWithIdentifier:@"UserViewController"];
             [self presentViewController:settingVC animated:YES completion:nil];
         }else{
-            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"filledAboutItself"];
+            [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:visitSetting];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [self dismissViewControllerAnimated:YES completion:nil];
         }
@@ -124,7 +108,7 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-//работает правильно
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
     PHFetchResult *result = [PHAsset fetchAssetsWithALAssetURLs:@[refURL] options:nil];
@@ -137,5 +121,91 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)setTextIntoTextField{
+    TableSettings *settings = (TableSettings*)[TableSettings unarchiveData];
+    self.nameTextField.text = settings.name;
+    self.usernameTextField.text = settings.username;
+    self.webpageTextField.text = settings.webpage;
+    self.emailTextField.text = settings.email;
+    self.phoneNumberTextField.text = settings.phoneNumber;
+    [pickerView selectRow:settings.sexNumber inComponent:0 animated:NO];
+    self.sexLabel.text = self.dataSource[[pickerView selectedRowInComponent:0]];
+}
+
+-(void)setImageAfterLaunch{
+    TableSettings *settings = (TableSettings*)[TableSettings unarchiveData];
+    if(settings.userImageName==nil ||settings.userImageName==(id)[NSNull null]){
+        self.userImageName = settings.userImageName = @"user";
+    }else{
+        self.userImageName = settings.userImageName;
+    }
+    self.userImageView.image = [UIImage imageNamed:self.userImageName];
+}
+
+-(void)firstLaunchSettings{
+    if(![[[NSUserDefaults standardUserDefaults]objectForKey:visitSetting] isEqual:@"YES"]){
+        self.cancelButton.enabled=NO;
+        
+        self.cancelButton.tintColor=[UIColor clearColor];
+        self.saveInfoButton.title=@"Сохранить";
+    }
+}
+
+#pragma mark - resize for cell with picker view
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 3) {
+        if (self.sexPickerVisible) {
+            return 150;
+        } else {
+            return 0;
+        }
+    } else {
+        return self.tableView.rowHeight;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 2) {
+        self.sexPickerVisible=!self.sexPickerVisible;
+        pickerView.hidden =! self.sexPickerVisible;
+        [UIView animateWithDuration:.3 animations:^{
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:3 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+        }];
+    }
+    else{
+        pickerView.hidden = YES;
+        self.sexPickerVisible=NO;
+        [UIView animateWithDuration:.4 animations:^{
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:3 inSection:1]] withRowAnimation:UITableViewRowAnimationFade];
+        }];
+    }
+    [tableView reloadData];
+}
+
+#pragma mark - set to picker view
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView
+numberOfRowsInComponent:(NSInteger)component
+{
+    return self.dataSource.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)thePickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    return [self.dataSource objectAtIndex:row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    self.sexLabel.text = self.dataSource[row];
+}
 
 @end

@@ -8,6 +8,8 @@
 
 #import "TableSettings.h"
 
+static NSString *const tableSetting = @"tabelSetting";
+
 @implementation TableSettings
 
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
@@ -21,6 +23,7 @@
     self.email = [aDecoder decodeObjectForKey:@"email"];
     self.phoneNumber = [aDecoder decodeObjectForKey:@"phone"];
     self.userImageName = [aDecoder decodeObjectForKey:@"userImage"];
+    self.sexNumber = [aDecoder decodeIntForKey:@"sex"];
     return self;
 }
 
@@ -31,16 +34,17 @@
     [aCoder encodeObject:self.email forKey:@"email"];
     [aCoder encodeObject:self.phoneNumber forKey:@"phone"];
     [aCoder encodeObject:self.userImageName forKey:@"userImage"];
+    [aCoder encodeInt:self.sexNumber forKey:@"sex"];
 }
 
 +(void)archiveData:(TableSettings*)tabelSettings{
     NSData *saveData = [NSKeyedArchiver archivedDataWithRootObject:tabelSettings];
-    [[NSUserDefaults standardUserDefaults] setObject:saveData forKey:@"tabelSetting"];
+    [[NSUserDefaults standardUserDefaults] setObject:saveData forKey:tableSetting];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 +(NSArray*)unarchiveData{
-    NSData *savedData = [[NSUserDefaults standardUserDefaults] objectForKey:@"tabelSetting"];
+    NSData *savedData = [[NSUserDefaults standardUserDefaults] objectForKey:tableSetting];
     NSArray *userData = [NSKeyedUnarchiver unarchiveObjectWithData:savedData];
     return userData;
 }

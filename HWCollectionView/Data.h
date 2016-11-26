@@ -19,6 +19,7 @@
 -(void)writeDataToFileImageArray:(NSArray*)imageArray andCommentArray:(NSArray*)commentArray;
 -(NSString*)getImageName:(UIImageView*)imageView;
 -(void)createImageFromData:(NSData*)data withName:(NSString*)name;
--(NSArray*)getSettingsPlaceholderArray;
++(int)whatUserNotVisited;
++(NSArray*)getSexArray;
 
 @end

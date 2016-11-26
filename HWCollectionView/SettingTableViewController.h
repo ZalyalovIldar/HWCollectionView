@@ -19,5 +19,9 @@
 @property (nonatomic)BOOL correctInfo;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (strong, nonatomic)NSString *userImageName;
+@property (weak, nonatomic) IBOutlet UILabel *sexLabel;
+@property BOOL sexPickerVisible;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (strong, nonatomic) NSArray *dataSource;
 
 @end
