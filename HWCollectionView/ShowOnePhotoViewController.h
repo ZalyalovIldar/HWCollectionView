@@ -6,10 +6,10 @@
 //  Copyright © 2016 com.itis.iosLab. All rights reserved.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import "Content.h"
 
-@interface ShowOnePhotoViewController : ViewController
+@interface ShowOnePhotoViewController : UIViewController
 
 
 @property (nonatomic,strong) Content *content;

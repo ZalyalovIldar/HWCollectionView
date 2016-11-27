@@ -11,6 +11,7 @@
 #import "ShowOnePhotoViewController.h"
 #import "DataWorker.h"
 #import "Content.h"
+#import "Preferences.h"
 
 #define kMinimumLineSpacing 1.0f
 #define kMinimumInteritemSpacing 1.0f
@@ -19,6 +20,8 @@
 @property (nonatomic,strong) NSArray *photoArray;
 @property (weak, nonatomic) IBOutlet UIImageView *mainPhoto;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (weak, nonatomic) IBOutlet UILabel *nikNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
 
 @end
 
@@ -62,6 +65,16 @@ static NSString *reuseIdentifire = @"Cell";
     } andErrorBlock:^(NSError *error) {
         
     }];
+    
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferences"];
+    Preferences *preferences = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (preferences)
+    {
+        self.mainPhoto.image = [UIImage imageWithData:preferences.profileImageData];
+        self.nikNameLabel.text = preferences.nikName;
+        self.aboutLabel.text = preferences.about;
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,7 +7,7 @@
 //
 
 #import "ShowOnePhotoViewController.h"
-#import "ViewController.h"
+
 #import "DataWorker.h"
 
 @interface ShowOnePhotoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
