@@ -13,7 +13,7 @@
 
 
 
-@interface EditSettingTabel() <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface EditSettingTabel() <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UIButton *changePhotoButton;
@@ -23,10 +23,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *bioTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *profilPhoto;
 @property (strong, nonatomic) NSDictionary *infoImage;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UILabel *gendorLabel;
 
+@property (nonatomic) BOOL isVisibalPicker;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 @end
 
@@ -35,10 +36,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.allowsSelection = NO;
+    _picker.delegate = self;
+    _picker.dataSource = self;
+    _isVisibalPicker = false;
+    
     
     if(![[[NSUserDefaults standardUserDefaults] objectForKey:@"firstStart"] isEqual:@"false"]){
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveActionlButton)];
+        _gendorLabel.text = @"Not Specified";
     }
     else{
         self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(canceActionlButton)];
@@ -164,6 +170,9 @@
         case 1:
             return 4;
         case 2:
+            if(_isVisibalPicker){
+                return 4;
+            }
             return 3;
     }
     return 0;
@@ -197,7 +206,7 @@
     userSettings.bio =  _bioTextField.text;
     userSettings.email =  @"ss@dsa";//
     userSettings.phine =  @"877";//
-    userSettings.gender =  @"male";//
+    userSettings.gender =  _gendorLabel.text;
     [self savePhoto];
     
     if([_userNameTextField.text isEqual: @""]){
@@ -225,22 +234,55 @@
     return false;
 }
 
+#pragma mark - phone and email
 - (IBAction)setEmailOrPhone:(id)sender {
-//    SetEmailAndPhone *setEmailAndPhone = [[SetEmailAndPhone alloc] initWithNib:@"SetEmailOrPhone" bundle:nil];
-//    setEmailAndPhone.key = (int)[sender tag];
-//    [self pushViewController:setEmailAndPhone animated:YES];
-//    
-
+    SetEmailAndPhone *setEmailAndPhone = [self.storyboard instantiateViewControllerWithIdentifier:@"SetEmailOrPhone"];
+    setEmailAndPhone.key = (int)[sender tag];
+    if((int)[sender tag] == 1){
+        setEmailAndPhone.phoneOrEmail = _emailLabel.text;
+    }
+    else{
+        setEmailAndPhone.phoneOrEmail = _phoneLabel.text;
+    }
+    [self.navigationController pushViewController:setEmailAndPhone animated:YES];
 }
 
+#pragma mark - Gendor Picker
+- (IBAction)chengeGendor:(id)sender {
+    if(!_isVisibalPicker){
+        _isVisibalPicker = true;
+    }
+    else{
+        _isVisibalPicker = false;
+    }
+    [self.tableView reloadData];
+    
+}
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
 
-#warning TODO: add picker with gender
-#warning TODO: add default user image
-#warning TODO: add view controller with number and email
-#warning TODO: improve image in general page
-#warning TODO: finish regular
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return 3;
+}
 
-
-
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString * title = nil;
+    switch(row) {
+        case 0:
+            title = @"Not Specified";
+            _gendorLabel.text = @"Not Specified";
+            break;
+        case 1:
+            title = @"Male";
+            _gendorLabel.text = @"Male";
+            break;
+        case 2:
+            title = @"Female";
+            _gendorLabel.text = @"Female";
+            break;
+    }
+    return title;
+}
 
 @end

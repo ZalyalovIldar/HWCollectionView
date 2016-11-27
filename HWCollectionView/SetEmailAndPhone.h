@@ -10,4 +10,5 @@
 
 @interface SetEmailAndPhone : ViewController
 @property(nonatomic) int key;
+@property(strong, nonatomic) NSString *phoneOrEmail;
 @end

@@ -17,25 +17,41 @@
 
 #pragma mark - NSRegularExpression
 + (Boolean)checkEmail:(NSString*)str{
-    NSError *error = nil;
     NSString *expression = @"[a-zA-Z0-9]+@(([a-zA-Z0-9\-]+\.)([a-zA-Z0-9\-])+)+";
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression options:0 error:&error];
-    if ([regex rangeOfFirstMatchInString:str options:0 range:NSMakeRange(0, [str length])].location == NSNotFound) {
-        return false;
-    }
-    return true;
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression options:NSRegularExpressionCaseInsensitive error:&error];
+    NSTextCheckingResult *matchForMail = [regex firstMatchInString:str options:0 range:NSMakeRange(0, [str length])];
     
+    if(matchForMail){
+        return true;
+    }
+    return false;
 }
 
 + (Boolean)checkName:(NSString*)str{
+    NSString *expression = @"[a-zA-Zа-яА-Я]{0,30}";
     NSError *error = nil;
-    NSString *expression = @"[a-zA-Zа-яА-Я]+";
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression options:0 error:&error];
-    if ([regex rangeOfFirstMatchInString:str options:0 range:NSMakeRange(0, [str length])].location == NSNotFound) {
-        return false;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression options:NSRegularExpressionCaseInsensitive error:&error];
+    NSTextCheckingResult *matchForMail = [regex firstMatchInString:str options:0 range:NSMakeRange(0, [str length])];
+    
+    if(matchForMail){
+        return true;
     }
-    return true;
+    return false;
 }
+
++ (Boolean)checkPhone:(NSString*)str{
+    NSString *expression = @"^[0-9\-\+]{9,15}$";
+    NSError *error = nil;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression options:NSRegularExpressionCaseInsensitive error:&error];
+    NSTextCheckingResult *matchForMail = [regex firstMatchInString:str options:0 range:NSMakeRange(0, [str length])];
+    
+    if(matchForMail){
+        return true;
+    }
+    return false;
+}
+
 + (Boolean)checkUserName:(NSString*)str{
     return true;
 }

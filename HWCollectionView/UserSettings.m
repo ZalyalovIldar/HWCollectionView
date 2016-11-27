@@ -32,7 +32,7 @@
     [aCoder encodeObject:self.bio forKey:@"bio"];
     [aCoder encodeObject:self.email forKey:@"email"];
     [aCoder encodeObject:self.phine forKey:@"phine"];
-    [aCoder encodeBool:self.gender forKey:@"gender"];
+    [aCoder encodeObject:self.gender forKey:@"gender"];
 }
 
 + (void)archiveUserSettings:(UserSettings*)setting{

@@ -45,25 +45,17 @@ static NSString * const reuseIdentifier = @"Cell";
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *userSettings = [mainStoryboard instantiateViewControllerWithIdentifier:@"userSettings"];
         [self.navigationController pushViewController:userSettings animated:YES];
-        
-        
     }
     else{
         UserSettings *userSettings = (UserSettings*)[UserSettings unarchiveUserSettings];
         _nameLabel.text = userSettings.name;
         _navigationBar.title = userSettings.userName;
         _bioLabel.text = userSettings.bio;
-        _userImage.image = [UIImage imageNamed:@"defaultUserImage"];
         _userImage.clipsToBounds = true;
-        _userImage.layer.cornerRadius = _userImage.frame.size.height/2;
     }
     
-
     [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    
 
-
-    
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setMinimumInteritemSpacing:1.0f];
     [flowLayout setMinimumLineSpacing:1.0f];
@@ -87,8 +79,6 @@ static NSString * const reuseIdentifier = @"Cell";
     _navigationBar.title = userSettings.userName;
     _bioLabel.text = userSettings.bio;
     _userImage.image = [self loadImage];
-//    _userImage.clipsToBounds = true;
-//    _userImage.layer.cornerRadius = _userImage.frame.size.height/2;
 
 }
 
@@ -137,7 +127,6 @@ static NSString * const reuseIdentifier = @"Cell";
     DetailCollectionView *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailCollectionView"];
     vc.indexCell = (int)indexPath.row;
     [self presentViewController:vc animated:YES completion:nil];
-
 }
 
 @end

@@ -13,4 +13,5 @@
 + (Boolean)checkEmail:(NSString*)str;
 + (Boolean)checkName:(NSString*)str;
 + (Boolean)checkUserName:(NSString*)str;
++ (Boolean)checkPhone:(NSString*)str;
 @end
