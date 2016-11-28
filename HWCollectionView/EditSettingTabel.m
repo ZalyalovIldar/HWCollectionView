@@ -9,7 +9,7 @@
 #import "EditSettingTabel.h"
 #import "Utils.h"
 #import "UserSettings.h"
-#import "SetEmailAndPhone.h"
+
 
 
 
@@ -24,9 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilPhoto;
 @property (strong, nonatomic) NSDictionary *infoImage;
 @property (weak, nonatomic) IBOutlet UILabel *gendorLabel;
-
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (nonatomic) BOOL isVisibalPicker;
-
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 @end
@@ -113,8 +113,8 @@
 }
 #pragma mark - Header Buttons
 - (void)doneActionlButton{
-    if([self isChangeAnything]){
-        if(![_emailLabel.text  isEqual: @""]){
+    if([Utils checkPhone: _phoneTextField.text] || [_phoneTextField.text  isEqual: @""]){
+        if([Utils checkEmail: _emailTextField.text ]){
             if([Utils checkName: _nameTextField.text]){
                 [self saveSettings];
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -124,11 +124,12 @@
             }
         }
         else{
-            [self errorlAlert:@"You have not added the mail" andMessage:@"Add email."];
+            [self errorlAlert:@"Incorrect email format" andMessage:@"Write the email in the correct format."];
         }
     }
     else{
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self errorlAlert:@"Incorrect phone format" andMessage:@"Write the phone in the correct format."];
+        
     }
 }
 
@@ -142,19 +143,25 @@
 }
 
 - (void)saveActionlButton{
-    if(![_emailLabel.text  isEqual: @""]){
-        if([Utils checkName: _nameTextField.text]){
-            [self saveSettings];
-            [[NSUserDefaults standardUserDefaults] setObject:@"false" forKey:@"firstStart"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            [self.navigationController popToRootViewControllerAnimated:YES];
+    if([Utils checkPhone: _phoneTextField.text] || [_phoneTextField.text  isEqual: @""]){
+        if([Utils checkEmail: _emailTextField.text ]){
+            if([Utils checkName: _nameTextField.text]){
+                [self saveSettings];
+                [[NSUserDefaults standardUserDefaults] setObject:@"false" forKey:@"firstStart"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else{
+                [self errorlAlert:@"Incorrect name format" andMessage:@"Write the name in the correct format."];
+            }
         }
         else{
-            [self errorlAlert:@"Incorrect name format" andMessage:@"Write the name in the correct format."];
+            [self errorlAlert:@"Incorrect email format" andMessage:@"Write the email in the correct format."];
         }
     }
     else{
-        [self errorlAlert:@"You have not added the mail" andMessage:@"Add email."];
+        [self errorlAlert:@"Incorrect phone format" andMessage:@"Write the phone in the correct format."];
+        
     }
 }
 
@@ -199,21 +206,20 @@
 }
 
 - (void)saveSettings{
-    UserSettings *userSettings = [UserSettings new];
-    userSettings.name =  _nameTextField.text;
-    userSettings.userName = _userNameTextField.text;
-    userSettings.website = _wrbsiteTextField.text;
-    userSettings.bio =  _bioTextField.text;
-    userSettings.email =  @"ss@dsa";//
-    userSettings.phine =  @"877";//
-    userSettings.gender =  _gendorLabel.text;
-    [self savePhoto];
-    
     if([_userNameTextField.text isEqual: @""]){
         [self errorlAlert:@"Not chosen username or e-mail" andMessage:@"Please  choose required fields."];
     }
     else{
-    [UserSettings archiveUserSettings:userSettings];
+        UserSettings *userSettings = [UserSettings new];
+        userSettings.name =  _nameTextField.text;
+        userSettings.userName = _userNameTextField.text;
+        userSettings.website = _wrbsiteTextField.text;
+        userSettings.bio =  _bioTextField.text;
+        userSettings.email =  _emailTextField.text;
+        userSettings.phine =  _phoneTextField.text;
+        userSettings.gender =  _gendorLabel.text;
+        [self savePhoto];
+        [UserSettings archiveUserSettings:userSettings];
     }
 }
 - (void)getSettings{
@@ -222,29 +228,16 @@
     _userNameTextField.text = userSettings.userName;
     _wrbsiteTextField.text = userSettings.website;
     _bioTextField.text = userSettings.bio;
-    _emailLabel.text = userSettings.email;
-    _phoneLabel.text = userSettings.phine;
+    _emailTextField.text = userSettings.email;
+    _phoneTextField.text = userSettings.phine;
     _gendorLabel.text = userSettings.gender;
 }
 - (BOOL)isChangeAnything{
     UserSettings *userSettings = [UserSettings new];
-    if(userSettings.name !=  _nameTextField.text || userSettings.userName != _userNameTextField.text || userSettings.website != _wrbsiteTextField.text || userSettings.bio !=  _bioTextField.text || userSettings.email != _emailLabel.text || userSettings.phine != _phoneLabel.text ||  userSettings.gender != _gendorLabel.text){
+    if(userSettings.name !=  _nameTextField.text || userSettings.userName != _userNameTextField.text || userSettings.website != _wrbsiteTextField.text || userSettings.bio !=  _bioTextField.text || userSettings.email != _emailTextField.text || userSettings.phine != _phoneTextField.text ||  userSettings.gender != _gendorLabel.text){
         return true;
     }
     return false;
-}
-
-#pragma mark - phone and email
-- (IBAction)setEmailOrPhone:(id)sender {
-    SetEmailAndPhone *setEmailAndPhone = [self.storyboard instantiateViewControllerWithIdentifier:@"SetEmailOrPhone"];
-    setEmailAndPhone.key = (int)[sender tag];
-    if((int)[sender tag] == 1){
-        setEmailAndPhone.phoneOrEmail = _emailLabel.text;
-    }
-    else{
-        setEmailAndPhone.phoneOrEmail = _phoneLabel.text;
-    }
-    [self.navigationController pushViewController:setEmailAndPhone animated:YES];
 }
 
 #pragma mark - Gendor Picker

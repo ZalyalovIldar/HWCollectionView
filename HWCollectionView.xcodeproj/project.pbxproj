@@ -15,7 +15,6 @@
 		4A9256CD1DE0E9DA002A1EF3 /* DetailCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9256CC1DE0E9DA002A1EF3 /* DetailCollectionView.m */; };
 		4A9256D01DE102DB002A1EF3 /* ListProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */; };
 		4A92CC291DE7896900394E8E /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A92CC281DE7896900394E8E /* Utils.m */; };
-		4A9358F81DEA3FC800CA51BF /* SetEmailAndPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9358F71DEA3FC800CA51BF /* SetEmailAndPhone.m */; };
 		4AE3B8361DE896570059349B /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE3B8351DE896570059349B /* UserSettings.m */; };
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
 		7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */; };
@@ -41,8 +40,6 @@
 		4A9256CF1DE102DB002A1EF3 /* ListProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListProcessor.m; sourceTree = "<group>"; };
 		4A92CC271DE7896900394E8E /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		4A92CC281DE7896900394E8E /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		4A9358F61DEA3FC800CA51BF /* SetEmailAndPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetEmailAndPhone.h; sourceTree = "<group>"; };
-		4A9358F71DEA3FC800CA51BF /* SetEmailAndPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetEmailAndPhone.m; sourceTree = "<group>"; };
 		4AE3B8341DE896570059349B /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
 		4AE3B8351DE896570059349B /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		7CF88CE41DCBD89F0040F8F7 /* HWCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,8 +115,6 @@
 				4A9256D31DE1FD3B002A1EF3 /* Tutorial */,
 				4A28AED31DE613D700BE2D0C /* EditSettingTabel.h */,
 				4A28AED41DE613D700BE2D0C /* EditSettingTabel.m */,
-				4A9358F61DEA3FC800CA51BF /* SetEmailAndPhone.h */,
-				4A9358F71DEA3FC800CA51BF /* SetEmailAndPhone.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -254,7 +249,6 @@
 				4A92CC291DE7896900394E8E /* Utils.m in Sources */,
 				4AE3B8361DE896570059349B /* UserSettings.m in Sources */,
 				4A3105FC1DD72A5400E5B3DD /* PageContentViewController.m in Sources */,
-				4A9358F81DEA3FC800CA51BF /* SetEmailAndPhone.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
 				4A28AED51DE613D700BE2D0C /* EditSettingTabel.m in Sources */,
