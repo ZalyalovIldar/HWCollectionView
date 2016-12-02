@@ -39,10 +39,18 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.title = userInfo.name;
     self.userNameLabel.text = userInfo.username;
     self.webpageLabel.text = userInfo.webpage;
-    self.userImageView.image = [UIImage imageNamed:userInfo.userImageName];
     self.userImageView.layer.cornerRadius = self.userImageView.frame.size.width/2;
     self.userImageView.clipsToBounds = YES;
     self.data = [Data new];
+    
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *imagePath=[path stringByAppendingPathComponent:@"userPhoto.png"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        self.userImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
+    }
+    else {
+        self.userImageView.image = [UIImage imageNamed:@"user"];
+    }
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(startRefresh)
              forControlEvents:UIControlEventValueChanged];
@@ -65,7 +73,17 @@ static NSString * const reuseIdentifier = @"Cell";
     self.navigationItem.title = userInfo.name;
     self.userNameLabel.text = userInfo.username;
     self.webpageLabel.text = userInfo.webpage;
-    self.userImageView.image = [UIImage imageNamed:userInfo.userImageName];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    
+    [[self.editInformationAboutUserButton layer] setCornerRadius:3.0f];
+    [[self.editInformationAboutUserButton layer] setMasksToBounds:YES];
+    NSString *imagePath=[path stringByAppendingPathComponent:@"userPhoto.png"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        self.userImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
+    }
+    else {
+        self.userImageView.image = [UIImage imageNamed:@"user"];
+    }
 }
 
 -(void)startRefresh{

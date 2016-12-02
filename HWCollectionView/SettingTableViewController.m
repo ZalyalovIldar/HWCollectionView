@@ -13,13 +13,12 @@
 
 
 @interface SettingTableViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
-
+@property (strong, nonatomic) NSDictionary *info;
 @end
 
 static NSString *const visitSetting = @"filledAboutItself";
 
 @implementation SettingTableViewController
-
 @synthesize dataSource;
 @synthesize pickerView;
 
@@ -75,7 +74,6 @@ static NSString *const visitSetting = @"filledAboutItself";
     }
     if (self.correctInfo!=NO) {
         TableSettings *saveSettings = [TableSettings new];
-        saveSettings.userImageName = self.userImageName;
         saveSettings.name = self.nameTextField.text;
         saveSettings.username = self.usernameTextField.text;
         saveSettings.webpage = self.webpageTextField.text;
@@ -98,11 +96,26 @@ static NSString *const visitSetting = @"filledAboutItself";
 }
 #pragma mark - changeUserImage
 - (IBAction)changeUserPhoto:(id)sender {
-    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.delegate = self;
-    [self presentViewController:picker animated:YES completion:nil];
+    UIAlertController *changeUserPhotoAlert = [UIAlertController alertControllerWithTitle:@"Сменить фото профиля" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *takePhoto = [UIAlertAction actionWithTitle:@"Сделать фото" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
+    UIAlertAction *photoLibrary = [UIAlertAction actionWithTitle:@"Выбрать фото" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.delegate = self;
+        [self presentViewController:picker animated:YES completion:nil];
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:nil];
+    [changeUserPhotoAlert addAction:takePhoto];
+    [changeUserPhotoAlert addAction:photoLibrary];
+    [changeUserPhotoAlert addAction:cancel];
+    [self presentViewController:changeUserPhotoAlert animated:YES completion:nil];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -110,14 +123,11 @@ static NSString *const visitSetting = @"filledAboutItself";
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    NSURL *refURL = [info valueForKey:UIImagePickerControllerReferenceURL];
-    PHFetchResult *result = [PHAsset fetchAssetsWithALAssetURLs:@[refURL] options:nil];
-    NSString *imageName = [[result firstObject] filename];
-    Data *data = [Data new];
-    NSData *imageData = UIImagePNGRepresentation([info valueForKey:UIImagePickerControllerOriginalImage]);
-    [data createImageFromData:imageData withName:imageName];
-    self.userImageView.image = [UIImage imageNamed:imageName];
-    self.userImageName = imageName;
+    self.info = info;
+    [Data uploadPhotoOnPhoneWithInfo:info];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *imagePath=[path stringByAppendingPathComponent:@"userPhoto.png"];
+    self.userImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -133,13 +143,15 @@ static NSString *const visitSetting = @"filledAboutItself";
 }
 
 -(void)setImageAfterLaunch{
-    TableSettings *settings = (TableSettings*)[TableSettings unarchiveData];
-    if(settings.userImageName==nil ||settings.userImageName==(id)[NSNull null]){
-        self.userImageName = settings.userImageName = @"user";
-    }else{
-        self.userImageName = settings.userImageName;
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *imagePath=[path stringByAppendingPathComponent:@"userPhoto.png"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        self.userImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
     }
-    self.userImageView.image = [UIImage imageNamed:self.userImageName];
+    else {
+        self.userImageView.image = [UIImage imageNamed:@"user"];
+    }
+    
 }
 
 -(void)firstLaunchSettings{

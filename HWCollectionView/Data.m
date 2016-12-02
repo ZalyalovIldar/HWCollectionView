@@ -13,10 +13,22 @@ static NSString *const visitedSetting = @"filledAboutItself";
 @implementation Data
 
 -(void)getDataFromPlist{
+    NSError *error;
     NSString *plistPath = [[NSBundle mainBundle]pathForResource:@"Data" ofType:@"plist"];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *newPlistPath=[path stringByAppendingPathComponent:@"Data.plist"];
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    if([[NSFileManager defaultManager] fileExistsAtPath:newPlistPath]){
+        NSLog(@"file");
+    }else{
+        NSData *newPlistData = [NSPropertyListSerialization dataWithPropertyList:dict format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
+        [newPlistData writeToFile:newPlistPath atomically:YES];
+        dict = [NSDictionary dictionaryWithContentsOfFile:newPlistPath];
+    }
     self.commentArray = [NSMutableArray arrayWithArray:[dict objectForKey:@"Comment"]];
     self.imageNameArray = [NSMutableArray arrayWithArray:[dict objectForKey:@"Image"]];
+    NSLog(@"comment %@",self.commentArray);
+    NSLog(@"image %@",self.imageNameArray);
 }
 
 -(NSMutableArray*)getCommentArray{
@@ -79,6 +91,18 @@ static NSString *const visitedSetting = @"filledAboutItself";
 
 +(NSArray*)getSexArray{
     return @[@"Не указано",@"Мужской",@"Женский"];
+}
+
++(void)uploadPhotoOnPhoneWithInfo:(NSDictionary*)info{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"userPhoto.png"];
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:@"public.image"]){
+        UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        NSData *data = UIImagePNGRepresentation(editedImage);
+        [data writeToFile:imagePath atomically:YES];
+    }
 }
 
 @end

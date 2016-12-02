@@ -21,5 +21,6 @@
 -(void)createImageFromData:(NSData*)data withName:(NSString*)name;
 +(int)whatUserNotVisited;
 +(NSArray*)getSexArray;
++(void)uploadPhotoOnPhoneWithInfo:(NSDictionary*)info;
 
 @end

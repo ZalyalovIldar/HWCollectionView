@@ -22,7 +22,6 @@ static NSString *const tableSetting = @"tabelSetting";
     self.webpage = [aDecoder decodeObjectForKey:@"webpage"];
     self.email = [aDecoder decodeObjectForKey:@"email"];
     self.phoneNumber = [aDecoder decodeObjectForKey:@"phone"];
-    self.userImageName = [aDecoder decodeObjectForKey:@"userImage"];
     self.sexNumber = [aDecoder decodeIntForKey:@"sex"];
     return self;
 }
@@ -33,7 +32,6 @@ static NSString *const tableSetting = @"tabelSetting";
     [aCoder encodeObject:self.webpage forKey:@"webpage"];
     [aCoder encodeObject:self.email forKey:@"email"];
     [aCoder encodeObject:self.phoneNumber forKey:@"phone"];
-    [aCoder encodeObject:self.userImageName forKey:@"userImage"];
     [aCoder encodeInt:self.sexNumber forKey:@"sex"];
 }
 

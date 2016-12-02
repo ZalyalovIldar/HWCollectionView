@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Data.h"
+#import "DataManager.h"
 
 @interface AppDelegate ()
 
@@ -34,7 +35,10 @@
             break;
     }
     self.window.rootViewController = vc;
+    
     [self.window makeKeyAndVisible];
+    [[DataManager sharedInstance] creatTable];
+    [[DataManager sharedInstance] addValuesFromArray];
     // Override point for customization after application launch.
     return YES;
 }

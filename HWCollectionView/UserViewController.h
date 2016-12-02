@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *galleryCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *tutorialShowButton;
+@property (weak, nonatomic) IBOutlet UIButton *editInformationAboutUserButton;
 @property (weak, nonatomic) IBOutlet UILabel *webpageLabel;
 @end

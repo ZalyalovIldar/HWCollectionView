@@ -10,16 +10,28 @@
 		7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CE81DCBD89F0040F8F7 /* main.m */; };
 		7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */; };
 		7CF88CF21DCBD89F0040F8F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF88CF01DCBD89F0040F8F7 /* Main.storyboard */; };
-		7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */; };
 		7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */; };
+		852063074D403A415EC9D91E /* libPods-HWCollectionView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4E837D6B7692CF92D0939C4 /* libPods-HWCollectionView.a */; };
 		AE013CDD1DD0AF56009055A7 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */; };
 		AE013CDE1DD0AF56009055A7 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */; };
+		AE0409C21DEF02AA0062F0B4 /* NewsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0409C11DEF02AA0062F0B4 /* NewsTVC.m */; };
+		AE0409C61DEF0A450062F0B4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0409C51DEF0A450062F0B4 /* DataManager.m */; };
 		AE0488DF1DE2F89A00529F57 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0488DE1DE2F89A00529F57 /* AssetsLibrary.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		AE0488E11DE2FB4500529F57 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE0488E01DE2FB4500529F57 /* Photos.framework */; };
 		AE0A54CC1DE5E62200DE25DF /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0A54CB1DE5E62200DE25DF /* SettingTableViewController.m */; };
 		AE0A54CF1DE5FED400DE25DF /* TableSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0A54CE1DE5FED400DE25DF /* TableSettings.m */; };
 		AE0D8B8D1DD1E59D00B63F02 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0D8B8C1DD1E59D00B63F02 /* TutorialViewController.m */; };
 		AE0D8B901DD1E5BF00B63F02 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0D8B8F1DD1E5BF00B63F02 /* PageContentViewController.m */; };
+		AE0F7B4D1DF141450077111A /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F7B4C1DF141450077111A /* UserModel.m */; };
+		AE0F7B501DF1600B0077111A /* FriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AE0F7B4F1DF1600B0077111A /* FriendVC.m */; };
+		AE185C381DEE9F7600CADBAB /* mplus-1c-regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE185C371DEE9F4E00CADBAB /* mplus-1c-regular.ttf */; };
+		AE185C3A1DEEA11C00CADBAB /* 9424.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE185C391DEEA11000CADBAB /* 9424.ttf */; };
+		AE185C3E1DEEA2A300CADBAB /* HistoryCVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE185C3C1DEEA2A300CADBAB /* HistoryCVCell.m */; };
+		AE185C3F1DEEA2A300CADBAB /* HistoryCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE185C3D1DEEA2A300CADBAB /* HistoryCVCell.xib */; };
+		AE3F1B8E1DF0863D000BC12B /* NewsTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3F1B8C1DF0863D000BC12B /* NewsTVCell.m */; };
+		AE3F1B8F1DF0863D000BC12B /* NewsTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE3F1B8D1DF0863D000BC12B /* NewsTVCell.xib */; };
+		AE3F1B921DF0934D000BC12B /* DataList.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE3F1B911DF0934D000BC12B /* DataList.plist */; };
+		AE3F1B941DF09CB4000BC12B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE3F1B931DF09CB4000BC12B /* Assets.xcassets */; };
 		AE4D09241DD0644500FFBB2A /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4D09231DD0644500FFBB2A /* UserViewController.m */; };
 		AEDDD0F51DE087F200D56DCA /* WatchPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AEDDD0F41DE087F200D56DCA /* WatchPostVC.m */; };
 		AEDDD0F71DE0899300D56DCA /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEDDD0F61DE0899300D56DCA /* Data.plist */; };
@@ -27,17 +39,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F8FA62672706526BD098752 /* Pods-HWCollectionView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWCollectionView.release.xcconfig"; path = "Pods/Target Support Files/Pods-HWCollectionView/Pods-HWCollectionView.release.xcconfig"; sourceTree = "<group>"; };
 		7CF88CE41DCBD89F0040F8F7 /* HWCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CF88CE81DCBD89F0040F8F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7CF88CF11DCBD89F0040F8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CF88CF61DCBD89F0040F8F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CF88CF81DCBD89F0040F8F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAA3426CAFCB723CE38D3E54 /* Pods-HWCollectionView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HWCollectionView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HWCollectionView/Pods-HWCollectionView.debug.xcconfig"; sourceTree = "<group>"; };
 		AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
 		AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE0409C01DEF02AA0062F0B4 /* NewsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTVC.h; sourceTree = "<group>"; };
+		AE0409C11DEF02AA0062F0B4 /* NewsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTVC.m; sourceTree = "<group>"; };
+		AE0409C41DEF0A450062F0B4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		AE0409C51DEF0A450062F0B4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		AE0488DE1DE2F89A00529F57 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		AE0488E01DE2FB4500529F57 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		AE0A54CA1DE5E62200DE25DF /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
@@ -48,6 +65,20 @@
 		AE0D8B8C1DD1E59D00B63F02 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		AE0D8B8E1DD1E5BF00B63F02 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		AE0D8B8F1DD1E5BF00B63F02 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		AE0F7B4B1DF141450077111A /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		AE0F7B4C1DF141450077111A /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		AE0F7B4E1DF1600B0077111A /* FriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendVC.h; sourceTree = "<group>"; };
+		AE0F7B4F1DF1600B0077111A /* FriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendVC.m; sourceTree = "<group>"; };
+		AE185C371DEE9F4E00CADBAB /* mplus-1c-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mplus-1c-regular.ttf"; sourceTree = "<group>"; };
+		AE185C391DEEA11000CADBAB /* 9424.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 9424.ttf; sourceTree = "<group>"; };
+		AE185C3B1DEEA2A300CADBAB /* HistoryCVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCVCell.h; sourceTree = "<group>"; };
+		AE185C3C1DEEA2A300CADBAB /* HistoryCVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCVCell.m; sourceTree = "<group>"; };
+		AE185C3D1DEEA2A300CADBAB /* HistoryCVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCVCell.xib; sourceTree = "<group>"; };
+		AE3F1B8B1DF0863D000BC12B /* NewsTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTVCell.h; sourceTree = "<group>"; };
+		AE3F1B8C1DF0863D000BC12B /* NewsTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTVCell.m; sourceTree = "<group>"; };
+		AE3F1B8D1DF0863D000BC12B /* NewsTVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsTVCell.xib; sourceTree = "<group>"; };
+		AE3F1B911DF0934D000BC12B /* DataList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DataList.plist; sourceTree = "<group>"; };
+		AE3F1B931DF09CB4000BC12B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE4D09221DD0644500FFBB2A /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		AE4D09231DD0644500FFBB2A /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
 		AEDDD0F31DE087F200D56DCA /* WatchPostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchPostVC.h; sourceTree = "<group>"; };
@@ -55,6 +86,7 @@
 		AEDDD0F61DE0899300D56DCA /* Data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
 		AEDDD0F81DE0916C00D56DCA /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		AEDDD0F91DE0916C00D56DCA /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		F4E837D6B7692CF92D0939C4 /* libPods-HWCollectionView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HWCollectionView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +96,7 @@
 			files = (
 				AE0488E11DE2FB4500529F57 /* Photos.framework in Frameworks */,
 				AE0488DF1DE2F89A00529F57 /* AssetsLibrary.framework in Frameworks */,
+				852063074D403A415EC9D91E /* libPods-HWCollectionView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +109,7 @@
 				7CF88CE61DCBD89F0040F8F7 /* HWCollectionView */,
 				7CF88CE51DCBD89F0040F8F7 /* Products */,
 				AE0488DD1DE2F89A00529F57 /* Frameworks */,
+				95922140F66006E1D6713748 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +124,7 @@
 		7CF88CE61DCBD89F0040F8F7 /* HWCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				AE0409C31DEF0A290062F0B4 /* Classes */,
 				AE0D8B931DD2086300B63F02 /* Controller */,
 				AE0D8B921DD2085D00B63F02 /* View */,
 				AE0D8B911DD2085700B63F02 /* Model */,
@@ -101,15 +136,36 @@
 		7CF88CE71DCBD89F0040F8F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AE185C391DEEA11000CADBAB /* 9424.ttf */,
+				AE185C371DEE9F4E00CADBAB /* mplus-1c-regular.ttf */,
 				7CF88CF51DCBD89F0040F8F7 /* LaunchScreen.storyboard */,
 				7CF88CF81DCBD89F0040F8F7 /* Info.plist */,
-				7CF88CF31DCBD89F0040F8F7 /* Assets.xcassets */,
 				7CF88CEA1DCBD89F0040F8F7 /* AppDelegate.h */,
 				7CF88CEB1DCBD89F0040F8F7 /* AppDelegate.m */,
+				AE3F1B931DF09CB4000BC12B /* Assets.xcassets */,
 				7CF88CE81DCBD89F0040F8F7 /* main.m */,
 				AEDDD0F61DE0899300D56DCA /* Data.plist */,
+				AE3F1B911DF0934D000BC12B /* DataList.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95922140F66006E1D6713748 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAA3426CAFCB723CE38D3E54 /* Pods-HWCollectionView.debug.xcconfig */,
+				2F8FA62672706526BD098752 /* Pods-HWCollectionView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AE0409C31DEF0A290062F0B4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AE0409C41DEF0A450062F0B4 /* DataManager.h */,
+				AE0409C51DEF0A450062F0B4 /* DataManager.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		AE0488DD1DE2F89A00529F57 /* Frameworks */ = {
@@ -117,6 +173,7 @@
 			children = (
 				AE0488E01DE2FB4500529F57 /* Photos.framework */,
 				AE0488DE1DE2F89A00529F57 /* AssetsLibrary.framework */,
+				F4E837D6B7692CF92D0939C4 /* libPods-HWCollectionView.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,6 +185,8 @@
 				AEDDD0F91DE0916C00D56DCA /* Data.m */,
 				AE0A54CD1DE5FED400DE25DF /* TableSettings.h */,
 				AE0A54CE1DE5FED400DE25DF /* TableSettings.m */,
+				AE0F7B4B1DF141450077111A /* UserModel.h */,
+				AE0F7B4C1DF141450077111A /* UserModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -135,7 +194,8 @@
 		AE0D8B921DD2085D00B63F02 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */,
+				AE0F7B4A1DF1406F0077111A /* CollectionViewCells */,
+				AE0F7B491DF140600077111A /* TableViewCells */,
 				7CF88CF01DCBD89F0040F8F7 /* Main.storyboard */,
 			);
 			name = View;
@@ -144,12 +204,55 @@
 		AE0D8B931DD2086300B63F02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AE0F7B511DF17CA50077111A /* Friend */,
+				AE185C361DEE9E8700CADBAB /* News */,
 				AEF5EE6D1DE4C3C700865227 /* Settings */,
 				AEDDD0F21DE087B400D56DCA /* WatchPost */,
 				AEDDD0F11DE087A300D56DCA /* User */,
 				AEDDD0F01DE0878700D56DCA /* Tutorial */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		AE0F7B491DF140600077111A /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AE3F1B8B1DF0863D000BC12B /* NewsTVCell.h */,
+				AE3F1B8C1DF0863D000BC12B /* NewsTVCell.m */,
+				AE3F1B8D1DF0863D000BC12B /* NewsTVCell.xib */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		AE0F7B4A1DF1406F0077111A /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				AE013CDC1DD0AF56009055A7 /* PhotoCollectionViewCell.xib */,
+				AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */,
+				AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */,
+				AE185C3B1DEEA2A300CADBAB /* HistoryCVCell.h */,
+				AE185C3C1DEEA2A300CADBAB /* HistoryCVCell.m */,
+				AE185C3D1DEEA2A300CADBAB /* HistoryCVCell.xib */,
+			);
+			name = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		AE0F7B511DF17CA50077111A /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				AE0F7B4E1DF1600B0077111A /* FriendVC.h */,
+				AE0F7B4F1DF1600B0077111A /* FriendVC.m */,
+			);
+			name = Friend;
+			sourceTree = "<group>";
+		};
+		AE185C361DEE9E8700CADBAB /* News */ = {
+			isa = PBXGroup;
+			children = (
+				AE0409C01DEF02AA0062F0B4 /* NewsTVC.h */,
+				AE0409C11DEF02AA0062F0B4 /* NewsTVC.m */,
+			);
+			name = News;
 			sourceTree = "<group>";
 		};
 		AEDDD0F01DE0878700D56DCA /* Tutorial */ = {
@@ -168,8 +271,6 @@
 			children = (
 				AE4D09221DD0644500FFBB2A /* UserViewController.h */,
 				AE4D09231DD0644500FFBB2A /* UserViewController.m */,
-				AE013CDA1DD0AF56009055A7 /* PhotoCollectionViewCell.h */,
-				AE013CDB1DD0AF56009055A7 /* PhotoCollectionViewCell.m */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -199,9 +300,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CF88CFB1DCBD89F0040F8F7 /* Build configuration list for PBXNativeTarget "HWCollectionView" */;
 			buildPhases = (
+				3309C16AC065AB32B34E9A1E /* [CP] Check Pods Manifest.lock */,
 				7CF88CE01DCBD89F0040F8F7 /* Sources */,
 				7CF88CE11DCBD89F0040F8F7 /* Frameworks */,
 				7CF88CE21DCBD89F0040F8F7 /* Resources */,
+				3F39ABFB714F96ADDC79C2EE /* [CP] Embed Pods Frameworks */,
+				AFE152ED577477AC68D46377 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,15 +355,68 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3F1B921DF0934D000BC12B /* DataList.plist in Resources */,
+				AE3F1B8F1DF0863D000BC12B /* NewsTVCell.xib in Resources */,
+				AE185C3A1DEEA11C00CADBAB /* 9424.ttf in Resources */,
+				AE185C381DEE9F7600CADBAB /* mplus-1c-regular.ttf in Resources */,
+				AE3F1B941DF09CB4000BC12B /* Assets.xcassets in Resources */,
 				7CF88CF71DCBD89F0040F8F7 /* LaunchScreen.storyboard in Resources */,
 				AEDDD0F71DE0899300D56DCA /* Data.plist in Resources */,
 				AE013CDE1DD0AF56009055A7 /* PhotoCollectionViewCell.xib in Resources */,
-				7CF88CF41DCBD89F0040F8F7 /* Assets.xcassets in Resources */,
+				AE185C3F1DEEA2A300CADBAB /* HistoryCVCell.xib in Resources */,
 				7CF88CF21DCBD89F0040F8F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3309C16AC065AB32B34E9A1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3F39ABFB714F96ADDC79C2EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HWCollectionView/Pods-HWCollectionView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFE152ED577477AC68D46377 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HWCollectionView/Pods-HWCollectionView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7CF88CE01DCBD89F0040F8F7 /* Sources */ = {
@@ -271,9 +428,15 @@
 				AE0D8B901DD1E5BF00B63F02 /* PageContentViewController.m in Sources */,
 				AE0A54CC1DE5E62200DE25DF /* SettingTableViewController.m in Sources */,
 				AEDDD0FA1DE0916C00D56DCA /* Data.m in Sources */,
+				AE0409C21DEF02AA0062F0B4 /* NewsTVC.m in Sources */,
+				AE0F7B501DF1600B0077111A /* FriendVC.m in Sources */,
+				AE0409C61DEF0A450062F0B4 /* DataManager.m in Sources */,
 				AE0A54CF1DE5FED400DE25DF /* TableSettings.m in Sources */,
 				AEDDD0F51DE087F200D56DCA /* WatchPostVC.m in Sources */,
 				7CF88CEC1DCBD89F0040F8F7 /* AppDelegate.m in Sources */,
+				AE3F1B8E1DF0863D000BC12B /* NewsTVCell.m in Sources */,
+				AE0F7B4D1DF141450077111A /* UserModel.m in Sources */,
+				AE185C3E1DEEA2A300CADBAB /* HistoryCVCell.m in Sources */,
 				AE013CDD1DD0AF56009055A7 /* PhotoCollectionViewCell.m in Sources */,
 				7CF88CE91DCBD89F0040F8F7 /* main.m in Sources */,
 			);
@@ -391,6 +554,7 @@
 		};
 		7CF88CFC1DCBD89F0040F8F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAA3426CAFCB723CE38D3E54 /* Pods-HWCollectionView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 949WBM2944;
@@ -403,6 +567,7 @@
 		};
 		7CF88CFD1DCBD89F0040F8F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F8FA62672706526BD098752 /* Pods-HWCollectionView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 949WBM2944;

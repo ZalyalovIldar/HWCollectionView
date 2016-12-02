@@ -26,7 +26,14 @@
     self.navigationItem.rightBarButtonItem = edit;
     self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width/2;
     self.userPhoto.clipsToBounds = YES;
-    self.userPhoto.image = [UIImage imageNamed:userInfo.userImageName];
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *imagePath=[path stringByAppendingPathComponent:@"userPhoto.png"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imagePath]) {
+        self.userPhoto.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
+    }
+    else {
+        self.userPhoto.image = [UIImage imageNamed:@"user"];
+    }
     self.postImageView.image = [UIImage imageNamed:self.imageNameString];
     self.commentLabel.text = self.commentString;
 }
@@ -35,8 +42,6 @@
     [super viewDidAppear:animated];
     TableSettings *userInfo = (TableSettings*)[TableSettings unarchiveData];
     self.userNameLabel.text = self.postUsernameLabel.text = userInfo.username;
-    self.userPhoto.image = [UIImage imageNamed:userInfo.userImageName];
-    
 }
 
 #pragma mark - alert to change
