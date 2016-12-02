@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Владимир</string>
+		<key>username</key>
+		<string>Korol_@ski</string>
+		<key>userImageName</key>
+		<string>isq</string>
+		<key>postImageName</key>
+		<string>isq_post</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Лида</string>
+		<key>username</key>
+		<string>90x60x90</string>
+		<key>userImageName</key>
+		<string>906090</string>
+		<key>postImageName</key>
+		<string>906090_post</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Ден</string>
+		<key>username</key>
+		<string>КоТэ С NoЖом</string>
+		<key>userImageName</key>
+		<string>catWithNog</string>
+		<key>postImageName</key>
+		<string>catWithNog_post</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Игорь</string>
+		<key>username</key>
+		<string>100gramoВИЧ</string>
+		<key>userImageName</key>
+		<string>100gram</string>
+		<key>postImageName</key>
+		<string>100gram_post</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Брюс</string>
+		<key>username</key>
+		<string>I am Batman</string>
+		<key>userImageName</key>
+		<string>batman</string>
+		<key>postImageName</key>
+		<string>funBatman</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Булат</string>
+		<key>username</key>
+		<string>Mr.Fun</string>
+		<key>userImageName</key>
+		<string>mr.fun</string>
+		<key>postImageName</key>
+		<string>mr.fun_post</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Джейм</string>
+		<key>username</key>
+		<string>smailik</string>
+		<key>userImageName</key>
+		<string>smailik</string>
+		<key>postImageName</key>
+		<string>smaylik_post</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Мак</string>
+		<key>username</key>
+		<string>ESC</string>
+		<key>userImageName</key>
+		<string>esckey</string>
+		<key>postImageName</key>
+		<string>esc_post</string>
+	</dict>
+</array>
+</plist>
