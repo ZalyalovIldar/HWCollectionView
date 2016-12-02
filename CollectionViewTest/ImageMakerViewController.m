@@ -9,7 +9,7 @@
 #import "ImageMakerViewController.h"
 #import "ProfileView.h"
 
-@interface ImageMakerViewController ()
+@interface ImageMakerViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -55,8 +55,27 @@
 }
 */
 
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    UIImage *gotImage = info[UIImagePickerControllerOriginalImage];
+    self.imageMakerImageView.image = gotImage;
+}
+
+-(void)imageChange{
+    UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+    picker.modalPresentationStyle = UIModalPresentationCurrentContext;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
 - (IBAction)imageEditFirst:(id)sender {
     _imageMakerImage = @"8";
+    [self imageChange];
     self.imageMakerImageView.image = [UIImage imageNamed:@"8"];
 }
 

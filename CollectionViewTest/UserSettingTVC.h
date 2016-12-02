@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserSettingTVC : UITableViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface UserSettingTVC : UITableViewController
 
 - (IBAction)userAvatarChange:(id)sender;
 - (IBAction)saveButtonAction:(id)sender;

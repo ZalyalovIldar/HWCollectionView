@@ -10,7 +10,7 @@
 #import "UserSetting.h"
 
 
-@interface UserSettingTVC ()
+@interface UserSettingTVC () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource,UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *userAvatar;
 @property (weak, nonatomic) IBOutlet UITextField *userNameField;
 @property (weak, nonatomic) IBOutlet UITextField *userLoginField;
@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *sexPicker;
 
+@property (strong, nonatomic) NSDictionary *infoDictionary;
 @property (strong, nonatomic) NSString * userAvatarName;
 @property (strong, nonatomic) NSString * sexSelected;
 @property (strong, nonatomic) NSArray * sexArr;
@@ -35,8 +36,7 @@
         
     }
     UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
-    self.userAvatarName = userSettingData.userAvatar;
-    self.userAvatar.image = [UIImage imageNamed:_userAvatarName];
+    self.userAvatar.image = [self loadImage];
     self.userNameField.text = userSettingData.userName;
     self.userLoginField.text = userSettingData.userLogin;
     self.userInformation.text = userSettingData.userSay;
@@ -60,7 +60,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:2 forKey:@"SettingIsOpened"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     UserSetting *userSettingsWrite = [UserSetting new];
-    userSettingsWrite.userAvatar = _userAvatarName;
+    //userSettingsWrite.userAvatar = _userAvatarName;
     userSettingsWrite.userName = self.userNameField.text;
     userSettingsWrite.userLogin = self.userLoginField.text;
     userSettingsWrite.userSay = self.userInformation.text;
@@ -68,6 +68,7 @@
     userSettingsWrite.userEmail = self.userEmail.text;
     userSettingsWrite.userSex = self.sexSelected;
     [UserSetting archiveData:userSettingsWrite];
+    [self savePhoto];
 }
 
 - (IBAction)saveButtonAction:(id)sender {
@@ -87,26 +88,57 @@
 
 - (IBAction)userAvatarChange:(id)sender {
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Select image" message:@"Select image for you profile" preferredStyle:UIAlertControllerStyleActionSheet];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cat" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){
-        _userAvatarName = @"avatar1";
-        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Hard Coder" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){
-        _userAvatarName = @"avatar2";
-        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Super pusher" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nonnull action){
-        _userAvatarName = @"avatar3";
-        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *_Nonnull action){
-        _userAvatarName = @"avatarDefault";
-        self.userAvatar.image = [UIImage imageNamed:self.userAvatarName];
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"New avatar photo" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"Image from camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
+    UIAlertAction *choosePhotoAction = [UIAlertAction actionWithTitle:@"Image from library" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:picker animated:YES completion:NULL];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+    [alert addAction:takePhotoAction];
+    [alert addAction:choosePhotoAction];
+    [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    _userAvatar.image = info[UIImagePickerControllerEditedImage];
+    _infoDictionary = info;
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)savePhoto{
+    if(_infoDictionary != nil){
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:@"photo.png"];
+        NSString *mediaType = [_infoDictionary objectForKey:UIImagePickerControllerMediaType];
+        if ([mediaType isEqualToString:@"public.image"]){
+            UIImage *editedImage = [_infoDictionary objectForKey:UIImagePickerControllerEditedImage];
+            NSData *data = UIImagePNGRepresentation(editedImage);
+            [data writeToFile:imagePath atomically:YES];
+        }
+    }
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(UIImage*)loadImage{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *workSpacePath=[path stringByAppendingPathComponent:@"photo.png"];
+    UIImageView *myimage=[[UIImageView alloc] initWithFrame:CGRectMake(0,0,20,20)];
+    myimage.image=[UIImage imageWithData:[NSData dataWithContentsOfFile:workSpacePath]];
+    return myimage.image;
 }
 
 
@@ -136,6 +168,7 @@
     }
     return che;
 }
+
 -(void)errorAlert{
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Correct you data" preferredStyle:UIAlertControllerStyleAlert];
     

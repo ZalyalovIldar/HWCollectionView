@@ -463,8 +463,8 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="Qch-06-Lml" id="Dt1-1Z-iUj"/>
-                            <outlet property="delegate" destination="Qch-06-Lml" id="BES-n4-yDa"/>
+                            <outlet property="dataSource" destination="Qch-06-Lml" id="gOM-fQ-TAL"/>
+                            <outlet property="delegate" destination="Qch-06-Lml" id="eOM-3g-Y4O"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Редактировать профиль" id="Rcn-Xw-NKz">

@@ -32,7 +32,7 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
     UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
-    self.userAvatarImage.image = [UIImage imageNamed:userSettingData.userAvatar];
+    self.userAvatarImage.image = [self loadImage];
     self.userNameLabel.text = userSettingData.userName;
     self.userSayLabel.text = userSettingData.userSay;
     self.navigationItem.title = userSettingData.userLogin;
@@ -50,7 +50,7 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //userInformation
     UserSetting *userSettingData = (UserSetting*)[UserSetting unarchiveData];
-    self.userAvatarImage.image = [UIImage imageNamed:userSettingData.userAvatar];
+    self.userAvatarImage.image = [self loadImage];
     self.userNameLabel.text = userSettingData.userName;
     self.userSayLabel.text = userSettingData.userSay;
     //Refresh
@@ -177,5 +177,13 @@ static NSString * const reuseIdentifier = @"Cell";
     UIViewController *moveToGeneral = [tempStoryboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
     [self presentViewController:moveToGeneral animated:YES completion:nil];
     
+}
+
+-(UIImage*)loadImage{
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *workSpacePath=[path stringByAppendingPathComponent:@"photo.png"];
+    UIImageView *myimage=[[UIImageView alloc] initWithFrame:CGRectMake(0,0,20,20)];
+    myimage.image=[UIImage imageWithData:[NSData dataWithContentsOfFile:workSpacePath]];
+    return myimage.image;
 }
 @end
