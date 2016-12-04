@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="468" id="KGk-i7-Jjw" customClass="UsersHistoryTableCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="399"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5Q-ae-WgP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar2" translatesAutoresizingMaskIntoConstraints="NO" id="bmy-Nd-Bak">
+                                <rect key="frame" x="8" y="4" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="VBQ-0Q-OrX"/>
+                                    <constraint firstAttribute="height" constant="32" id="qzM-Oc-1fi"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ql6-hN-cu1">
+                                <rect key="frame" x="55" y="5" width="47" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Dy-M9-h33">
+                                <rect key="frame" x="344" y="8" width="23" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="d1s-rJ-HUf"/>
+                                    <constraint firstAttribute="height" constant="23" id="qcN-VR-0bv"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="dots"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ql6-hN-cu1" firstAttribute="leading" secondItem="bmy-Nd-Bak" secondAttribute="trailing" constant="15" id="3Mp-5I-3ST"/>
+                            <constraint firstAttribute="height" constant="40" id="E9S-Zq-HgU"/>
+                            <constraint firstAttribute="trailing" secondItem="0Dy-M9-h33" secondAttribute="trailing" constant="8" id="Z1b-rU-b4u"/>
+                            <constraint firstItem="bmy-Nd-Bak" firstAttribute="top" secondItem="t5Q-ae-WgP" secondAttribute="top" constant="4" id="ZLj-Oh-aqT"/>
+                            <constraint firstItem="0Dy-M9-h33" firstAttribute="centerY" secondItem="t5Q-ae-WgP" secondAttribute="centerY" id="goL-hb-fAT"/>
+                            <constraint firstItem="Ql6-hN-cu1" firstAttribute="top" secondItem="t5Q-ae-WgP" secondAttribute="top" constant="5" id="mLY-Dm-lSx"/>
+                            <constraint firstItem="bmy-Nd-Bak" firstAttribute="leading" secondItem="t5Q-ae-WgP" secondAttribute="leading" constant="8" id="pzF-md-qFb"/>
+                            <constraint firstAttribute="bottom" secondItem="Ql6-hN-cu1" secondAttribute="bottom" constant="5" id="rJ4-qe-TrA"/>
+                            <constraint firstAttribute="bottom" secondItem="bmy-Nd-Bak" secondAttribute="bottom" constant="4" id="wHH-hd-B9U"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6" translatesAutoresizingMaskIntoConstraints="NO" id="QZl-Yi-cAd">
+                        <rect key="frame" x="0.0" y="40" width="375" height="319.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="QZl-Yi-cAd" secondAttribute="bottom" constant="40" id="Mei-KC-ewz"/>
+                    <constraint firstItem="QZl-Yi-cAd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="S9A-9F-ZEO"/>
+                    <constraint firstAttribute="trailing" secondItem="QZl-Yi-cAd" secondAttribute="trailing" id="WRa-kz-tAM"/>
+                    <constraint firstItem="QZl-Yi-cAd" firstAttribute="top" secondItem="t5Q-ae-WgP" secondAttribute="bottom" id="d9l-Jd-aXm"/>
+                    <constraint firstItem="t5Q-ae-WgP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="da1-MA-yaU"/>
+                    <constraint firstAttribute="trailing" secondItem="t5Q-ae-WgP" secondAttribute="trailing" id="pAF-ag-fWO"/>
+                    <constraint firstItem="t5Q-ae-WgP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="vNS-dT-BPw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dotsButton" destination="0Dy-M9-h33" id="0X9-Ex-Xhx"/>
+                <outlet property="userAvatar" destination="bmy-Nd-Bak" id="G7u-lR-7tY"/>
+                <outlet property="userHistoryImage" destination="QZl-Yi-cAd" id="Rw9-tT-3yp"/>
+                <outlet property="userName" destination="Ql6-hN-cu1" id="4sD-Wz-SHS"/>
+            </connections>
+            <point key="canvasLocation" x="64.5" y="345"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="6" width="901" height="601"/>
+        <image name="avatar2" width="600" height="600"/>
+        <image name="dots" width="64" height="64"/>
+    </resources>
+</document>
