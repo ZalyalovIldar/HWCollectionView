@@ -13,7 +13,7 @@
 #import "HeaderTableView.h"
 
 
-@interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource, HeaderDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface SettingsViewController ()<UITableViewDelegate, UITableViewDataSource, HeaderDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) NSArray *resources;
@@ -24,8 +24,11 @@
 
 @implementation SettingsViewController
 static NSString *reuseIdentifiere = @"settingsCell";
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self registerNotification];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"SettingsTableViewCell" bundle: [NSBundle mainBundle]]  forCellReuseIdentifier:reuseIdentifiere];
@@ -38,11 +41,65 @@ static NSString *reuseIdentifiere = @"settingsCell";
     Preferences *preferences = [NSKeyedUnarchiver unarchiveObjectWithData:data];
     self.preferences = preferences ? preferences : [[Preferences alloc] init];
     [self buildSourceFromSettings:preferences];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
+    
+    if(!preferences){
+        [self.navigationItem setHidesBackButton:YES];
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+    
+    
     }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Work With Keyboard
+
+-(void)dismissKeyboard {
+    [self.tableView endEditing:YES];
+}
+
+- (void) dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (void) registerNotification {
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [nc addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void) keyboardWillShow: (NSNotification *) notification {
+    
+    NSValue *value = [notification.userInfo objectForKey: UIKeyboardFrameEndUserInfoKey];
+    CGRect keyEndFrame = [value CGRectValue];
+    NSNumber *duration = [notification.userInfo objectForKey: UIKeyboardAnimationDurationUserInfoKey];
+    
+    [self showKeyBoardWithKeyFrame:keyEndFrame andDuration:[duration doubleValue]];
+}
+
+- (void) showKeyBoardWithKeyFrame:(CGRect)keyFrame andDuration:(NSTimeInterval) duration {
+   
+    CGFloat keyboardHeight = keyFrame.size.height;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0);
+    
+}
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    self.tableView.contentInset = UIEdgeInsetsZero;
+   self.tableView.scrollIndicatorInsets = UIEdgeInsetsZero;
+
 }
 
 #pragma mark - UITableViewDataSource
@@ -67,6 +124,8 @@ static NSString *reuseIdentifiere = @"settingsCell";
 
     [cell configWithModel:settingsModel andIndexPath:indexPath];
     
+   
+    
     return cell;
 }
 
@@ -89,6 +148,7 @@ static NSString *reuseIdentifiere = @"settingsCell";
         HeaderTableView *header =  [[HeaderTableView alloc] init];
         header.delegate = self;
         self.headerView = header;
+        self.headerView.personImageView.image = [UIImage imageWithData:self.preferences.profileImageData];
         return header;
     }
     if (section == 1)
@@ -128,6 +188,15 @@ static NSString *reuseIdentifiere = @"settingsCell";
     }else {
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.preferences];
         [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"preferences"];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+       
+      
+            [self.navigationController dismissViewControllerAnimated:NO completion:nil];
+       
+             [self.navigationController popViewControllerAnimated:YES];
+        
     }
 }
 

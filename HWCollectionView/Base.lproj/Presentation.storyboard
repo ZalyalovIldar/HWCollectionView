@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7qq-kz-EU2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7qq-kz-EU2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -26,7 +26,6 @@
                                 <state key="normal" title="Skip it dude"/>
                                 <connections>
                                     <action selector="skipButtonDidPressed:" destination="7qq-kz-EU2" eventType="touchUpInside" id="XaO-gb-uFa"/>
-                                    <segue destination="JIf-oX-vLu" kind="presentation" id="yug-x0-6Cg"/>
                                 </connections>
                             </button>
                         </subviews>

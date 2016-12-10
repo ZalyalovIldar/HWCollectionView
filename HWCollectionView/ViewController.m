@@ -17,28 +17,31 @@
 #define kMinimumInteritemSpacing 1.0f
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (nonatomic,strong) NSArray *photoArray;
 @property (weak, nonatomic) IBOutlet UIImageView *mainPhoto;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (weak, nonatomic) IBOutlet UILabel *nikNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *aboutLabel;
+@property (weak, nonatomic) IBOutlet UILabel *postsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subscribersLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subscriptionsLabel;
+
+
+
 
 @end
 
 @implementation ViewController
 
 
-- (NSArray *)photoArray
+static NSString *reuseIdentifire = @"Cell";
+- (instancetype)init
 {
-    if(!_photoArray){
-//        _photoArray = @[[UIImage imageNamed:@"1.jpg"], [UIImage imageNamed:@"2.jpg"],[UIImage imageNamed:@"3.jpg"], [UIImage imageNamed:@"4.jpg"],[UIImage imageNamed:@"5.jpg"], [UIImage imageNamed:@"6.jpg"],[UIImage imageNamed:@"7.jpg"], [UIImage imageNamed:@"8.jpg"],[UIImage imageNamed:@"9.jpg"], [UIImage imageNamed:@"10.jpg"],[UIImage imageNamed:@"11.jpg"], [UIImage imageNamed:@"12.jpg"],[UIImage imageNamed:@"13.jpg"],[UIImage imageNamed:@"14.jpg"]];
-        
+    self = [super init];
+    if (self) {
         
     }
-    return _photoArray;
+    return self;
 }
-
-static NSString *reuseIdentifire = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -46,9 +49,8 @@ static NSString *reuseIdentifire = @"Cell";
     
     self.flowLayout.minimumLineSpacing = kMinimumLineSpacing;
     self.flowLayout.minimumInteritemSpacing = kMinimumInteritemSpacing;
-
     
-    self.mainPhoto.image = [UIImage imageNamed:@"mainPhoto.jpg"];
+        
     self.mainPhoto.layer.cornerRadius = self.mainPhoto.frame.size.width / 2;
     self.mainPhoto.clipsToBounds = YES;
 }
@@ -56,24 +58,45 @@ static NSString *reuseIdentifire = @"Cell";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:YES];
+
     
-    DataWorker *worker = [DataWorker sharedInstance];
-    [worker fetchAllContentWithSuccesBlock:^(NSArray *result) {
-        self.photoArray = result;
-        [self.collectionView reloadData];
-        
-    } andErrorBlock:^(NSError *error) {
-        
-    }];
-    
-    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferences"];
-    Preferences *preferences = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    if (preferences)
+    if (!self.user)
     {
-        self.mainPhoto.image = [UIImage imageWithData:preferences.profileImageData];
-        self.nikNameLabel.text = preferences.nikName;
-        self.aboutLabel.text = preferences.about;
+        self.user = [User new];
+        DataWorker *worker = [DataWorker sharedInstance];
+        [worker fetchAllContentWithSuccesBlock:^(NSArray *result) {
+            self.user.contents = result;
+            [self.collectionView reloadData];
+            
+        } andErrorBlock:^(NSError *error) {
+            
+        }];
+        
+        NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferences"];
+        Preferences *preferences = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        
+        if (!preferences){
+            
+            [self performSegueWithIdentifier:@"showSettings" sender:nil];
+            
+        }
+
+        self.user.preferences = preferences;
+      
+        self.user.posts = @"7";
+        self.user.subscribers = @"7";
+        self.user.subscriptions = @"10";
     }
+    
+    self.mainPhoto.image = [UIImage imageWithData:self.user.preferences.profileImageData];
+    self.aboutLabel.text = self.user.preferences.about;
+    
+    self.postsLabel.text = self.user.posts;
+    self.subscribersLabel.text = self.user.subscribers;
+    self.subscriptionsLabel.text = self.user.subscriptions;
+    
+    self.mainPhoto.layer.cornerRadius = self.mainPhoto.frame.size.width / 2;
+    self.mainPhoto.clipsToBounds = YES;
 
 }
 
@@ -92,13 +115,13 @@ static NSString *reuseIdentifire = @"Cell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.photoArray.count;
+    return self.user.contents.count;
 }
 
 
 - (CustomCellCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
     CustomCellCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifire forIndexPath:indexPath];
-    Content *content = self.photoArray[indexPath.row];
+    Content *content = self.user.contents[indexPath.row];
     cell.cellImage.image = [UIImage imageWithData: content.imageData];
     cell.commentLabel.text = content.text;
     return cell;
@@ -114,7 +137,7 @@ static NSString *reuseIdentifire = @"Cell";
      
     ShowOnePhotoViewController *destViewController = [segue destinationViewController];
     NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems].firstObject;
-    destViewController.content = self.photoArray[indexPath.row];
+    destViewController.content = self.user.contents[indexPath.row];
     
        
     }

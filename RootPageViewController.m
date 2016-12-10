@@ -76,6 +76,8 @@
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     [standardUserDefaults setObject:@"PresentationShowed" forKey:@"PresentationState"];
     
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 

@@ -32,6 +32,7 @@
 {
     self.textField.placeholder = cellModel.name;
     self.cellModel = cellModel;
+    self.textField.text = cellModel.value;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField

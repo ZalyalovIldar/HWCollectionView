@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VG3-jn-cDR">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-At-ejs">
-                                <rect key="frame" x="0.0" y="239" width="320" height="329"/>
+                                <rect key="frame" x="0.0" y="239" width="320" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="YdW-1b-yi9">
                                     <size key="itemSize" width="83" height="73"/>
@@ -158,7 +158,7 @@
                                                     <color key="titleColor" red="0.56513332049858755" green="0.56513332049858755" blue="0.56513332049858755" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="NDQ-L6-Ufe" kind="show" identifier="" id="pb7-z5-I0r"/>
+                                                    <segue destination="NDQ-L6-Ufe" kind="show" identifier="showSettings" id="pb7-z5-I0r"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -232,6 +232,7 @@
                             <constraint firstAttribute="trailing" secondItem="Yod-At-ejs" secondAttribute="trailing" id="ym9-Ww-IKW"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="hbg-EA-6xa"/>
                     <navigationItem key="navigationItem" id="UPP-q5-YMk">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="99L-2M-bQr">
                             <connections>
@@ -245,6 +246,9 @@
                         <outlet property="flowLayout" destination="YdW-1b-yi9" id="YA7-fs-CIN"/>
                         <outlet property="mainPhoto" destination="d4e-y6-bR2" id="zwd-Wi-Gj3"/>
                         <outlet property="nikNameLabel" destination="pXC-zu-8UC" id="z4g-sj-akW"/>
+                        <outlet property="postsLabel" destination="ly1-re-Vml" id="jUS-88-vi2"/>
+                        <outlet property="subscribersLabel" destination="YFi-Lr-ikG" id="9Nc-h1-Mjc"/>
+                        <outlet property="subscriptionsLabel" destination="qYF-3l-qZd" id="ozh-zr-1dS"/>
                         <segue destination="FjW-Xl-XBy" kind="show" identifier="showImage" id="9IU-iB-4EZ"/>
                     </connections>
                 </viewController>
@@ -265,10 +269,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Yh-yj-Z0f">
-                                <rect key="frame" x="0.0" y="113" width="320" height="216"/>
+                                <rect key="frame" x="0.0" y="113" width="320" height="167"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-fI-ayi">
-                                <rect key="frame" x="139" y="337" width="42" height="20.5"/>
+                                <rect key="frame" x="139" y="288" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -303,7 +307,7 @@
         <!--Settings View Controller-->
         <scene sceneID="2C8-Ez-ndF">
             <objects>
-                <viewController id="NDQ-L6-Ufe" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsViewController" id="NDQ-L6-Ufe" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lhg-bF-ktI"/>
                         <viewControllerLayoutGuide type="bottom" id="fMf-ek-Cg2"/>
@@ -335,10 +339,29 @@
             </objects>
             <point key="canvasLocation" x="1061" y="-562"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GlX-9y-pg8">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" id="VG3-jn-cDR" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Wex-l1-VY7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pa4-Wr-7sY" kind="relationship" relationship="viewControllers" id="Ic0-yp-5Us"/>
+                        <segue destination="Hmb-VR-EJO" kind="relationship" relationship="viewControllers" id="4Sl-vC-qj0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOz-zh-c9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1245" y="154"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bQc-6H-2ts">
             <objects>
                 <navigationController storyboardIdentifier="NavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="Hmb-VR-EJO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="history" id="Usm-xv-Ajd"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Ci0-qw-jXB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ifP-RI-lt5">
@@ -360,7 +383,17 @@
                 <viewControllerPlaceholder storyboardIdentifier="RootPageViewController" storyboardName="Presentation" referencedIdentifier="RootPageViewController" id="jkf-5M-pEm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cr9-0F-Yq9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="1112"/>
+            <point key="canvasLocation" x="1061" y="584"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="sdn-va-Ear">
+            <objects>
+                <viewControllerPlaceholder storyboardName="News" id="pa4-Wr-7sY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ONE-iQ-gHh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="flw-QR-beq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1252.5" y="981.33802816901414"/>
         </scene>
     </scenes>
 </document>

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "RootPageViewController.h"
 #import "ViewController.h"
+#import "DataManager.h"
+#import "SettingsViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,25 +25,42 @@
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     //pageControl.backgroundColor = [UIColor whiteColor];
-     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    
+    [DataManager sharedInstance];
    
     
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName: @"Main" bundle:[NSBundle mainBundle]];
+   UIStoryboard *storyBoard = [UIStoryboard storyboardWithName: @"Main" bundle:[NSBundle mainBundle]];
     RootPageViewController *rootPageViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RootPageViewController"];
-    ViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    
+   SettingsViewController *settingsViewController = [storyBoard instantiateViewControllerWithIdentifier:@"settingsViewController"];
+//    ViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    UITabBarController *tabBarController = [storyBoard instantiateViewControllerWithIdentifier:@"tabBarController"];
     UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"NavigationViewController"];
-    navigationController.viewControllers = @[viewController];
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
+    
+  // navigationController.viewControllers = @[];
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-    if ([standardUserDefaults objectForKey:@"PresentationState" ]){
-    
-        self.window.rootViewController = navigationController;
-         [self.window makeKeyAndVisible];
-        return YES;
+    if (![standardUserDefaults objectForKey:@"preferences"]){
+        UINavigationController *navigationController =
+        [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+
+        [tabBarController presentViewController:navigationController animated:NO completion:nil];
+        
+        
     }
-    self.window.rootViewController = rootPageViewController;
-    [self.window makeKeyAndVisible];
+    if (![standardUserDefaults objectForKey:@"PresentationState" ]){
+    
+        [tabBarController presentViewController:rootPageViewController animated:NO completion:nil];
+    }
+   
     return YES;
+
+    
+    
 }
 
 

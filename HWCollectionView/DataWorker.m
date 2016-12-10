@@ -123,8 +123,6 @@ const NSString *DWContentKey = @"content";
 
 - (Content *)fetchContentWithId:(NSUInteger)id
 {
-
-
     return [Content new];
 }
 
