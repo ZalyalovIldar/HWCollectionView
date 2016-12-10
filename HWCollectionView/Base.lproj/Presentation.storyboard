@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7qq-kz-EU2">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root Page View Controller-->
+        <scene sceneID="ofc-Zg-ebI">
+            <objects>
+                <viewController storyboardIdentifier="RootPageViewController" id="7qq-kz-EU2" customClass="RootPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6fS-4C-Mit"/>
+                        <viewControllerLayoutGuide type="bottom" id="ezM-XU-wUZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nfq-qm-iKc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPg-Rb-RDo">
+                                <rect key="frame" x="146.5" y="637" width="82" height="30"/>
+                                <state key="normal" title="Skip it dude"/>
+                                <connections>
+                                    <action selector="skipButtonDidPressed:" destination="7qq-kz-EU2" eventType="touchUpInside" id="XaO-gb-uFa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gPg-Rb-RDo" firstAttribute="centerX" secondItem="Nfq-qm-iKc" secondAttribute="centerX" id="UC1-4D-CF9"/>
+                            <constraint firstItem="ezM-XU-wUZ" firstAttribute="top" secondItem="gPg-Rb-RDo" secondAttribute="bottom" id="oyz-W1-XCe"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fUX-aV-bWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="1112"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="aQT-Yr-jLN">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="MWq-Op-sB9" customClass="PageViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncY-Ea-Rjp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="1113"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="mXs-Xz-xWV">
+            <objects>
+                <viewController storyboardIdentifier="PageContentViewController" id="TkO-ij-Whi" customClass="PageContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X8Y-Uq-hY9"/>
+                        <viewControllerLayoutGuide type="bottom" id="zwU-8u-Bwq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dqy-lx-194">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c7q-bd-sKi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcI-Bw-r8P">
+                                <rect key="frame" x="155" y="28" width="66.5" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="c7q-bd-sKi" secondAttribute="trailing" id="0wE-Or-l3g"/>
+                            <constraint firstItem="AcI-Bw-r8P" firstAttribute="top" secondItem="X8Y-Uq-hY9" secondAttribute="bottom" constant="8" id="HBS-dt-zh5"/>
+                            <constraint firstItem="c7q-bd-sKi" firstAttribute="leading" secondItem="Dqy-lx-194" secondAttribute="leading" id="XCw-ud-S91"/>
+                            <constraint firstItem="zwU-8u-Bwq" firstAttribute="top" secondItem="c7q-bd-sKi" secondAttribute="bottom" id="eVQ-gT-cyo"/>
+                            <constraint firstItem="AcI-Bw-r8P" firstAttribute="centerX" secondItem="c7q-bd-sKi" secondAttribute="centerX" id="k69-nv-RTw"/>
+                            <constraint firstItem="c7q-bd-sKi" firstAttribute="top" secondItem="Dqy-lx-194" secondAttribute="top" id="t8m-AQ-Dca"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backGroundImage" destination="c7q-bd-sKi" id="ZPY-h1-ucy"/>
+                        <outlet property="titleLabel" destination="AcI-Bw-r8P" id="WA6-7o-ywB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7qg-13-FLe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659.375" y="1129.2253521126761"/>
+        </scene>
+        <!--NavigationViewController-->
+        <scene sceneID="F5p-xp-uD9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NavigationViewController" storyboardName="Main" referencedIdentifier="NavigationViewController" id="JIf-oX-vLu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jVO-vd-NRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="167"/>
+        </scene>
+    </scenes>
+</document>

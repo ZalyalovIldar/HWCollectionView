@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="customCollectionVC" id="gTV-IL-0wX" customClass="MainCustomCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N4J-lg-7Xb">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="N4J-lg-7Xb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1fr-QE-bns"/>
+                <constraint firstAttribute="trailing" secondItem="N4J-lg-7Xb" secondAttribute="trailing" id="3pJ-R6-TuA"/>
+                <constraint firstItem="N4J-lg-7Xb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iiY-zE-dcc"/>
+                <constraint firstAttribute="bottom" secondItem="N4J-lg-7Xb" secondAttribute="bottom" id="qmq-ty-b5Z"/>
+            </constraints>
+            <connections>
+                <outlet property="storiesImage" destination="N4J-lg-7Xb" id="otz-vZ-hQR"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

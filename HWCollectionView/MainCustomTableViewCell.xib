@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="customCollectionTVC" selectionStyle="default" indentationWidth="10" rowHeight="278" id="KGk-i7-Jjw" customClass="MainCustomTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="278"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="mainCustomTableViewCell" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="277"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFp-4d-5RX">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="36"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFh-ga-OaK">
+                                <rect key="frame" x="251" y="3" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVn-2A-fIb">
+                                <rect key="frame" x="3" y="3" width="130" height="30"/>
+                                <state key="normal" title="ProfileNameButton"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="aVn-2A-fIb" secondAttribute="bottom" constant="3" id="Hdn-bU-eed"/>
+                            <constraint firstItem="aVn-2A-fIb" firstAttribute="centerY" secondItem="mFh-ga-OaK" secondAttribute="centerY" id="KYF-f5-WFb"/>
+                            <constraint firstItem="mFh-ga-OaK" firstAttribute="top" secondItem="CFp-4d-5RX" secondAttribute="top" constant="3" id="OXF-D8-eeO"/>
+                            <constraint firstAttribute="bottom" secondItem="mFh-ga-OaK" secondAttribute="bottom" constant="3" id="OpB-EL-ZlI"/>
+                            <constraint firstAttribute="trailing" secondItem="mFh-ga-OaK" secondAttribute="trailing" constant="3" id="aZp-Wc-VkP"/>
+                            <constraint firstItem="aVn-2A-fIb" firstAttribute="top" secondItem="CFp-4d-5RX" secondAttribute="top" constant="3" id="dyP-do-PTh"/>
+                            <constraint firstItem="aVn-2A-fIb" firstAttribute="leading" secondItem="CFp-4d-5RX" secondAttribute="leading" constant="3" id="ea5-Bo-F25"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jm4-5P-Nw2">
+                        <rect key="frame" x="0.0" y="38" width="300" height="238.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="CFp-4d-5RX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3nj-pm-OqY"/>
+                    <constraint firstAttribute="trailing" secondItem="CFp-4d-5RX" secondAttribute="trailing" id="F5a-Pd-WwJ"/>
+                    <constraint firstItem="CFp-4d-5RX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="b5x-GM-Muc"/>
+                    <constraint firstAttribute="trailing" secondItem="Jm4-5P-Nw2" secondAttribute="trailing" id="j2a-VX-JWO"/>
+                    <constraint firstItem="Jm4-5P-Nw2" firstAttribute="top" secondItem="CFp-4d-5RX" secondAttribute="bottom" constant="2" id="oor-aV-U4M"/>
+                    <constraint firstItem="Jm4-5P-Nw2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wMd-wz-Jdi"/>
+                    <constraint firstAttribute="bottom" secondItem="Jm4-5P-Nw2" secondAttribute="bottom" constant="1" id="ywr-bw-jkq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="profileNameButton" destination="aVn-2A-fIb" id="xhZ-yv-ntx"/>
+                <outlet property="settingButton" destination="mFh-ga-OaK" id="sah-YY-b4P"/>
+                <outlet property="tapeImage" destination="Jm4-5P-Nw2" id="saz-TB-fkL"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="6"/>
+        </tableViewCell>
+    </objects>
+</document>

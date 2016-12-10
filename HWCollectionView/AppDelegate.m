@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "RootPageViewController.h"
+#import "ViewController.h"
+#import "DataManager.h"
+#import "SettingsViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +21,46 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    //pageControl.backgroundColor = [UIColor whiteColor];
+//     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    
+    [DataManager sharedInstance];
+   
+    
+   UIStoryboard *storyBoard = [UIStoryboard storyboardWithName: @"Main" bundle:[NSBundle mainBundle]];
+    RootPageViewController *rootPageViewController = [storyBoard instantiateViewControllerWithIdentifier:@"RootPageViewController"];
+    
+   SettingsViewController *settingsViewController = [storyBoard instantiateViewControllerWithIdentifier:@"settingsViewController"];
+//    ViewController *viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    UITabBarController *tabBarController = [storyBoard instantiateViewControllerWithIdentifier:@"tabBarController"];
+    UINavigationController *navigationController = [storyBoard instantiateViewControllerWithIdentifier:@"NavigationViewController"];
+    self.window.rootViewController = tabBarController;
+    [self.window makeKeyAndVisible];
+    
+  // navigationController.viewControllers = @[];
+    
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    if (![standardUserDefaults objectForKey:@"preferences"]){
+        UINavigationController *navigationController =
+        [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+
+        [tabBarController presentViewController:navigationController animated:NO completion:nil];
+        
+        
+    }
+    if (![standardUserDefaults objectForKey:@"PresentationState" ]){
+    
+        [tabBarController presentViewController:rootPageViewController animated:NO completion:nil];
+    }
+   
     return YES;
+
+    
+    
 }
 
 
